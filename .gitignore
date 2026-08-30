@@ -1,0 +1,29 @@
+# Local credentials and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets*.json
+
+# Machine state and generated output
+.DS_Store
+Thumbs.db
+Desktop.ini
+__pycache__/
+*.py[cod]
+.venv/
+node_modules/
+.idea/
+.vscode/
+Image生图/
+output/
+tmp/
+backups/
+*.log
+
+# Source collections remain local; bundled corpus uses a different name
+歌词.md
+Snipaste_*
+contact-sheet-*

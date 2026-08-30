@@ -1,0 +1,4 @@
+interface:
+  display_name: "Yorushika MV Scenes"
+  short_description: "先理解原图构图与表达，再以强烈的 Yorushika MV 语法进行保留式 16:9 编辑"
+  default_prompt: "Use $yorushika-mv-scenes to first analyze the composition and emotional expression of my attached image, then preserve its key structure while applying a strong graphic-soliloquy stack of source-anchored pure-white line-drawn figures, ink/watercolor wash, and controlled broken distortion. Return the image and a compact result record; show the full prompt only if I ask for it."
