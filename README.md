@@ -1,172 +1,183 @@
-# Yorushika Scenes Skills
+# 🦌 Yorushika Scenes Skills
 
-从一张照片出发，保留场景的构图与情绪，再把它留在一张有纸感的明信片上。
+## 把路过的风景，寄给还没忘记夏天的你。
 
-[English](README.en.md) · [场景技能](skills/yorushika-mv-scenes/SKILL.md) · [明信片技能](skills/yorushika-postcard-scenes/SKILL.md) · [使用示例](examples/README.md) · [素材索引](assets/brand/README.md) · [来源与权利](NOTICE.md)
+> 风经过站台，蓝色落进纸里。<br>
+> 照片中的人还在往前走，一小片树荫却留了下来。<br>
+> 今天，就从相册里挑一张舍不得删的照片吧。
 
-本仓库将两个相互协作的 Codex Skill 放在同一个 `skills/` 目录下：一个负责场景影像，一个负责明信片的纸面与文字。仓库为个人私有维护版本；视觉研究、歌词资料和实际素材分开存放。
+[English](README.en.md) · [MV 场景](skills/yorushika-mv-scenes/SKILL.md) · [明信片](skills/yorushika-postcard-scenes/SKILL.md) · [使用示例](examples/README.md) · [素材索引](assets/brand/README.md)
 
-## 两个技能
+这里装着两枚送给风景的 Codex Skill：**一枚把照片变成带有 Yorushika MV 气息的画面，一枚把画面印成有日中歌词的明信片。**
 
-| | MV 场景 | 明信片 |
-| --- | --- | --- |
-| 调用名称 | `$yorushika-mv-scenes` | `$yorushika-postcard-scenes` |
-| 输入 | 用户提供的一张照片 | 照片，或已生成的 MV 场景图 |
-| 目标 | 横图约 16:9；竖图约 3:4；正方形默认约 16:9 | 横向 4:3 明信片正面 |
-| 主要处理 | 构图分析、场景保留、白色线描、水墨与局部印刷断裂 | 场景纸色、轻旧纸纹、边缘融合、署名、日中歌词对照与原歌名 |
-| 文字 | 可选的一处原创日语微文案 | 先分析 MV，再选日中对照：横图固定2组、竖图默认4组 |
-| 依赖 | 内置 ImageGen 与本地图片查看能力 | 同一父目录中的 `yorushika-mv-scenes`，以及相同图像工具 |
+灵感来自 [geci.md](skills/yorushika-postcard-scenes/references/geci.md) 里反复出现的蓝、风、树荫、花、旅途与记忆，也来自 2022 年之前 Yorushika MV 的手绘与材质语言。像《藍二乗》的墨色、《花に亡霊》的夏日记忆、《夜行》的出发，以及《春泥棒》里流动的季节——这里的介绍文案是原创，不是歌词摘录。
+
+你带来街角、河岸、旧屋和黄昏；剩下的，交给白色线条与一点纸上的风。🦌
+
+*非官方个人创作项目 · 仅限个人非商业用途 · 平台发布请署名并 @ 原作者*
+
+## 先把小鹿请进工作区 🦌
+
+### 快速安装：向 Codex 发出如下指令
+
+在你准备用来创作的工作区打开 Codex，复制这一段：
 
 ```text
-普通照片 → MV 场景生成 → 保存中间图 ─┐
-                                      ├→ 分析 MV → 核对双语歌词与歌名 → 明信片编排 → 检查并保存
-已有 MV 场景图 → 检查并复用 ─────────┘
+请使用 $skill-installer，从以下 GitHub 仓库的 main 分支安装两个 skill：
+https://github.com/Yotsuki2213/yorushika-scenes-skills
+
+仓库内路径：
+- skills/yorushika-mv-scenes
+- skills/yorushika-postcard-scenes
+
+安装到当前工作区根目录的 .agents/skills/，保持两个技能文件夹同级，
+完整保留各自的 SKILL.md、agents、references 和 assets。
+如果存在同名技能，先比较差异并向我确认，不直接覆盖。
+如果私有仓库认证失败，请说明需要的访问权限，不要求我把令牌贴进对话。
+完成后检查两个技能的引用和素材是否齐全，并告诉我如何调用。
 ```
 
-## 视觉方法
+安装前的小检查：
 
-先读原图中的主体、空间关系、视线路径、色彩与材质，再选择处理方式。默认采用 `preserve-edit`，保留主体、主要几何和现场光线；需要完整重新创作时，才使用明确指定的 `redraw`。
+- **生图能力：** Codex 环境需要能调用内置 ImageGen、查看本地图片，并具有输出目录的写入权限。技能本身不附带模型权重、API 密钥或独立生图服务。
+- **仓库访问：** 当前仓库为私有仓库，需要已获得访问权限的 GitHub 账号和可用认证。
+- **加载位置：** 克隆仓库不等于安装技能。项目级技能应放进 `.agents/skills/`；安装后下一轮检查是否可选，若仍未出现，重启 Codex。加载方式见 [OpenAI 官方说明](https://learn.chatgpt.com/docs/build-skills)。
+- **成双安装：** MV 技能可以单独使用；明信片技能需要同级的 MV 技能。线稿、logo 与歌词库已经随包提供，无需搬运原电脑的私人截图目录。
 
-可选场景路线：
+如果已经下载了仓库，也可以直接对 Codex 说：
 
-- `graphic-soliloquy`：手绘轮廓、水墨场、局部印刷错位。
-- `sunlit-memory`：空气感、远景、柔化的光色；仍以原图实际天气为准。
-- `nocturnal-material`：暗部、局部光源与单一材质事件。
-- `fusion`：按照主次层级融合三个方向。
-
-无人物主体时，添加一个有明确动作、与真实场景接触的白色排线人物，成为画面的人物主体；已有主体时，保留身体、衣着、姿态与位置，用密集白色排线和横向涂抹覆盖可见头部。新人物身体保留排线间隙，头部允许密集覆盖。背景路人不自动视为主体，头部在画外时不补画。
-
-按 EXIF 校正后的输入方向选择横向约 16:9 或纵向约 3:4 的构图方向，接受接近目标的自然输出尺寸；按构图需要自然扩展边缘，保留主体比例与主要空间关系。三张随技能打包的 [线稿参考](skills/yorushika-mv-scenes/references/human-treatment.md) 提供笔触与动作参考。明信片阶段保留已经生成的画幅、人物及头部处理，外部纸面仍为横向 4:3。
-
-## 开始使用
-
-需要能调用内置 ImageGen 和查看本地图片的 Codex 环境。此仓库提供技能指令、参考资料与素材，不附带独立图像服务、API 密钥或模型权重。
-
-私有仓库需要拥有访问权限的 GitHub 账户。可先克隆：
-
-```powershell
-gh repo clone Yotsuki2213/yorushika-scenes-skills
+```text
+请找到我已下载的 yorushika-scenes-skills 仓库，
+把其中 skills/ 下的两个完整技能文件夹安装到当前工作区的 .agents/skills/。
+保留两者同级关系，检查相对引用与素材；有同名安装时先比较并询问，不直接覆盖。
 ```
 
-将两个技能文件夹复制到目标项目的 `.agents/skills/`。它们必须保持同级，以便明信片技能解析基础技能的相对路径。以下命令在目标项目根目录运行，假设仓库已经克隆为其直接子目录：
+以后更新仓库后，记得再同步已安装的技能副本；单独 git pull 不会自动更新之前复制出去的文件。
 
-```powershell
-$ErrorActionPreference = 'Stop'
-$sourceRoot = Join-Path (Get-Location) 'yorushika-scenes-skills/skills'
-$targetRoot = Join-Path (Get-Location) '.agents/skills'
-$skillNames = @('yorushika-mv-scenes', 'yorushika-postcard-scenes')
+## 第一封：让照片里吹起风
 
-# 先检查全部目标，保留已有安装，避免无意覆盖。
-foreach ($name in $skillNames) {
-    if (-not (Test-Path -LiteralPath (Join-Path $sourceRoot $name))) {
-        throw "找不到源技能：$name"
-    }
-    if (Test-Path -LiteralPath (Join-Path $targetRoot $name)) {
-        throw "目标技能已存在，请先比较版本并备份：$name"
-    }
-}
-New-Item -ItemType Directory -Path $targetRoot -Force | Out-Null
-foreach ($name in $skillNames) {
-    Copy-Item -LiteralPath (Join-Path $sourceRoot $name) -Destination $targetRoot -Recurse
-}
-```
-
-个人级安装也应将两个文件夹一起放到个人技能目录，并保持同级。单独使用场景技能不需要明信片技能；使用明信片技能则需要同时安装场景技能。
-
-上传照片后调用：
+上传照片，然后说：
 
 ```text
 用 $yorushika-mv-scenes 处理这张照片。
 保留原构图，使用 graphic-soliloquy，不添加文字。
 ```
 
+MV 技能会先看懂这张照片：道路通向哪里，树影落在哪边，谁在等人，哪一块天空应该留白。随后保留场景的主要几何、质感与光线，加入白色手绘、水墨晕染和局部印刷错位。
+
+**人物是故事的一部分。** 没有人物主体，就添加一个动作与场景相配的白色线稿人物；已有人物主体，则保留身体、衣着、姿态和位置，用密集白色排线覆盖可见头部。背景路人不自动算主体，画外的头部不会被补画。详见[人物处理与参考](skills/yorushika-mv-scenes/references/human-treatment.md)。
+
+挑一种今天的心情：
+
+| 路线 | 画面里的气息 |
+| --- | --- |
+| `graphic-soliloquy` | 像写在旧笔记本边缘的独白：手绘轮廓、蓝黑墨色、局部错印 |
+| `sunlit-memory` | 让远景和空气多停留一会儿：柔和光色、草木与有意义的留白 |
+| `nocturnal-material` | 夜色里的一点光：暗部、玻璃、水面或纸张的细小变化 |
+| `fusion` | 选一条主旋律，再让另外两种质感轻轻加入 |
+
+默认 `preserve-edit`，完整重新创作需明确指定 `redraw`。路线不改变原图真实天气，也不会把每一张照片都强行变成晴朗夏日。
+
+横图约 **16:9**，竖图约 **3:4**，正方形默认约 **16:9**；接受自然生成的近似比例，不为凑比例拉伸画面或裁掉重要主体。
+
+## 第二封：把风景装进明信片 ✉️
+
+上传照片或已有 MV 图，然后说：
+
 ```text
-用 $yorushika-postcard-scenes 把这张照片做成明信片。
-先分析 MV 的元素、构图与情绪，再匹配并核对日中对照歌词和原歌名。
-纸色取自画面，轻微做旧，按横竖方向排版。
+用 $yorushika-postcard-scenes 把这张图片做成明信片。
+纸色取自画面，轻微做旧。
+先分析真实 MV 图，再从 geci.md 匹配并核对日中歌词与原歌名，
+按图片横竖方向排版，核对完成后直接生成。
 ```
 
-## 明信片版式与日中歌词
+一张普通照片，会先走完 MV 阶段；已经生成好的 MV 图，则直接复用。真正的画面准备好之后，才开始为它寻找文字：
 
-根据实际 MV 文件应用 EXIF 后的方向分流，近似比例同样适用，正方形沿用横版：
+**获得 MV 图 → 分析元素、构图与情绪 → 核对歌词和歌名 → 编排生成 → 检查保存**
 
-- 横图：保留上方居中图片、下方署名与文字的布局，默认固定2组歌词。
-- 竖图：完整图片在左，右上放 logo，右下左对齐排列默认4组歌词，歌名最后。图片保持原生尺寸，外围增加横向4:3纸面。
-- 每组日文在上、对应中文在下；最后单独显示 `——原歌名`，保留曲目原名，不换成中文译名。明确 `lyric_lines=1..4` 可覆盖默认组数。
+| MV 图片方向 | 明信片布局 | 默认歌词 |
+| --- | --- | --- |
+| 横向／正方形 | 图片居中偏上，署名和文字在下方纸面 | **2 组日中对照** |
+| 竖向 | 完整图片在左；右上 logo，右下歌词，末尾歌名 | **4 组日中对照** |
 
-[geci.md](skills/yorushika-postcard-scenes/references/geci.md) 是用户提供的日中歌词对照资料副本。默认 `lyrics=auto` 按[选句规则](skills/yorushika-postcard-scenes/references/lyric-selection.md)，先分析真实 MV 的元素、构图和情绪，再从同一曲目条目选取成组的日中原文。助手核对配对、组数、原词、标点和歌名后，将确定文本交给图像工具排版，不让图像工具自行选词或翻译。记录译者（若有）、两种语言行号及匹配理由；资料不全或无法满足组数时，生成前说明。默认不等待用户审核，只有明确要求先看配文时才暂停确认。
+两种布局的外部纸面均为横向 **4:3**。按 EXIF 校正后的实际 MV 方向分流，不要求输入恰好是 16:9 或 3:4。默认保留 MV 原生像素尺度，在外围增加纸面，不靠裁图、拉伸或擅自缩小图片来塞进文字。
 
-用户指定文字优先，不补译或虚构出处；要求双语但资料不足时先询问。`lyrics=none` 关闭歌词与歌曲出处，`signature=none` 关闭署名，一般不新增文字请求关闭两者，兼容旧参数 `poem=auto|none`。新生成 MV 在 `lyrics=auto` 时将新增微文案设为 `text=none`，已有 MV 文字则保留。历史 [日语表达分析](skills/yorushika-postcard-scenes/references/japanese-verse-corpus.md) 继续保留，当前自动配文使用日中歌词选句流程。歌词与译文权利归相关权利人，资料来源按用户文件记录，未独立核验。
+每一组，日文原句在上，对应中文译文在下；最后另起一行：
 
-## 仓库结构
+```text
+日文原句
+对应中文译文
+
+日文原句
+对应中文译文
+
+——日语原歌名
+```
+
+以上是排版示意，不是待生成的实际文案。真正的文字来自同一曲目、同一条目的 [geci.md](skills/yorushika-postcard-scenes/references/geci.md)：保留原词、标点与日中配对，不拼接不同译本。助手核对完成后再交给图像工具排版，默认不额外等待确认；想先看配文，只要说“先给我看歌词”。
+
+明信片会保留 MV 中的白色排线、匿名头部和场景关系，让纸张有岁月感，也让风景仍然是主角。
+
+## 今天想留多少话？
+
+不用记住所有参数，直接说你的偏好就好：
+
+- **“这次只留画面。”** 一般的“不新增文字”请求会关闭新增歌词、歌曲出处和署名。
+- **“保留 logo，不放歌词。”** 使用 `lyrics=none`，同时关闭歌曲出处。
+- **“保留歌词，不放 logo。”** 使用 `signature=none`。
+- **“竖图这次也只要两组。”** 显式 `lyric_lines=2` 覆盖默认数量；支持 1–4 组。
+- **“先给我看配文。”** 在生图前停下来，展示选句与出处，等你确认。
+- **“用我写的这段文字。”** 按你给出的文案使用，不擅自补译或虚构歌名。
+
+旧 `poem=auto|none` 参数仍兼容。更多玩法见 [MV 示例](examples/mv-scene.md) 与[明信片示例](examples/postcard.md)。
+
+## 风景收在哪里？
+
+新生成图片统一放到**当前工作区根目录的 `output/`**，命名只用日期和短标题：
+
+```text
+20260831-秋日步道.png
+20260831-秋日步道明信片.png
+```
+
+原始照片、已有 MV 和历史输出都保留；同名时换一个简短标题，不覆盖旧文件。扩展名跟随真实图片格式。
+
+生成后会检查实际尺寸、构图、人物处理、白线、logo 和文字。MV 接受近似比例；明信片检查真实 4:3 尺寸和原生图片尺度。图像生成可能出现错字或布局偏差，未验证项与失败项会如实说明，提示词中的要求不算验收结果。
+
+## 打开这只纸盒
 
 ```text
 yorushika-scenes-skills/
-├── README.md
-├── README.en.md
-├── NOTICE.md
-├── .gitignore
-├── .gitattributes
-├── assets/
-│   └── brand/
-│       └── README.md
-├── examples/
-│   ├── README.md
-│   ├── mv-scene.md
-│   └── postcard.md
+├── README.md / README.en.md       两种语言的入口
+├── LICENSE.md / NOTICE.md         使用条件与素材来源
+├── examples/                     调用与验收示例
+├── assets/brand/README.md         素材索引
 └── skills/
-    ├── yorushika-mv-scenes/
-    │   ├── SKILL.md
-    │   ├── agents/openai.yaml
+    ├── yorushika-mv-scenes/       构图、白线、水墨与 MV 气息
+    │   ├── SKILL.md / agents/
     │   ├── references/
-    │   │   └── human-treatment.md（与其他视觉参考同级）
-    │   └── assets/line-figures/（三张参考 PNG 与 SOURCES.md）
-    └── yorushika-postcard-scenes/
-        ├── SKILL.md
-        ├── agents/openai.yaml
-        ├── references/
-        │   ├── postcard-art-direction.md
-        │   ├── prompt-compiler.md
-        │   ├── lyric-selection.md
-        │   ├── geci.md
-        │   └── japanese-verse-corpus.md
-        └── assets/
-            ├── yorushika-logo.svg
-            ├── yorushika-logo-black.png
-            ├── yorushika-logo-white.png
-            └── SOURCES.md
+    │   └── assets/line-figures/   三张线稿参考
+    └── yorushika-postcard-scenes/ 纸张、横竖布局与双语选句
+        ├── SKILL.md / agents/
+        ├── references/           含 geci.md
+        └── assets/               黑白 logo、SVG 与来源记录
 ```
 
-仓库组织参考 [gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill) 的双技能与双语说明布局；此处的文档按本项目重新编写，不复制该仓库的示例图片、品牌素材或许可证。
+歌词库用于当前选句；历史日语表达分析与 MV 研究笔记各自保留。运行素材就在各自技能里，私人研究截图、其他项目照片与生成结果不随仓库分发。
 
-### 文件职责
+维护时同步入口与参考文件，保留有意区分的研究记录；上传前检查两份技能结构、相对引用、素材和 Git 差异。目录组织参考 [gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill)，相关致谢见 [NOTICE.md](NOTICE.md)。
 
-| 位置 | 职责 |
-| --- | --- |
-| 各技能的 `SKILL.md` 与 `agents/openai.yaml` | 执行入口、默认行为和 UI 调用信息 |
-| 各技能的 `references/` | 按阶段读取的规则；明信片的视觉指导、选句规则与提示词各司其职 |
-| 各技能的 `assets/` | 随技能安装的线稿参考和标志；来源与校验值随资源保留 |
-| `examples/` 与根目录 `assets/brand/` | 调用、验收说明及统一素材索引，不保存第二份运行素材 |
+## 带走风景，也请留下署名 🦌
 
-`geci.md` 是当前双语选句的数据来源；`japanese-verse-corpus.md` 保留为历史表达分析，不参与默认选词流程。MV 研究笔记记录观察来源，不要求安装私人截图集合。
+**仅限个人用途，禁止商业用途；在平台发表使用本项目制作的作品时，请注明来源并 @ 原作者。**
 
-## 输出与检查
+- 可用于个人学习、体验和非商业创作；不得用于商业接单、售卖成品或模板、付费服务、广告营销或其他商业用途。
+- 发布作品时，请注明使用 **Yorushika Scenes Skills**，附上仓库链接，并 @ 项目原作者。当前可核实的项目作者身份为 GitHub [@Yotsuki2213](https://github.com/Yotsuki2213)；其他平台请使用作者本人确认的账号，无法 @ 时保留作者署名和链接。
+- 使用第三方照片、歌词、译文或标志时，也应保留相应原作者／译者的署名，并确认必要的使用与发布权限。**署名不替代授权。**
+- 本项目为非官方同好创作，不代表 Yorushika、相关创作者或唱片公司。个人非商业许可仅涵盖仓库作者有权许可的原创内容，不重新授权歌词、logo 或线稿参考。
 
-新生成的 MV 图片与明信片统一保存到当前工作区根目录的 `output/`，命名为 `YYYYMMDD-标题.png`（扩展名跟随实际格式），例如 `20260831-秋日步道.png`。同名时使用不同的简短标题，不覆盖已有文件；原始图片和历史输出保留原位。完整提示词和检查记录保存在项目文件中。
+完整条件见 [LICENSE.md](LICENSE.md)，第三方素材来源见 [NOTICE.md](NOTICE.md)。
 
-检查实际生成文件的尺寸、方向、构图与文字准确度。MV 的 16:9 和 3:4 是大致画幅，轻微比例差异不影响交付，无需为此裁切、缩放或重新生成。明信片仍按自身的横向 4:3 纸面和原尺寸嵌入要求检查，并核验横竖版式、逐组日中对应、字符、组数及破折号后的原歌名。提示词不能代替实际验证，未验证项与真实问题在交付说明中记录。
+---
 
-本仓库随 MV 技能打包三张用户选定的线稿参考，随明信片技能附带用户提供的 `geci.md` 歌词对照资料。历史 MV 研究截图集合、其他个人项目照片、生成成果、凭据和本机备份不在包内。`examples/` 目前提供可复用的调用与验收说明。
-
-## 维护与权利
-
-同时更新相关入口与引用文件，保持两个技能的同级结构。根目录 `assets/brand/` 记录素材位置；运行所需线稿参考与标志分别保留在对应技能内，复制技能时不会漏掉依赖。
-
-上传前检查：
-
-1. 核对待提交差异、已安装版与仓库版的运行文件；研究笔记中有意保留的差异单独确认，不整目录覆盖。
-2. 用 `skill-creator` 校验两个技能，并检查相对引用、图片可读取性、素材校验值和 `git diff --check`。
-3. 检查 `git status` 与待提交清单；生成结果、临时文件、备份和凭据应受 `.gitignore` 排除。忽略规则不会自动移除已经被 Git 跟踪的文件。
-4. 确认远程仓库与可见性，再按明确请求提交和推送。当前维护目标是私有仓库；歌词和第三方素材的权利说明随包保留。结构校验不代替真实生图验收。
-
-这是非官方个人项目。第三方标志及作品相关权利仍归各自权利人所有，具体来源见 [NOTICE.md](NOTICE.md) 、[线稿参考来源](skills/yorushika-mv-scenes/assets/line-figures/SOURCES.md) 和 [标志来源](skills/yorushika-postcard-scenes/assets/SOURCES.md)。当前未授予开源许可证。
+*相册里总有一张照片，像一首歌还没结束的地方。把它打开吧。*

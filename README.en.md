@@ -1,128 +1,187 @@
-# Yorushika Scenes Skills
+# 🦌 Yorushika Scenes Skills
 
-Two complementary Codex skills for transforming a supplied photograph into a scene-led MV artwork and a tactile landscape postcard.
+## A postcard for the part of you that still remembers summer.
 
-[中文](README.md) · [MV scene skill](skills/yorushika-mv-scenes/SKILL.md) · [Postcard skill](skills/yorushika-postcard-scenes/SKILL.md) · [Examples](examples/README.md) · [Asset index](assets/brand/README.md) · [Provenance and rights](NOTICE.md)
+> Wind crosses the platform. Blue settles into paper.<br>
+> Someone in the photograph keeps walking; a small patch of shade stays behind.<br>
+> Pick a photo you have never quite been able to delete.
 
-## The two skills
+[中文](README.md) · [MV scenes](skills/yorushika-mv-scenes/SKILL.md) · [Postcards](skills/yorushika-postcard-scenes/SKILL.md) · [Examples](examples/README.md) · [Asset index](assets/brand/README.md)
 
-| | MV scene | Postcard |
-| --- | --- | --- |
-| Invocation | `$yorushika-mv-scenes` | `$yorushika-postcard-scenes` |
-| Input | One user-supplied photograph | A photograph or an existing MV artwork |
-| Target | Landscape about 16:9; portrait about 3:4; square defaults to about 16:9 | Landscape 4:3 postcard front |
-| Treatment | Composition analysis, source preservation, white line figures, ink and controlled print fractures | Scene-derived paper color, light aging, edge integration, signature, Japanese/Chinese lyric pairs and original song attribution |
-| Dependency | Built-in ImageGen and local image viewing | The sibling MV scene skill and the same image tools |
+Two companion Codex skills: **one turns a photograph into a source-aware scene with a Yorushika MV atmosphere; the other sets that scene on tactile paper with Japanese/Chinese lyric pairs.**
+
+The creative direction draws on blue, wind, shade, flowers, journeys and memory in [geci.md](skills/yorushika-postcard-scenes/references/geci.md), alongside the handmade visual language of pre-2022 Yorushika MVs. Think of the ink in *藍二乗*, the summer memories of *花に亡霊*, the departure in *夜行* and the passing season in *春泥棒*. The introductory prose here is original, not a lyric quotation.
+
+Bring a street corner, a riverbank, an old house or the last light of an afternoon. Leave a little room for white lines and paper. 🦌
+
+*Unofficial personal project · Personal, non-commercial use only · Credit and @ the original creator when posting*
+
+## Invite the deer into your workspace 🦌
+
+### Quick install: send this request to Codex
+
+Open Codex in the workspace where you want to create, then paste:
 
 ```text
-Photo → MV scene generation → saved artwork ─┐
-                                            ├→ analyze MV → verify lyric pairs/title → compose postcard → inspect
-Existing MV artwork → inspect and reuse ────┘
+Use $skill-installer to install these two skills from the main branch of:
+https://github.com/Yotsuki2213/yorushika-scenes-skills
+
+Repository paths:
+- skills/yorushika-mv-scenes
+- skills/yorushika-postcard-scenes
+
+Install both into .agents/skills/ at the current workspace root.
+Keep the folders as siblings and preserve all SKILL.md, agents,
+references and assets content.
+If either skill already exists, compare versions and ask before replacing it.
+If private-repository authentication fails, explain the access needed;
+do not ask me to paste a token into the conversation.
+Check the installed references and assets, then tell me how to invoke both skills.
 ```
 
-Read the source composition before styling. The default `preserve-edit` mode keeps the main subject, geometry and lighting. Full re-authoring requires an explicit `redraw` request. Available routes are `graphic-soliloquy`, `sunlit-memory`, `nocturnal-material`, and a weighted `fusion`. The route name does not authorize changing the photograph's actual weather.
+Before setting off:
 
-If no human subject exists, add one readable white sketched protagonist whose action and contact fit the scene. If human subjects already exist, preserve their bodies, clothing, poses and positions while covering visible heads with dense white hatching and horizontal scribbles. Body strokes retain transparent gaps; head coverage may be dense. Incidental background passers-by alone do not count as a primary subject, and off-frame heads are not invented.
+- **Image tools:** Codex needs built-in ImageGen, local image viewing and permission to write outputs. This package contains no model weights, API keys or standalone image service.
+- **Repository access:** The repository is currently private. Use an authenticated GitHub account with access.
+- **Discovery:** Cloning alone does not install the skills. Project-local skills belong in `.agents/skills/`. Check on the next turn; restart Codex if they still do not appear. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills).
+- **Keep the pair together:** MV scenes can run alone; postcards require the sibling MV skill. Figure references, logos and the lyric corpus are bundled. No private screenshot collection needs to move with you.
 
-Use approximately landscape 16:9 or portrait 3:4 framing from EXIF-oriented input dimensions, accepting nearby native output dimensions and naturally extending edges when composition benefits while preserving body proportions and spatial anchors. The skill bundles three selected [line references](skills/yorushika-mv-scenes/references/human-treatment.md). Postcard composition preserves the resulting artwork's aspect and human treatment inside its landscape 4:3 paper canvas.
-
-## Install
-
-Use Codex with built-in ImageGen and local image inspection. This repository contains instructions, references and assets; it does not provide an image service, credentials or model weights.
-
-The repository is private. Authenticate with a GitHub account that has access, then clone it:
+Already downloaded the repository? Send this instead:
 
 ```text
-gh repo clone Yotsuki2213/yorushika-scenes-skills
+Find my downloaded yorushika-scenes-skills repository and install both
+complete folders under its skills/ directory into this workspace's .agents/skills/.
+Keep them as siblings and check relative references and assets.
+Compare and ask before replacing an existing installation.
 ```
 
-Copy both folders from `skills/` into the target project's `.agents/skills/`, or into a personal skill directory. Keep them as siblings: the postcard skill resolves its MV dependency through a relative path. Compare and back up an existing installation before replacing it. A PowerShell installation example with overwrite checks is available in the [Chinese README](README.md#开始使用).
+After a future repository update, synchronize the installed copies too. A git pull does not update folders you previously copied elsewhere.
 
-The MV skill may be installed alone. The postcard skill requires both folders.
+## First letter: let the photograph breathe
 
-## Use
-
-Attach an image and request:
+Attach a photo and ask:
 
 ```text
-Use $yorushika-mv-scenes on this photo.
+Use $yorushika-mv-scenes on this photograph.
 Preserve the composition, choose graphic-soliloquy, and add no text.
 ```
 
+The skill first reads the scene: where the road leads, where shadows fall, who is waiting, and which part of the sky should remain quiet. It then preserves the main geometry, textures and light while adding white drawing, ink washes and localized print misregistration.
+
+**People belong to the story.** Without a human subject, add one readable white sketched protagonist with scene-grounded action. With existing subjects, preserve bodies, clothing, poses and positions, covering visible heads with dense white hatching. Incidental passers-by do not automatically count as subjects; off-frame heads are not invented. See [human treatment and references](skills/yorushika-mv-scenes/references/human-treatment.md).
+
+Choose today's atmosphere:
+
+| Route | What it brings |
+| --- | --- |
+| `graphic-soliloquy` | Notebook-margin monologue: hand-drawn contours, blue-black ink, localized print slips |
+| `sunlit-memory` | Air and distance: softened light, foliage and meaningful quiet space |
+| `nocturnal-material` | A little light after dark: glass, water, paper or another isolated material event |
+| `fusion` | One leading atmosphere with two quieter supporting textures |
+
+The default is `preserve-edit`; full re-authoring requires an explicit `redraw` request. A route does not change the photograph's actual weather or turn every scene into a sunny summer day.
+
+Landscape inputs aim for **about 16:9**, portraits **about 3:4**, and squares default to **about 16:9**. Nearby native dimensions are accepted; important subjects are not cropped or stretched to force a ratio.
+
+## Second letter: send the scene on paper ✉️
+
+Attach a photo or an existing MV artwork:
+
 ```text
 Use $yorushika-postcard-scenes to make a postcard from this image.
-Analyze the MV's elements, composition and mood first; verify matching Japanese/Chinese lyric pairs and the original song title, then compose on lightly aged, source-colored paper using its orientation-based layout.
+Choose lightly aged paper from the scene's colors.
+Analyze the actual MV artwork, then select and verify matching
+Japanese/Chinese lyric pairs and the original song title from geci.md.
+Use the orientation-based layout and generate after verification.
 ```
 
-See [scene examples](examples/mv-scene.md) and [postcard examples](examples/postcard.md) for controls and inspection expectations.
+A photograph goes through the MV stage first. An existing MV artwork is reused. Only once the real artwork is ready does the search for words begin:
 
-## Postcard layout and bilingual lyric selection
+**Obtain MV → analyze elements, composition and emotion → verify lyrics/title → compose and generate → inspect and save**
 
-Use the actual MV file's EXIF-oriented dimensions, accepting approximate ratios:
+| MV orientation | Postcard layout | Default lyrics |
+| --- | --- | --- |
+| Landscape / square | Upper-centered image; signature and words in the lower paper | **2 Japanese/Chinese pairs** |
+| Portrait | Complete image left; logo upper-right, lyrics below, title last | **4 Japanese/Chinese pairs** |
 
-- Landscape/square: keep the upper-centered image and lower signature/text, selecting exactly 2 lyric pairs by default.
-- Portrait: put the complete native-size image on the left, logo in the upper-right column, and 4 lyric pairs below it, left-aligned with attribution last. Add landscape 4:3 paper around the artwork.
-- Each pair has Japanese above its corresponding Chinese translation. End the block with a separate `——original song title` line. Explicit `lyric_lines=1..4` overrides the default count.
+Both use a landscape **4:3** outer card. Layout follows actual EXIF-oriented MV dimensions, not an exact input-ratio test. Preserve the MV artwork's native pixel extent by default and add paper around it; do not crop, stretch or silently shrink it to fit the words.
 
-The bundled user-provided [geci.md](skills/yorushika-postcard-scenes/references/geci.md) contains the paired source text. Follow the [selection guide](skills/yorushika-postcard-scenes/references/lyric-selection.md): analyze the actual MV's elements, composition and emotion, select pairs from one song entry, then verify wording, punctuation, count, pairing and original title before postcard generation. Pass only the final verified text to the image tool for rendering, not selection or translation. Record both languages' line numbers, translator when available and matching reason. Resolve missing pairs or count problems before generation. Proceed after assistant verification; wait for user approval only when explicitly requested.
+Each pair places the Japanese original above its corresponding Chinese translation. A separate final line carries the original song title:
 
-User-designated wording takes precedence; do not invent a translation or attribution, and ask when requested bilingual text cannot be resolved. `lyrics=none` disables lyrics and song attribution; `signature=none` disables the signature; a general no-added-text request disables both. Legacy `poem=auto|none` aliases remain supported. Newly generated MV artwork uses `text=none` for added microcopy with `lyrics=auto`; existing MV text remains. The historical [Japanese expression analysis](skills/yorushika-postcard-scenes/references/japanese-verse-corpus.md) is retained. Lyrics and translations remain subject to third-party rights; source metadata is supplied by the user and has not been independently verified.
+```text
+Japanese original
+Corresponding Chinese translation
 
-## Layout
+Japanese original
+Corresponding Chinese translation
+
+——Original Japanese song title
+```
+
+This is a layout diagram, not text to render literally. Actual text comes from one song entry in [geci.md](skills/yorushika-postcard-scenes/references/geci.md), retaining wording, punctuation and paired translations without mixing versions. The assistant verifies the selection before passing fixed text to ImageGen. It proceeds directly unless you ask to preview the wording first.
+
+The postcard retains the MV's white hatching, anonymous heads and spatial relationships. Let the paper age a little; keep the scene alive.
+
+## How many words today?
+
+Say what you want in ordinary language:
+
+- **“Just the picture this time.”** A general no-added-text request disables added lyrics, song attribution and signature.
+- **“Keep the logo, skip the lyrics.”** `lyrics=none` removes lyrics and song attribution.
+- **“Keep the lyrics, skip the logo.”** Use `signature=none`.
+- **“Two pairs for this portrait, please.”** Explicit `lyric_lines=2` overrides defaults; 1–4 pairs are supported.
+- **“Show me the wording first.”** Preview the selected text and source, then wait for approval.
+- **“Use these words I wrote.”** Keep supplied wording without inventing translations or song credits.
+
+Legacy `poem=auto|none` remains supported. More options: [MV examples](examples/mv-scene.md) and [postcard examples](examples/postcard.md).
+
+## Where the memories go
+
+New images are saved in **`output/` at the active workspace root**, named with a date and short title:
+
+```text
+20260831-autumn-path.png
+20260831-autumn-postcard.png
+```
+
+Originals, reused MV images and previous outputs remain intact. Choose a different short title on a naming collision; use the actual image format's extension.
+
+Inspect real dimensions, composition, human treatment, white strokes, logo and lettering. MV framing is approximate; postcards retain actual 4:3 and native-artwork-scale checks. Generation can introduce glyph or layout errors. Report failed or unverified checks honestly; a requested value in a prompt is not proof.
+
+## Inside the paper box
 
 ```text
 yorushika-scenes-skills/
-├── README.md
-├── README.en.md
-├── NOTICE.md
-├── .gitignore
-├── .gitattributes
-├── assets/brand/README.md
-├── examples/
-│   ├── README.md
-│   ├── mv-scene.md
-│   └── postcard.md
+├── README.md / README.en.md       Two language editions
+├── LICENSE.md / NOTICE.md         Use terms and provenance
+├── examples/                     Invocation and acceptance guides
+├── assets/brand/README.md         Asset index
 └── skills/
-    ├── yorushika-mv-scenes/
-    │   ├── SKILL.md
-    │   ├── agents/openai.yaml
-    │   ├── references/ (including human-treatment.md)
-    │   └── assets/line-figures/ (three reference PNGs and SOURCES.md)
-    └── yorushika-postcard-scenes/
-        ├── SKILL.md
-        ├── agents/openai.yaml
-        ├── references/ (including lyric-selection.md and geci.md)
-        └── assets/
+    ├── yorushika-mv-scenes/       Composition, white lines, ink and MV atmosphere
+    │   ├── SKILL.md / agents/
+    │   ├── references/
+    │   └── assets/line-figures/   Three figure references
+    └── yorushika-postcard-scenes/ Paper, layouts and bilingual selection
+        ├── SKILL.md / agents/
+        ├── references/           Includes geci.md
+        └── assets/               Black/white logos, SVG and provenance
 ```
 
-The repository layout follows the two-skill and bilingual-documentation organization of [gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill). Documentation here is written for this package. Its example images, brand assets and license have not been copied.
+The lyric corpus supplies current selections; historical Japanese analysis and MV research notes remain separate. Runtime assets live inside their own skills. Private research screenshots, other project photos and generated outputs are not distributed.
 
-### File responsibilities
+Maintain entrypoints and references together, preserve intentional research-note differences, and check skill structure, relative links, assets and Git changes before publishing updates. Directory organization draws on [gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill); see [NOTICE.md](NOTICE.md) for acknowledgments.
 
-| Location | Purpose |
-| --- | --- |
-| Each skill's `SKILL.md` and `agents/openai.yaml` | Entrypoint, default behavior and UI invocation metadata |
-| Each skill's `references/` | Stage-specific guidance; postcard art direction, lyric selection and prompt compilation have distinct roles |
-| Each skill's `assets/` | Portable figure/logo assets with provenance and checksums |
-| `examples/` and root `assets/brand/` | Invocation/acceptance guides and a shared asset index, not duplicate runtime assets |
+## Take the scenery; leave a credit 🦌
 
-`geci.md` supplies current bilingual lyric data. `japanese-verse-corpus.md` is retained as historical expression analysis and is not used by default selection. MV research notes describe observations without requiring the private screenshot collection for installation.
+**Personal use only. No commercial use. When posting work made with this project, credit the source and @ the original creator.**
 
-## Output and verification
+- Personal learning, experimentation and non-commercial creation are permitted. Commercial commissions, sales of outputs or templates, paid services, advertising, marketing and other commercial uses are prohibited.
+- Credit **Yorushika Scenes Skills**, link the repository and @ the project creator. The currently verified project identity is GitHub [@Yotsuki2213](https://github.com/Yotsuki2213). On other platforms, use an account confirmed by the creator; if tagging is unavailable, retain the author credit and link.
+- Retain relevant photographer, lyricist, translator and other third-party credits, and obtain necessary use/publication permissions. **Attribution is not permission.**
+- This is an unofficial fan project, not a Yorushika, creator or label endorsement. The personal non-commercial license covers only original material the repository author is entitled to license; it does not relicense lyrics, logos or figure references.
 
-Save newly generated MV artwork and postcards in `output/` directly under the active workspace root. Use `YYYYMMDD-title.png` with a short scene title and the actual file extension, such as `20260831-autumn-path.png`. Choose a distinct short title on a naming collision; preserve original inputs and historical outputs in place. Detailed prompts and inspection notes stay with the generated project.
+Full terms: [LICENSE.md](LICENSE.md). Third-party provenance: [NOTICE.md](NOTICE.md).
 
-Inspect actual dimensions, orientation, composition and glyph accuracy. MV 16:9 and 3:4 are approximate framing preferences: small deviations are acceptable and require no cropping, resampling or regeneration. Postcards retain their landscape 4:3 canvas and native-artwork-scale checks. Also verify orientation-based placement, exact Japanese/Chinese pairing and glyphs, pair count and the two-dash original-song attribution. Prompt instructions alone do not prove compliance; report unverified checks and genuine concerns in the handoff.
+---
 
-Three user-selected line-figure references are bundled with the MV skill, and the user-provided geci.md lyric collection is bundled with the postcard skill. Historical MV research screenshot collections, other personal photographs, generated projects, credentials and local backups are not bundled. The examples directory currently contains invocation and acceptance guides rather than an image gallery.
-
-## Maintenance and rights
-
-Before upload:
-
-1. Review pending changes and compare installed/runtime files with repository copies. Preserve intentional research-note differences rather than replacing entire directories.
-2. Validate both skills with `skill-creator`; check relative references, readable images, asset hashes and `git diff --check`.
-3. Inspect `git status` and the commit file list. Generated output, temporary files, backups and credentials should be ignored; `.gitignore` does not remove already tracked files.
-4. Confirm the remote and visibility, then commit and push only when requested. This package is maintained for a private repository, with third-party provenance preserved. Structural validation does not replace actual image-generation review.
-
-This is an unofficial private project. No open-source license is granted by this repository. Third-party marks and creative works remain subject to their respective rights. Read [NOTICE.md](NOTICE.md) and the [line-reference provenance](skills/yorushika-mv-scenes/assets/line-figures/SOURCES.md) and [logo provenance](skills/yorushika-postcard-scenes/assets/SOURCES.md) before redistribution or other use.
+*There is a photograph in your album that feels like a song still playing. Start there.*
