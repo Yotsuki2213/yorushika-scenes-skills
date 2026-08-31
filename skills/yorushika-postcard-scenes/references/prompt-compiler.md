@@ -1,16 +1,16 @@
 # Postcard Prompt Compiler
 
-Use this compiler only after a real MV artwork has been saved or selected. For upstream scene generation, use the base skill's compiler instead. Write the image prompt in English, with Japanese text quoted exactly. Keep the compiled prompt internal.
+Use this compiler only after a real MV artwork has been saved or selected. For upstream scene generation, use the base skill's compiler instead. Write the image prompt in English, with the selected Chinese lyric text quoted exactly. Keep the compiled prompt internal.
 
 ## Resolve before prompting
 
 Record:
 - MV file path and actual oriented dimensions; whether it was reused or newly generated.
-- Its recognizable scene anchors, existing line figure, ink field, fracture, lighting, source lettering and microcopy.
-- Native artwork placement and adaptive 4:3 outer dimensions.
+- Its recognizable scene anchors, existing line figure or local head-cover marks, ink field, fracture, lighting, source lettering and microcopy.
+- Native artwork placement and adaptive landscape 4:3 outer dimensions; retain a portrait MV's portrait aspect and full extent within the card.
 - Source-derived paper color, one main boundary blend and the chosen level of aging.
-- Actual logo file or exact wordmark, if selected; any verse and its Chinese gloss.
-- For newly composed verse, read [the Japanese verse corpus](japanese-verse-corpus.md) before drafting. Record its corpus ID, the selected visible anchor and relevant expressive operations in the project notes. Resolve natural Japanese and line breaks before prompting. Pass only the selected verse as exact text to render; exclude corpus explanations, examples, tags and the Chinese gloss from the artwork. Supplied verse and no-verse modes keep their existing behavior.
+- Actual logo file or exact wordmark, if selected; the exact Chinese excerpt and its intended line breaks.
+- For `lyrics=auto`, follow [lyric selection](lyric-selection.md) and read candidate context in [geci.md](geci.md). Record the source song, translator when present, file line numbers, 1–4 selected translation lines, visible anchors and emotional matching reason in the project notes. Preserve wording and punctuation. Pass only that excerpt as exact text to render; keep source metadata and selection notes outside the artwork unless requested. User-designated text, `lyrics=none` and the legacy `poem=none` alias take precedence over auto selection.
 - Editable paper/periphery zones and protected subjects, source text and white-line marks.
 
 Stage 2 references:
@@ -34,8 +34,10 @@ outside it. These refer to actual output pixels. Keep the artwork's
 aspect, perspective, core object sizes and relative positions intact.
 
 The scene carries [anchors, eye path and emotional relation]. Retain
-its [white line figure, ink field, print fracture and lighting].
-Keep the white outline hollow and pure white. Protect [edge subjects,
+its [white figure or local head scribbles, ink field, print fracture and lighting].
+Keep body hatching gaps and dense head scribbles as inherited, with
+pure-white drawing strokes. Retain photographic bodies and do not
+reveal covered head details or add another figure. Protect [edge subjects,
 native signs and existing microcopy]. Preserve source textures.
 
 Use [paper color and source-grounded reason] stock with [specific
@@ -52,11 +54,13 @@ Use [placement and reading order], with open paper mainly at
 its emblem and lettering together, aspect ratio and recognizable
 geometry. Place it once in the lower paper at a quiet scale.]
 [If wordmark: place the exact lowercase word "yorushika" once.]
-[If verse: set these exact original Japanese lines in [ink/type and
-location], separated from [existing microcopy/signature/scene]:
-[exact verse]]
-[If no new verse: retain existing microcopy and add no new poem.]
-[If no added text: add no new signature or verse; preserve native
+[If lyrics: typeset this exact supplied Chinese lyric excerpt in
+[ink/Chinese typeface/location], separated from
+[existing microcopy/signature/scene]. Preserve every character and
+punctuation mark, using the specified layout line breaks:
+[exact selected Chinese excerpt]]
+[If no new lyrics: retain existing microcopy and add no lyric text.]
+[If no added text: add no new signature or lyrics; preserve native
 photographed signs. Follow any explicit request about existing text.]
 
 Deliver one finished flat postcard filling the canvas. Preserve
@@ -64,7 +68,7 @@ the artwork while limiting edits to paper, print-surface treatment,
 peripheral integration and the chosen typography. Avoid changed
 scene geometry, cropped source objects, extra figures, recolored
 white outlines, heavy distress, blurred halos, dimensional framing,
-desk mockups, duplicate signatures, UI, watermarks, lyrics and
+desk mockups, duplicate signatures, UI, watermarks, unselected text and
 unrelated added logos.
 ```
 
@@ -72,6 +76,6 @@ unrelated added logos.
 
 Measure the saved file; require `3*canvas_width == 4*canvas_height`. Compare artwork scale and composition with the actual MV input rather than the original photo. Pixel values in the prompt are intentions, not proof of preservation.
 
-Check the scene first, then the paper connection, then the type. Read all generated Japanese from the output. Treat inability to verify native scale, a dimensional mismatch, damaged lettering or lost figure as a concern; preserve the output as a draft and describe the specific discrepancy. Do not automatically make a second style variant.
+Check the scene first, then the paper connection, then the type. Compare every rendered Chinese lyric character and punctuation mark with the exact selected corpus excerpt; verify the 1–4 source-line count separately from layout wrapping. Inspect retained Japanese signs and logo lettering too. Treat inability to verify native scale, a dimensional mismatch, damaged lettering or lost figure/head coverage as a concern; preserve the output as a draft and describe the specific discrepancy. Do not automatically make a second style variant.
 
-Keep original, intermediate and postcard files separately. The final response should emphasize the image, paper choice, preserved MV features and any material concern, with actual dimensions and a saved path.
+Keep original, intermediate and postcard files separately. The final response should emphasize the image, paper choice, preserved MV features, selected Chinese lyrics with source song/translator when available and matching reason, and any material concern, with actual dimensions and a saved path.

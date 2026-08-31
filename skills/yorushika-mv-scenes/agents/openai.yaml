@@ -1,4 +1,4 @@
 interface:
   display_name: "Yorushika MV Scenes"
-  short_description: "先理解原图构图与表达，再以强烈的 Yorushika MV 语法进行保留式 16:9 编辑"
-  default_prompt: "Use $yorushika-mv-scenes to first analyze the composition and emotional expression of my attached image, then preserve its key structure while applying a strong graphic-soliloquy stack of source-anchored pure-white line-drawn figures, ink/watercolor wash, and controlled broken distortion. Return the image and a compact result record; show the full prompt only if I ask for it."
+  short_description: "保留原图构图，按人物主体添加白色线稿或覆盖头部，横图约16:9、竖图约3:4"
+  default_prompt: "Use $yorushika-mv-scenes to preserve my image's composition, add a scene-grounded white sketched protagonist when no human subject exists or cover existing subjects' heads with white scribbles, and apply source-aware MV effects in approximately landscape 16:9 or portrait 3:4 according to the input, saving the image in the workspace-root output folder with a date-title filename."

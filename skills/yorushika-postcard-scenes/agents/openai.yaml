@@ -1,4 +1,4 @@
 interface:
   display_name: "Yorushika Postcard Scenes"
-  short_description: "将 Yorushika MV 场景融入 4:3 明信片，搭配场景纸色、轻旧质感与短诗"
-  default_prompt: "Use $yorushika-postcard-scenes to turn my image into a 4:3 postcard, first using yorushika-mv-scenes when needed, then blending the finished scene into softly aged, source-colored paper with a quiet signature and optional original Japanese verse."
+  short_description: "将 Yorushika MV 场景融入 4:3 明信片，按画面元素与情绪匹配1–4句中文歌词"
+  default_prompt: "Use $yorushika-postcard-scenes to turn my image into a 4:3 postcard, first using yorushika-mv-scenes when needed, then blending the finished scene into softly aged, source-colored paper with a quiet signature and 1–4 Chinese lyric lines selected from the bundled geci.md to match the image's visible elements and emotional tone."

@@ -7,6 +7,11 @@ This reference defines the first pass of `$yorushika-mv-scenes`: understand the 
 Record only what is visibly supported by the image:
 
 ```text
+source_orientation: landscape / portrait / square, from EXIF-oriented source dimensions
+target_aspect: approximately landscape 16:9 / portrait 3:4; square defaults to approximately landscape 16:9; framing preference, not exact pixel equality
+human_subject_present: true / false, judged by composition and narrative role rather than incidental passers-by
+human_treatment: add-white-protagonist / cover-existing-heads / user-override
+human_subject_details: primary subjects' positions, actions, protected bodies, visible head regions; proposed action/contact if adding
 core_subjects: 1–2 forms that make this specific scene identifiable
 supporting_elements: 2–3 forms that establish place, time, or atmosphere
 spatial_invariants: horizon, shoreline, vanishing line, relative positions, scale, overlap, facing direction
@@ -27,12 +32,14 @@ Do not begin with style words. First state where the eye enters, what it recogni
 Mark the following as hard locks unless the user explicitly releases them:
 
 - dominant horizon, shoreline, road, architectural axis, or perspective convergence;
-- relative scale and position of the core subject(s);
+- relative scale and position of the core subject(s), including existing bodies, clothing and poses;
 - the dominant gesture that gives the frame its movement;
 - the main light direction and the largest value relationship;
 - the source-specific material that carries the scene (water, stone, fabric, paper, foliage, glass, or dust).
 
-Use the weight map to decide where stronger graphic treatment can live. High-weight areas may receive a sharp contour or break; quiet areas can receive a broader wash or a small sketched figure. Do not distribute effects evenly merely to make the style visible.
+Visible heads selected for coverage and a new figure's footprint are authorized editable regions even under strict preservation. Follow [human treatment](human-treatment.md); do not lock facial detail against the required head scribble. Resolve these regions before applying style. Frame extension follows the resolved target aspect while keeping the source axis and subject proportions.
+
+Use the weight map to decide where stronger graphic treatment can live. High-weight areas may receive a sharp contour or break; quiet areas can receive a broader wash or the new sketched protagonist where action, support and visibility fit. Do not distribute effects evenly merely to make the style visible.
 
 ## 3. Abstraction map
 
@@ -52,7 +59,7 @@ After the Scene Card is complete, translate the image in this order:
 
 1. Keep the source-derived axis or gesture as the compositional spine.
 2. Place one primary graphic event on that spine: a contour break, wash, or displaced edge.
-3. Add one small anonymous **pure-white** line-drawn figure only when a human mark supports the existing scale and emotional tension. Anchor it to a real shoreline, road, shadow, ledge, or horizon; keep it tiny and non-identifiable. Use white ink, white pencil, or white chalk-like strokes only; never use black, cobalt, red, colored fill, or multicolor clothing for this figure layer.
+3. Apply the resolved human branch: add one legible **pure-white** sketched protagonist if no human subject exists, choosing action, scale and contact from the scene; otherwise preserve existing subjects' bodies and obscure their visible heads with dense white hatching and horizontal scribbles. A head outside the frame is not added. The branch is common to all routes, not conditional on whether a decorative figure would suit the style.
 4. Use the quiet area for breathing room or a single micro-text element only if text is requested.
 5. Let the eye exit through an unfinished contour, fading wash, or unprinted quiet field.
 
@@ -62,9 +69,10 @@ When `style_intensity=strong`, use a hierarchy rather than a pile of effects:
 
 ### Primary: line-drawn presence
 
-- one or two tiny anonymous figures or gesture marks in uneven **white-only** ink/pencil/chalk strokes;
-- hand-drawn wobble, incomplete contour, and scale subordinate to the real subject;
-- place along a source-derived axis, never as a new protagonist or cute mascot.
+- the resolved human branch in uneven **white-only** ink/pencil/chalk strokes;
+- for a new protagonist: readable gesture, incomplete contours and hatching with gaps, scene-derived scale and physical support;
+- for existing subjects: protected body anchors and dense local head scribbles; maintain the head's general scale without showing identity;
+- connect the treatment to the source-derived axis and eye path while keeping environmental anchors legible.
 
 The figure layer is deliberately white so it reads as a luminous memory mark against dark photo areas or watercolor fields. Other scene contours may use graphite, indigo, cobalt, or muted rust, but those colors must not enter the line-drawn person.
 
@@ -90,4 +98,4 @@ Before compiling the production prompt, write one internal sentence in this form
 The scene expresses [tension] through [dominant gesture/material], so the graphic treatment follows [source axis] with [line-drawn presence], [ink/watercolor behavior], and [one controlled break], while [hard locks] remain intact.
 ```
 
-If this sentence cannot be written without inventing a new subject or unrelated motif, reduce the style stack and return to the Scene Card.
+The planned protagonist is an intentional addition when the human branch requires it. If its action/contact or any supporting effect cannot be grounded in the source, revise its placement or reduce the supporting style stack and return to the Scene Card.

@@ -22,6 +22,8 @@ This sets the artwork to 1:1 and adds paper. Margin fractions are adjustable des
 
 Use the original photo only in the upstream scene stage. Stage 2 uses the generated artwork's dimensions and content. Preserve both source files unchanged on disk. If a fixed requested card size cannot contain the native artwork and paper margins, explain the conflict without changing its scale. User-authorized resizing must remain proportional and be recorded.
 
+For a portrait MV source, retain its vertical composition and native extent inside the landscape 4:3 card; allow wider side paper instead of stretching or cropping the artwork. The same sizing calculation applies.
+
 Favor a generous image with modest side/top margins and useful lower paper. A wide scene can meet a soft open paper field beneath it. A strongly directional scene can carry a small text block toward the opposite side. Leave enough quiet space for the eye to exit.
 
 ## Paper color from the scene
@@ -57,25 +59,25 @@ Keep the final piece flat. Dimensional picture frames, cast-shadow photo mounts 
 
 `age=none` uses fresh printed paper with natural grain. `age=moderate` may increase edge patina and local density variation while keeping the scene and lettering clear.
 
-Apply age chiefly to paper and the image boundary. Preserve the source's weather and lighting, retain meaningful saturated colors, and keep the line figure pure white rather than staining it sepia. Avoid heavy scratches, dirt, large tears, deep creases or global yellowing unless explicitly requested.
+Apply age chiefly to paper and the image boundary. Preserve the source's weather and lighting, retain meaningful saturated colors, and keep the figure/head-cover strokes pure white rather than staining them sepia. Preserve body hatching gaps and the density of head scribbles; do not reveal covered head details. Avoid heavy scratches, dirt, large tears, deep creases or global yellowing unless explicitly requested.
 
-## Signature and Japanese verse
+## Signature and Chinese lyrics
 
-Treat the image, any inherited microcopy, optional verse and signature as a single reading order. Inherited microcopy usually makes an extra poem unnecessary in auto mode. Keep source signage as part of the image rather than counting every shop sign as designed poetry.
+Treat the image, inherited microcopy, selected Chinese lyrics and signature as a single reading order. In `lyrics=auto`, coordinate the excerpt with inherited microcopy; existing microcopy alone does not disable lyric selection. Keep source signage as part of the image rather than counting it as designed lyrics.
 
-The signature normally sits in the lower paper, centered or aligned to the verse. About 8–15% of card width is a useful starting size; preserve the logo's aspect ratio and clear space. Select the bundled black or white asset by contrast on the chosen paper, not by a binary paper-color rule. For a supplied colored logo, retain its colors unless a permitted variant exists. Use the actual PNG as a supporting reference.
+The signature normally sits in the lower paper, centered or aligned to the excerpt. About 8–15% of card width is a useful starting size; preserve the logo's aspect ratio and clear space. Select the bundled black or white asset by contrast on the chosen paper, not by a binary paper-color rule. For a supplied colored logo, retain its colors unless a permitted variant exists. Use the actual PNG as a supporting reference.
 
-When a poem is justified, read [the Japanese verse corpus](japanese-verse-corpus.md), then compose 1–3 short Japanese lines based on concrete visible motifs and their emotional relation. Choose one or two relevant expressive operations from the corpus and write fresh wording; do not reuse its examples as captions or invent visible objects to fit its vocabulary. Quiet sensory detail, time and distance can guide the writing; absence is optional. Keep it original and do not attribute it to the band. Use thin Mincho-like or restrained handwritten type in a legible ink color drawn from the artwork. Preserve requested wording and line breaks, and check the generated glyphs.
+For automatic lyrics, follow [lyric selection](lyric-selection.md), reading candidate passages in [geci.md](geci.md). Select 1–4 Chinese translation lines from one song according to visible motifs and emotional tone. Preserve the corpus wording and punctuation; choose a coherent short excerpt suitable for the available paper. Use Chinese Song/Ming-style serif or restrained handwritten type in a legible ink color drawn from the artwork. Preserve user-designated wording and check every rendered Chinese glyph against the selected text.
 
-Place verse mainly in the open paper, separated from the signature and important scene details. A subtle relationship to the image boundary is welcome, but not text crossing a figure or focal object. Keep the Chinese gloss in the response, outside the artwork.
+Place the Chinese lyrics mainly in the open paper, separated from the signature and important scene details. A subtle relationship to the image boundary is welcome, but not text crossing a figure or focal object. Keep song and translator metadata in project notes and the response unless the user requests an on-card credit. Respect `lyrics=none`, its legacy `poem=none` alias and explicit no-added-text requests.
 
 ## Visual acceptance
 
 At normal viewing size:
 - The MV scene is immediately recognizable and remains the focus.
-- Its line figure, ink field and controlled fracture retain their hierarchy.
+- Its inherited figure or head-cover treatment, ink field and controlled fracture retain their hierarchy, with protected bodies and dense anonymous head marks intact.
 - Paper and picture feel like one printed surface, with legible source edges where needed.
 - Color and patina suit the scene, and the paper reads as intentional postcard stock.
-- The signature and any verse are clear, restrained and well separated.
+- The signature and selected Chinese lyrics are clear, restrained and well separated; the excerpt matches the supplied corpus exactly and responds to the scene's elements and mood.
 
 At file level: verify the actual 4:3 canvas and the MV artwork's scale; label measurements as unverified when natural blending or model rendering prevents proof. Do not claim a geometrically exact or print-ready result solely from its prompt.

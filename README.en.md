@@ -10,8 +10,8 @@ Two complementary Codex skills for transforming a supplied photograph into a sce
 | --- | --- | --- |
 | Invocation | `$yorushika-mv-scenes` | `$yorushika-postcard-scenes` |
 | Input | One user-supplied photograph | A photograph or an existing MV artwork |
-| Target | Landscape 16:9 scene | Landscape 4:3 postcard front |
-| Treatment | Composition analysis, source preservation, white line figures, ink and controlled print fractures | Scene-derived paper color, light aging, edge integration, signature and optional Japanese verse |
+| Target | Landscape about 16:9; portrait about 3:4; square defaults to about 16:9 | Landscape 4:3 postcard front |
+| Treatment | Composition analysis, source preservation, white line figures, ink and controlled print fractures | Scene-derived paper color, light aging, edge integration, signature and 1–4 Chinese lyric lines matched to the scene |
 | Dependency | Built-in ImageGen and local image viewing | The sibling MV scene skill and the same image tools |
 
 ```text
@@ -22,7 +22,9 @@ Existing MV artwork → inspect and reuse ────┘
 
 Read the source composition before styling. The default `preserve-edit` mode keeps the main subject, geometry and lighting. Full re-authoring requires an explicit `redraw` request. Available routes are `graphic-soliloquy`, `sunlit-memory`, `nocturnal-material`, and a weighted `fusion`. The route name does not authorize changing the photograph's actual weather.
 
-White line figures stay small, anonymous, hollow and anchored to an existing surface. Postcard composition reuses the saved artwork and derives paper, margins and typography from it.
+If no human subject exists, add one readable white sketched protagonist whose action and contact fit the scene. If human subjects already exist, preserve their bodies, clothing, poses and positions while covering visible heads with dense white hatching and horizontal scribbles. Body strokes retain transparent gaps; head coverage may be dense. Incidental background passers-by alone do not count as a primary subject, and off-frame heads are not invented.
+
+Use approximately landscape 16:9 or portrait 3:4 framing from EXIF-oriented input dimensions, accepting nearby native output dimensions and naturally extending edges when composition benefits while preserving body proportions and spatial anchors. The skill bundles three selected [line references](skills/yorushika-mv-scenes/references/human-treatment.md). Postcard composition preserves the resulting artwork's aspect and human treatment inside its landscape 4:3 paper canvas.
 
 ## Install
 
@@ -49,16 +51,16 @@ Preserve the composition, choose graphic-soliloquy, and add no text.
 
 ```text
 Use $yorushika-postcard-scenes to make a postcard from this image.
-Choose paper from the scene's colors, light aging, and original Japanese verse.
+Choose paper from the scene's colors, light aging, and 1–4 Chinese lyric lines matching its visible elements and mood.
 ```
 
 See [scene examples](examples/mv-scene.md) and [postcard examples](examples/postcard.md) for controls and inspection expectations.
 
-## Japanese verse reference
+## Chinese lyric selection
 
-The bundled [Japanese corpus](skills/yorushika-postcard-scenes/references/japanese-verse-corpus.md) distills expression patterns from 11 user-provided lyric sections. It includes 14 expressive units, 11 analytical records, and Japanese syntax, rhythm and line-break guidance adapted to short postcard verse.
+The bundled user-provided [geci.md](skills/yorushika-postcard-scenes/references/geci.md) contains Japanese lyrics and Chinese translations. With `lyrics=auto`, follow the [selection guide](skills/yorushika-postcard-scenes/references/lyric-selection.md) to choose 1–4 Chinese translation lines from one song entry according to visible motifs and emotional tone. Preserve wording and punctuation, and record the song, translator when present, source line numbers and matching reason.
 
-Full source lyrics are not distributed. Tags and editorial examples guide new writing rather than serving as ready-made captions. New verse follows visible scene anchors. Supplied wording and `poem=none` take precedence.
+User-designated text takes precedence; `lyrics=none` disables added lyrics, with legacy `poem=auto|none` aliases supported. Newly generated MV artwork uses `text=none` for added microcopy; existing MV text remains. The historical [Japanese expression analysis](skills/yorushika-postcard-scenes/references/japanese-verse-corpus.md) is retained. Lyrics and translations remain subject to third-party rights; source metadata is supplied by the user and has not been independently verified.
 
 ## Layout
 
@@ -78,11 +80,12 @@ yorushika-scenes-skills/
     ├── yorushika-mv-scenes/
     │   ├── SKILL.md
     │   ├── agents/openai.yaml
-    │   └── references/
+    │   ├── references/ (including human-treatment.md)
+    │   └── assets/line-figures/ (three reference PNGs and SOURCES.md)
     └── yorushika-postcard-scenes/
         ├── SKILL.md
         ├── agents/openai.yaml
-        ├── references/
+        ├── references/ (including lyric-selection.md and geci.md)
         └── assets/
 ```
 
@@ -90,12 +93,12 @@ The repository layout follows the two-skill and bilingual-documentation organiza
 
 ## Output and verification
 
-The skills save source copies, intermediate artwork and postcard outputs separately under the active project's `Image生图/` directory. Detailed prompts and inspection notes stay with the generated project.
+Save newly generated MV artwork and postcards in `output/` directly under the active workspace root. Use `YYYYMMDD-title.png` with a short scene title and the actual file extension, such as `20260831-autumn-path.png`. Choose a distinct short title on a naming collision; preserve original inputs and historical outputs in place. Detailed prompts and inspection notes stay with the generated project.
 
-Inspect actual files for aspect ratio, artwork scale and glyph accuracy. Image generation may ignore requested pixel dimensions or resize the inset artwork. Label results that fail required checks as drafts; prompt instructions alone do not prove native-size preservation. The postcard workflow does not automatically regenerate or upscale to conceal a mismatch.
+Inspect actual dimensions, orientation, composition and glyph accuracy. MV 16:9 and 3:4 are approximate framing preferences: small deviations are acceptable and require no cropping, resampling or regeneration. Postcards retain their own landscape 4:3 canvas and native-artwork-scale checks. Prompt instructions alone do not prove compliance; report genuine concerns in the handoff.
 
-Personal photographs, generated projects, complete lyrics, MV reference frames, credentials and local backups are not bundled. The examples directory currently contains invocation and acceptance guides rather than an image gallery.
+Three user-selected line-figure references are bundled with the MV skill, and the user-provided geci.md lyric collection is bundled with the postcard skill. Historical MV research screenshot collections, other personal photographs, generated projects, credentials and local backups are not bundled. The examples directory currently contains invocation and acceptance guides rather than an image gallery.
 
 ## Rights
 
-This is an unofficial private project. No open-source license is granted by this repository. Third-party marks and creative works remain subject to their respective rights. Read [NOTICE.md](NOTICE.md) and the [asset provenance](skills/yorushika-postcard-scenes/assets/SOURCES.md) before redistribution or other use.
+This is an unofficial private project. No open-source license is granted by this repository. Third-party marks and creative works remain subject to their respective rights. Read [NOTICE.md](NOTICE.md) and the [line-reference provenance](skills/yorushika-mv-scenes/assets/line-figures/SOURCES.md) and [logo provenance](skills/yorushika-postcard-scenes/assets/SOURCES.md) before redistribution or other use.

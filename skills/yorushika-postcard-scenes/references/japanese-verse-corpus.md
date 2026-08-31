@@ -489,7 +489,7 @@ glyph_review: pending
 
 ## 出典と版管理
 
-- 原資料：ユーザー提供の `yorushika/歌词.md`。原資料は本リポジトリに同梱せず、技能の実行時にも必要としない。
+- 原資料：ユーザー提供の `yorushika/歌词.md`。
 - 編集元：`20260830-Yorushika-词风蒸馏语料库-版本001.md`。
 - 日本語版作成日：2026-08-31。
 - 技能内の参照先：`yorushika-postcard-scenes/references/japanese-verse-corpus.md`。
