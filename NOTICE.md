@@ -4,7 +4,7 @@
 
 ## 技能与分析资料
 
-两个技能来自本地维护版本。场景参考文件包含文字观察，日语语料库包含抽象分析和编辑用例。明信片技能附带用户提供的日中歌词对照资料 `references/geci.md` 与中文选句规则。资料自述中文翻译来自网易云音乐，译者随曲标注；这些来源信息未独立核验，歌词与译文版权仍归相关权利人。同步到本地仓库不构成公开发布或再分发授权。
+两个技能来自本地维护版本。场景参考文件包含文字观察，历史日语表达资料包含抽象分析和编辑用例。明信片技能附带用户提供的日中歌词对照资料 [geci.md](skills/yorushika-postcard-scenes/references/geci.md) 与[双语选句规则](skills/yorushika-postcard-scenes/references/lyric-selection.md)。资料自述中文翻译来自网易云音乐，译者随曲标注；这些来源信息未独立核验，歌词与译文版权仍归相关权利人。同步到本地仓库不构成公开发布或再分发授权。
 
 MV 技能另附三张用户选定的白色线稿参考，作为人物笔触与头部涂抹的辅助输入；历史 MV 研究截图集合及其他个人项目照片不随包分发。
 
@@ -28,7 +28,7 @@ MV 技能另附三张用户选定的白色线稿参考，作为人物笔触与�
 
 This private skill collection is unofficial and does not imply endorsement by Yorushika or any associated creator or label. Repository privacy does not grant rights to third-party material.
 
-The package contains local skill instructions, textual visual observations, an analytical Japanese corpus and editorial examples. The postcard skill also bundles the user-provided Japanese/Chinese lyric collection `references/geci.md` and its Chinese selection guide. The supplied file attributes translations to NetEase Cloud Music contributors, with translator credits per song where available; this metadata has not been independently verified. Lyrics and translations remain subject to their respective owners' rights. Local synchronization does not authorize publication or redistribution.
+The package contains local skill instructions, textual visual observations, historical Japanese expression analysis and editorial examples. The postcard skill also bundles the user-provided [Japanese/Chinese lyric collection](skills/yorushika-postcard-scenes/references/geci.md) and its [bilingual selection guide](skills/yorushika-postcard-scenes/references/lyric-selection.md). The supplied file attributes translations to NetEase Cloud Music contributors, with translator credits per song where available; this metadata has not been independently verified. Lyrics and translations remain subject to their respective owners' rights. Local synchronization does not authorize publication or redistribution.
 
 It also bundles three user-selected white-line references for figure strokes and head scribbles, copied unchanged with checksums in the [line-reference provenance](skills/yorushika-mv-scenes/assets/line-figures/SOURCES.md). Their original publication and licensing were not independently verified. Historical MV research screenshot collections and other personal project images are not included.
 

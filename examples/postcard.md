@@ -8,34 +8,70 @@ input=photo paper=auto age=light blend=auto
 signature=auto lyrics=auto
 ```
 
-流程先生成并保存MV场景，再使用该实际文件排版。默认从附带的 `geci.md` 中选择与画面元素和情绪匹配的1–4句中文歌词，保留原词与标点，并记录曲目、译者（若有）、行号和匹配理由。新生成MV时不新增微文案，中文歌词放在明信片纸面留白中。
+先生成并保存 MV，再分析该真实成品的元素、构图与情绪。按[选句规则](../skills/yorushika-postcard-scenes/references/lyric-selection.md)从同一歌曲条目选择日中对照，核对原文、组数、配对与歌名后，将确定的文字交给图像工具。新生成 MV 在自动歌词模式下不新增微文案；日中歌词放在明信片纸面上。
 
-## 复用已有场景
-
-上传已生成的MV图后调用：
+## 横向 MV：上图下文
 
 ```text
-用 $yorushika-postcard-scenes 把这张MV场景做成明信片。
-input=mv paper=auto age=light signature=none lyrics=none
+用 $yorushika-postcard-scenes 处理这张横向 MV。
+input=mv paper=auto age=light signature=auto lyrics=auto
 ```
 
-已有场景直接复用；不会为了进入明信片阶段重新生成一张MV图。原生招牌和源图文字遵循技能的保留规则。
+沿用上方居中图片、下方署名与歌词的布局，默认固定2组。每组日文在上、中文在下；歌词最后单独一行是 `——原歌名`。近似16:9或其他横向比例同样适用；正方形默认使用这一布局。
 
-## 检查要点
+## 竖向 MV：左图右文
 
-- 明信片目标为横向4:3，检查实际文件的 `3 × width == 4 × height`。
-- 默认 `artwork_scale=1`，检查嵌入场景是否保留原生尺寸；无法证实时明确说明。
-- 若生成器返回的整张卡片比MV原图还窄，就不能声明满足原尺寸嵌入。
-- 纸张颜色、局部渗墨、文字和署名应共同服务场景，主体和白线人物保持可辨。
-- 中文歌词逐字对照所选语料，区分原文选句数与排版折行数；曲目、译者与匹配理由记录在项目文件和交付说明中。
-- 失败的几何或文字检查记录为草稿问题，不自动反复生成。
+```text
+用 $yorushika-postcard-scenes 处理这张竖向 MV。
+input=mv paper=auto age=light signature=auto lyrics=auto
+```
+
+完整竖图放左侧，右上放 logo，右下左对齐放默认4组日中歌词，歌名最后。每组两种语言紧密对应，组间留出较大间距。卡片仍为横向4:3，图像保持原生尺寸。需要不同组数时可明确指定 `lyric_lines=2` 等，不增加必填参数。
+
+## 预览配文或关闭文字
+
+默认由助手核对后直接生成。若希望先审核，可说：
+
+```text
+先给我看画面分析、选好的日中歌词和原歌名，等我确认再生成明信片。
+```
+
+关闭歌词与歌曲出处使用 `lyrics=none`（兼容 `poem=none`）；关闭 logo 使用 `signature=none`。一般“不新增文字”请求关闭两者。已有 MV 文件直接复用，保留其原生招牌和既有微文案，不为明信片重新生成场景。
+
+## 检查与情境推演
+
+| 情境 | 预期行为 |
+| --- | --- |
+| 横图、近似16:9、正方形 | 上方居中图片，下方固定2组日中对照与原歌名 |
+| 竖图、近似3:4、其他竖向比例 | 左图、右上 logo、右下4组歌词和歌名 |
+| EXIF 旋转 | 以实际显示方向分流，原文件不改动 |
+| 明确指定句数 | `lyric_lines` 优先于默认4组 |
+| 单独覆盖版式 | 改变摆放，组数默认仍按实际 MV 方向 |
+| 双语长句 | 同组数换短片段或调整/扩大纸面，重新核对；不缩小或裁切 MV |
+| 缺少日文、译文或配对不明 | 换候选；仍无法满足时在生成前说明并请求调整 |
+| 重复收录或译本不同 | 使用同一曲目条目的成对文字、歌名与译者，不跨版本混用 |
+| 指定文案但无法核对双语/出处 | 不补译或编造歌名；需要补充信息时先询问 |
+| 关闭歌词、署名或全部新增文字 | 分别省略对应内容，不留虚构占位文字 |
+| 用户要求先确认 | 展示分析、双语文本和歌名，收到确认后再生成 |
+
+实际出图后检查：
+
+- 明信片为横向4:3：`3 × width == 4 × height`；`artwork_scale=1` 对照真实 MV 文件检查，无法证明时标记未验证。
+- 图片完整，布局分支正确；纸色、边缘融合、人物白线和密集头部覆盖保留。
+- 两种语言逐字对照，日上中下配对正确，组数与排版折行数分开。
+- 最后一行保留 `——` 与所选条目的原歌名，不误用专辑名或译者。
+- 字符、标点、logo、间距清楚，文字不盖图、不越界；译者和匹配理由放项目记录与交付说明。
+- 失败项目如实记录为草稿问题，不把提示词视为实际验证，不自动反复生成。
 
 ## English invocation
 
 ```text
-Use $yorushika-postcard-scenes with the attached MV artwork.
-input=mv paper=auto age=light blend=paper-fade
-signature=auto lyrics=auto
+Use $yorushika-postcard-scenes with this portrait MV artwork.
+Analyze its visible elements, composition and mood, then verify
+4 Japanese/Chinese lyric pairs from one geci.md song entry.
+Keep the complete image on the left, the logo above the lyrics
+on the right, Japanese above Chinese per pair, and
+——original song title on the final line.
 ```
 
-Preserve the saved artwork, derive the paper from its colors, and select 1–4 Chinese lyric lines from the bundled geci.md to match visible elements and mood. Inspect actual canvas dimensions, inset scale, edge integration and exact Chinese glyphs against the source, as well as retained Japanese signs and logo lettering. Save new images in workspace-root `output/` as `YYYYMMDD-title.<ext>`; preserve original inputs and historical outputs in place.
+For landscape/square input, retain the upper-centered artwork and lower signature/text with exactly 2 pairs by default. Save new images to workspace-root `output/` as `YYYYMMDD-title.<ext>`; preserve originals and existing MV files in place.

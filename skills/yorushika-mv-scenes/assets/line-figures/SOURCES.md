@@ -10,4 +10,4 @@ These three images were supplied by the user in the workspace's `yorushika线稿
 
 Use only the observed line rhythm, body hatching, head scribbles and physical scene contact described in [human treatment](../../references/human-treatment.md). Large white masking regions are preparation marks and must not be reproduced in generated scenes.
 
-Original publication, creator and license information were not supplied or independently verified. These remain user-provided third-party visual references; bundling does not assert ownership, an open-source license or official endorsement. No remote upload is part of this update.
+Original publication, creator and license information were not supplied or independently verified. These remain user-provided third-party visual references; bundling does not assert ownership, an open-source license or official endorsement.
