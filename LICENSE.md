@@ -24,7 +24,7 @@ Copyright © 2026 Yotsuki2213
 
 ### 3. 第三方内容与生成作品
 
-本许可不授予 Yorushika 名称、标志、歌词、译文、线稿参考、用户输入照片或其他第三方内容的版权、商标权或再许可权。相关权利属于各自权利人，具体来源见 [NOTICE.md](NOTICE.md)。仓库收录或可下载不代表这些素材已获得自由使用或公开再分发许可。
+本许可不授予 Yorushika 名称、标志、歌词、译文、线稿参考、用户输入照片或其他第三方内容的版权、商标权或再许可权。相关权利属于各自权利人，具体来源见各技能 assets 目录中的 `SOURCES.md`。仓库收录或可下载不代表这些素材已获得自由使用或公开再分发许可。
 
 以上使用与发布条件不构成仓库作者对用户输入或生成作品的所有权主张，也不保证任何生成作品的权利状态、可发表性或准确性。使用者需核对所用素材、图像服务条款及相应发布要求。
 
@@ -52,7 +52,7 @@ Retain applicable original-creator, translator and source credits for third-part
 
 ### 3. Third-party content and generated works
 
-This license grants no copyright, trademark or sublicensing rights in the Yorushika name, logos, lyrics, translations, figure references, user photographs or other third-party material. Those rights remain with their respective owners; see [NOTICE.md](NOTICE.md). Inclusion or download availability does not establish permission for unrestricted use or public redistribution.
+This license grants no copyright, trademark or sublicensing rights in the Yorushika name, logos, lyrics, translations, figure references, user photographs or other third-party material. Those rights remain with their respective owners; see the `assets/SOURCES.md` records inside each skill. Inclusion or download availability does not establish permission for unrestricted use or public redistribution.
 
 These use and posting conditions do not assert repository-author ownership of user inputs or generated works, nor guarantee their rights status, publishability or accuracy. Users must check source permissions, image-service terms and applicable publication requirements.
 

@@ -1,6 +1,6 @@
 ---
 name: yorushika-postcard-scenes
-description: "Create a landscape 4:3 Yorushika postcard from a photo or an existing MV artwork. Preserve the MV scene on lightly aged, source-colored paper; use a top-image layout for landscape artwork or a left-image/right-text layout for portrait artwork. Analyze the MV first, then select Japanese/Chinese lyric pairs and the original song title from the user's geci.md before generation."
+description: "Create a landscape 4:3 Yorushika postcard from a photo or an existing MV artwork. Preserve the MV scene on lightly aged, source-colored paper; use a top-image layout for landscape artwork or a left-image/right-text layout for portrait artwork. Analyze the MV first, then select Japanese/Chinese lyric pairs and the original song title from the user's opus.md before generation."
 ---
 
 # Yorushika Postcard Scenes
@@ -32,7 +32,7 @@ Record the real MV file and its EXIF-oriented dimensions `w × h`; do not overwr
 
 Analyze the actual MV artwork that will be embedded, not just the original photo: visible elements, subjects, spatial relationships, eye path, quiet areas, movement, light/color and evidence-based emotion. Separate observed features from interpretation.
 
-For `lyrics=auto`, follow [lyric selection](references/lyric-selection.md) and search the bundled [geci.md](references/geci.md). Select one song entry's Japanese/Chinese pairs and its original title, considering composition and emotional fit as well as visible motifs. This reference owns pair counting, source fidelity, missing-pair handling and attribution extraction.
+For `lyrics=auto`, follow [lyric selection](references/lyric-selection.md) and search the bundled [opus.md](references/opus.md). Select one song entry's Japanese/Chinese pairs and its original title, considering composition and emotional fit as well as visible motifs. This reference owns pair counting, source fidelity, missing-pair handling and attribution extraction.
 
 Before calling ImageGen for the postcard, record the scene analysis, orientation/layout, selected pair count, exact Japanese and Chinese strings with source line numbers, song/translator metadata, matching reason, layout line breaks and complete `——original song title` string. Read [art direction](references/postcard-art-direction.md) to ensure the chosen excerpt fits. If fit requires reselection, verify the new excerpt before compiling.
 

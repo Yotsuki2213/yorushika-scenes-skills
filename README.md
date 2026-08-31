@@ -10,7 +10,7 @@
 
 这里装着两枚送给风景的 Codex Skill：**一枚把照片变成带有 Yorushika MV 气息的画面，一枚把画面印成有日中歌词的明信片。**
 
-灵感来自 [geci.md](skills/yorushika-postcard-scenes/references/geci.md) 里反复出现的蓝、风、树荫、花、旅途与记忆，也来自 2022 年之前 Yorushika MV 的手绘与材质语言。像《藍二乗》的墨色、《花に亡霊》的夏日记忆、《夜行》的出发，以及《春泥棒》里流动的季节——这里的介绍文案是原创，不是歌词摘录。
+灵感来自 [opus.md](skills/yorushika-postcard-scenes/references/opus.md) 里反复出现的蓝、风、树荫、花、旅途与记忆，也来自 2022 年之前 Yorushika MV 的手绘与材质语言。像《藍二乗》的墨色、《花に亡霊》的夏日记忆、《夜行》的出发，以及《春泥棒》里流动的季节——这里的介绍文案是原创，不是歌词摘录。
 
 你带来街角、河岸、旧屋和黄昏；剩下的，交给白色线条与一点纸上的风。🦌
 
@@ -87,7 +87,7 @@ MV 技能会先看懂这张照片：道路通向哪里，树影落在哪边，�
 ```text
 用 $yorushika-postcard-scenes 把这张图片做成明信片。
 纸色取自画面，轻微做旧。
-先分析真实 MV 图，再从 geci.md 匹配并核对日中歌词与原歌名，
+先分析真实 MV 图，再从 opus.md 匹配并核对日中歌词与原歌名，
 按图片横竖方向排版，核对完成后直接生成。
 ```
 
@@ -114,7 +114,7 @@ MV 技能会先看懂这张照片：道路通向哪里，树影落在哪边，�
 ——日语原歌名
 ```
 
-以上是排版示意，不是待生成的实际文案。真正的文字来自同一曲目、同一条目的 [geci.md](skills/yorushika-postcard-scenes/references/geci.md)：保留原词、标点与日中配对，不拼接不同译本。助手核对完成后再交给图像工具排版，默认不额外等待确认；想先看配文，只要说“先给我看歌词”。
+以上是排版示意，不是待生成的实际文案。真正的文字来自同一曲目、同一条目的 [opus.md](skills/yorushika-postcard-scenes/references/opus.md)：保留原词、标点与日中配对，不拼接不同译本。助手核对完成后再交给图像工具排版，默认不额外等待确认；想先看配文，只要说“先给我看歌词”。
 
 明信片会保留 MV 中的白色排线、匿名头部和场景关系，让纸张有岁月感，也让风景仍然是主角。
 
@@ -149,7 +149,7 @@ MV 技能会先看懂这张照片：道路通向哪里，树影落在哪边，�
 ```text
 yorushika-scenes-skills/
 ├── README.md / README.en.md       两种语言的入口
-├── LICENSE.md / NOTICE.md         使用条件与素材来源
+├── LICENSE.md                     使用条件
 ├── examples/                     调用与验收示例
 ├── assets/brand/README.md         素材索引
 └── skills/
@@ -159,13 +159,13 @@ yorushika-scenes-skills/
     │   └── assets/line-figures/   三张线稿参考
     └── yorushika-postcard-scenes/ 纸张、横竖布局与双语选句
         ├── SKILL.md / agents/
-        ├── references/           含 geci.md
+        ├── references/           含 opus.md
         └── assets/               黑白 logo、SVG 与来源记录
 ```
 
 歌词库用于当前选句；历史日语表达分析与 MV 研究笔记各自保留。运行素材就在各自技能里，私人研究截图、其他项目照片与生成结果不随仓库分发。
 
-维护时同步入口与参考文件，保留有意区分的研究记录；上传前检查两份技能结构、相对引用、素材和 Git 差异。目录组织参考 [gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill)，相关致谢见 [NOTICE.md](NOTICE.md)。
+维护时同步入口与参考文件，保留有意区分的研究记录；上传前检查两份技能结构、相对引用、素材和 Git 差异。目录组织参考 [gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill)。
 
 ## 带走风景，也请留下署名 🦌
 
@@ -176,7 +176,7 @@ yorushika-scenes-skills/
 - 使用第三方照片、歌词、译文或标志时，也应保留相应原作者／译者的署名，并确认必要的使用与发布权限。**署名不替代授权。**
 - 本项目为非官方同好创作，不代表 Yorushika、相关创作者或唱片公司。个人非商业许可仅涵盖仓库作者有权许可的原创内容，不重新授权歌词、logo 或线稿参考。
 
-完整条件见 [LICENSE.md](LICENSE.md)，第三方素材来源见 [NOTICE.md](NOTICE.md)。
+完整条件见 [LICENSE.md](LICENSE.md)，第三方素材来源见各技能 assets 目录中的 `SOURCES.md`。
 
 ---
 

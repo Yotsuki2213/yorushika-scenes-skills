@@ -10,7 +10,7 @@
 
 Two companion Codex skills: **one turns a photograph into a source-aware scene with a Yorushika MV atmosphere; the other sets that scene on tactile paper with Japanese/Chinese lyric pairs.**
 
-The creative direction draws on blue, wind, shade, flowers, journeys and memory in [geci.md](skills/yorushika-postcard-scenes/references/geci.md), alongside the handmade visual language of pre-2022 Yorushika MVs. Think of the ink in *藍二乗*, the summer memories of *花に亡霊*, the departure in *夜行* and the passing season in *春泥棒*. The introductory prose here is original, not a lyric quotation.
+The creative direction draws on blue, wind, shade, flowers, journeys and memory in [opus.md](skills/yorushika-postcard-scenes/references/opus.md), alongside the handmade visual language of pre-2022 Yorushika MVs. Think of the ink in *藍二乗*, the summer memories of *花に亡霊*, the departure in *夜行* and the passing season in *春泥棒*. The introductory prose here is original, not a lyric quotation.
 
 Bring a street corner, a riverbank, an old house or the last light of an afternoon. Leave a little room for white lines and paper. 🦌
 
@@ -91,7 +91,7 @@ Attach a photo or an existing MV artwork:
 Use $yorushika-postcard-scenes to make a postcard from this image.
 Choose lightly aged paper from the scene's colors.
 Analyze the actual MV artwork, then select and verify matching
-Japanese/Chinese lyric pairs and the original song title from geci.md.
+Japanese/Chinese lyric pairs and the original song title from opus.md.
 Use the orientation-based layout and generate after verification.
 ```
 
@@ -118,7 +118,7 @@ Corresponding Chinese translation
 ——Original Japanese song title
 ```
 
-This is a layout diagram, not text to render literally. Actual text comes from one song entry in [geci.md](skills/yorushika-postcard-scenes/references/geci.md), retaining wording, punctuation and paired translations without mixing versions. The assistant verifies the selection before passing fixed text to ImageGen. It proceeds directly unless you ask to preview the wording first.
+This is a layout diagram, not text to render literally. Actual text comes from one song entry in [opus.md](skills/yorushika-postcard-scenes/references/opus.md), retaining wording, punctuation and paired translations without mixing versions. The assistant verifies the selection before passing fixed text to ImageGen. It proceeds directly unless you ask to preview the wording first.
 
 The postcard retains the MV's white hatching, anonymous heads and spatial relationships. Let the paper age a little; keep the scene alive.
 
@@ -153,7 +153,7 @@ Inspect real dimensions, composition, human treatment, white strokes, logo and l
 ```text
 yorushika-scenes-skills/
 ├── README.md / README.en.md       Two language editions
-├── LICENSE.md / NOTICE.md         Use terms and provenance
+├── LICENSE.md                     Use terms
 ├── examples/                     Invocation and acceptance guides
 ├── assets/brand/README.md         Asset index
 └── skills/
@@ -163,13 +163,13 @@ yorushika-scenes-skills/
     │   └── assets/line-figures/   Three figure references
     └── yorushika-postcard-scenes/ Paper, layouts and bilingual selection
         ├── SKILL.md / agents/
-        ├── references/           Includes geci.md
+        ├── references/           Includes opus.md
         └── assets/               Black/white logos, SVG and provenance
 ```
 
 The lyric corpus supplies current selections; historical Japanese analysis and MV research notes remain separate. Runtime assets live inside their own skills. Private research screenshots, other project photos and generated outputs are not distributed.
 
-Maintain entrypoints and references together, preserve intentional research-note differences, and check skill structure, relative links, assets and Git changes before publishing updates. Directory organization draws on [gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill); see [NOTICE.md](NOTICE.md) for acknowledgments.
+Maintain entrypoints and references together, preserve intentional research-note differences, and check skill structure, relative links, assets and Git changes before publishing updates. Directory organization draws on [gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill).
 
 ## Take the scenery; leave a credit 🦌
 
@@ -180,7 +180,7 @@ Maintain entrypoints and references together, preserve intentional research-note
 - Retain relevant photographer, lyricist, translator and other third-party credits, and obtain necessary use/publication permissions. **Attribution is not permission.**
 - This is an unofficial fan project, not a Yorushika, creator or label endorsement. The personal non-commercial license covers only original material the repository author is entitled to license; it does not relicense lyrics, logos or figure references.
 
-Full terms: [LICENSE.md](LICENSE.md). Third-party provenance: [NOTICE.md](NOTICE.md).
+Full terms: [LICENSE.md](LICENSE.md). Third-party provenance is recorded in each skill's `assets/SOURCES.md`.
 
 ---
 

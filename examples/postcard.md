@@ -68,7 +68,7 @@ input=mv paper=auto age=light signature=auto lyrics=auto
 ```text
 Use $yorushika-postcard-scenes with this portrait MV artwork.
 Analyze its visible elements, composition and mood, then verify
-4 Japanese/Chinese lyric pairs from one geci.md song entry.
+4 Japanese/Chinese lyric pairs from one opus.md song entry.
 Keep the complete image on the left, the logo above the lyrics
 on the right, Japanese above Chinese per pair, and
 ——original song title on the final line.
