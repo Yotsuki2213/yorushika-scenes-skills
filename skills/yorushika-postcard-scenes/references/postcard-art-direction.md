@@ -2,6 +2,14 @@
 
 The card should feel like a printed memory of the finished MV scene. Start from its light, found colors, edge materials and emotional tension. The whole output is the postcard front, shown flat and filling the canvas.
 
+## Fixed scene and broader editable boundary
+
+The saved MV is fixed scene artwork, not a prompt to recreate a similar scene. This stage performs peripheral blending and postcard layout only. Do not reapply the MV skill's style intensity or human treatment, add a missing figure, turn an existing head, repaint a head cover or repair a perceived scene defect.
+
+Before generation, name one `blend_band` roughly 1–4% of the shorter artwork side. It may occupy broad or continuous portions of the perimeter rather than isolated tiny segments, and may soften low-priority edge texture through opacity fade, ink bleed, paper fade, dry-brush gaps and matched grain. Preserve the center, semantic minimum, viewpoint and major geometry.
+
+Also name `protected_action_zones`: every line figure or photographic subject, full body/limb silhouette, shoulder/neck turn, weight-bearing foot or seated support, hand/railing contact, occlusion that establishes the pose, white body hatching, full-head scribble and source text. Do not fade, shift, crop, repaint or dissolve these zones. If one meets an edge, carry the blend outward onto paper or interrupt the blend locally. The figure's readable action takes priority over transition continuity. A requested MV revision must finish as a separate upstream result before postcard layout resumes.
+
 ## Picture, paper and orientation
 
 Use the saved MV artwork's actual EXIF-oriented dimensions `w × h`. Preserve its complete composition, aspect and native pixel extent at `artwork_scale=1`. The outer card remains landscape 4:3. Orientation, not exact ratio equality, selects the default layout:
@@ -81,11 +89,11 @@ Choose one primary transition and at most one supporting print treatment:
 
 - **Ink bleed:** let existing watercolor or ink at selected picture edges seep a short distance into the same paper fibers.
 - **Paper fade:** gently lower density only in peripheral low-detail areas so paper tone shows through; maintain the center, meaningful silhouettes and source text.
-- **Imperfect print edge:** use a narrow, irregular density falloff and a few dry-brush gaps, with shared grain across the boundary.
+- **Imperfect print edge:** use an irregular density falloff and a few dry-brush gaps across the resolved blend band, with matching grain on the adjacent paper.
 
-A starting blend band is roughly 1–4% of the shorter artwork side; adjust to actual edge detail. Use outer paper for most spill. If an important object touches an edge, keep that edge legible and blend elsewhere. Never sacrifice the semantic minimum to make a soft boundary. Avoid an even blurred halo.
+A starting blend band is roughly 1–4% of the shorter artwork side. Use enough of that band to make the picture and paper visibly interpenetrate, including continuous treatment where the perimeter permits, and use outer paper for additional spill. Reduce or interrupt the band only around protected action zones, source text and indispensable edge anchors. Never sacrifice the line figure's pose, contact, white strokes or the semantic minimum to make a soft boundary. Avoid an even blurred halo.
 
-Carry existing MV washes outward instead of adding a competing wash. If the MV already has paper-like or dissolving edges, reuse those cues and match their stock tone. Show continuous print absorption across picture and paper so the photograph feels part of the card surface.
+Carry existing MV washes outward instead of adding a competing wash. If the MV already has paper-like or dissolving edges, reuse those cues and match their stock tone. Match the outer paper's absorption to the existing MV edge so both feel continuous. Changes inside the MV stop at the resolved peripheral band; do not regenerate the center or alter protected action zones to achieve that match.
 
 Keep the final piece flat. Dimensional picture frames, cast-shadow photo mounts and desk mockups change the object being designed. Do not add postcard-back address rules, recipient details or postal claims to the front. Stamps, seals or dates are optional only when requested or factually supplied.
 
@@ -95,7 +103,7 @@ Keep the final piece flat. Dimensional picture frames, cast-shadow photo mounts 
 
 `age=none` uses fresh printed paper with natural grain. `age=moderate` may increase edge patina and local density variation while keeping the scene and lettering clear.
 
-Apply age chiefly to paper and the image boundary. Preserve the source's weather and lighting, retain meaningful saturated colors, and keep the figure/head-cover strokes pure white rather than staining them sepia. Preserve body hatching gaps and the density of head scribbles; do not reveal covered head details. Avoid heavy scratches, dirt, large tears, deep creases or global yellowing unless explicitly requested.
+Apply age chiefly to the added paper and resolved peripheral blend band. Keep the center and every protected action zone free of new aging. Preserve the source's weather and lighting, retain meaningful saturated colors, and keep the figure/head-cover strokes pure white rather than staining them sepia. Preserve body hatching gaps and the density of head scribbles; do not reveal covered head details. Avoid heavy scratches, dirt, large tears, deep creases or global yellowing unless explicitly requested.
 
 ## Signature, bilingual lyrics and original song title
 
@@ -113,7 +121,7 @@ Apply `signature=none` by omitting the signature without adding a placeholder. `
 
 At normal viewing size:
 
-- The MV scene is immediately recognizable and remains the focus.
+- Compared with the real MV input, the center, semantic anchors and all protected action zones are preserved; a visibly broader but controlled 1–4% peripheral band blends into outer paper.
 - Its inherited figure or head-cover treatment, ink field and controlled fracture retain their hierarchy, with protected bodies and dense anonymous head marks intact.
 - Paper and picture feel like one printed surface, with legible source edges where needed.
 - Color and patina suit the scene, and the paper reads as intentional postcard stock.

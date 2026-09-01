@@ -11,7 +11,7 @@ source_orientation: landscape / portrait / square, from EXIF-oriented source dim
 target_aspect: approximately landscape 16:9 / portrait 3:4; square defaults to approximately landscape 16:9; framing preference, not exact pixel equality
 human_subject_present: true / false, judged by composition and narrative role rather than incidental passers-by
 human_treatment: add-white-protagonist / cover-existing-heads / user-override
-human_subject_details: primary subjects' positions, actions, protected bodies, visible head regions; proposed action/contact if adding
+human_subject_details: primary subjects' positions, actions, protected bodies, entire visible head regions; if adding, back-facing torso, natural over-shoulder look back, weight-bearing support, action/contact and occlusion
 core_subjects: 1–2 forms that make this specific scene identifiable
 supporting_elements: 2–3 forms that establish place, time, or atmosphere
 spatial_invariants: horizon, shoreline, vanishing line, relative positions, scale, overlap, facing direction
@@ -59,7 +59,7 @@ After the Scene Card is complete, translate the image in this order:
 
 1. Keep the source-derived axis or gesture as the compositional spine.
 2. Place one primary graphic event on that spine: a contour break, wash, or displaced edge.
-3. Apply the resolved human branch: add one legible **pure-white** sketched protagonist if no human subject exists, choosing action, scale and contact from the scene; otherwise preserve existing subjects' bodies and obscure their visible heads with dense white hatching and horizontal scribbles. A head outside the frame is not added. The branch is common to all routes, not conditional on whether a decorative figure would suit the style.
+3. Apply the resolved human branch: add one legible **pure-white** sketched protagonist if no human subject exists, with a back-facing torso and natural over-shoulder look back, choosing stable action, scale and contact from the scene; otherwise preserve existing subjects' bodies/poses and obscure their entire visible heads with dense white hatching and horizontal scribbles. A head outside the frame is not added. The branch is common to all routes, not conditional on whether a decorative figure would suit the style.
 4. Use the quiet area for breathing room or a single micro-text element only if text is requested.
 5. Let the eye exit through an unfinished contour, fading wash, or unprinted quiet field.
 
@@ -70,7 +70,7 @@ When `style_intensity=strong`, use a hierarchy rather than a pile of effects:
 ### Primary: line-drawn presence
 
 - the resolved human branch in uneven **white-only** ink/pencil/chalk strokes;
-- for a new protagonist: readable gesture, incomplete contours and hatching with gaps, scene-derived scale and physical support;
+- for a new protagonist: a back-facing torso and natural over-shoulder look back, believable joints and support, slightly abstract scrawled contours and hatching with body gaps, scene-derived scale, and dense coverage of the entire visible head;
 - for existing subjects: protected body anchors and dense local head scribbles; maintain the head's general scale without showing identity;
 - connect the treatment to the source-derived axis and eye path while keeping environmental anchors legible.
 

@@ -36,7 +36,7 @@ input=mv paper=auto age=light signature=auto lyrics=auto
 先给我看画面分析、选好的日中歌词和原歌名，等我确认再生成明信片。
 ```
 
-关闭歌词与歌曲出处使用 `lyrics=none`（兼容 `poem=none`）；关闭 logo 使用 `signature=none`。一般“不新增文字”请求关闭两者。已有 MV 文件直接复用，保留其原生招牌和既有微文案，不为明信片重新生成场景。
+关闭歌词与歌曲出处使用 `lyrics=none`（兼容 `poem=none`）；关闭 logo 使用 `signature=none`。一般“不新增文字”请求关闭两者。已有 MV 文件直接复用，不为明信片重新生成场景。此阶段允许约占图片短边 1–4% 的外围以淡化、渗墨、干刷和纸纹明显溶入纸面；不补人物、不调整动作、不修补头部涂抹，并完整保护人物轮廓、四肢、承重、接触关系与白线。
 
 ## 检查与情境推演
 
@@ -45,6 +45,9 @@ input=mv paper=auto age=light signature=auto lyrics=auto
 | 横图、近似16:9、正方形 | 上方居中图片，下方固定2组日中对照与原歌名 |
 | 竖图、近似3:4、其他竖向比例 | 左图、右上 logo、右下4组歌词和歌名 |
 | EXIF 旋转 | 以实际显示方向分流，原文件不改动 |
+| MV 无人物或人物姿态不同于新版默认 | 原样保留，不在明信片阶段补人或改成背身回头 |
+| MV 头部覆盖不足或存在其他场景问题 | 不在排版时修图；如实说明，明确要求修订时先独立完成新 MV |
+| 线稿人物、白线或文字碰到边缘 | 溶图绕开该保护区或只向外纸面晕染，动作与白线不能减弱 |
 | 明确指定句数 | `lyric_lines` 优先于默认4组 |
 | 单独覆盖版式 | 改变摆放，组数默认仍按实际 MV 方向 |
 | 双语长句 | 同组数换短片段或调整/扩大纸面，重新核对；不缩小或裁切 MV |
@@ -57,7 +60,8 @@ input=mv paper=auto age=light signature=auto lyrics=auto
 实际出图后检查：
 
 - 明信片为横向4:3：`3 × width == 4 × height`；`artwork_scale=1` 对照真实 MV 文件检查，无法证明时标记未验证。
-- 图片完整，布局分支正确；纸色、边缘融合、人物白线和密集头部覆盖保留。
+- 图片完整，布局分支正确；约占图片短边 1–4% 的外围溶图清楚可见，可沿安全边缘连续展开，中心与场景锚点仍可辨认。
+- 人物轮廓、四肢关系、颈肩回头、承重点、接触/遮挡、身体排线和头部白线逐项保留；任一动作读不清都算失败。
 - 两种语言逐字对照，日上中下配对正确，组数与排版折行数分开。
 - 最后一行保留 `——` 与所选条目的原歌名，不误用专辑名或译者。
 - 字符、标点、logo、间距清楚，文字不盖图、不越界；译者和匹配理由放项目记录与交付说明。
@@ -69,6 +73,8 @@ input=mv paper=auto age=light signature=auto lyrics=auto
 Use $yorushika-postcard-scenes with this portrait MV artwork.
 Analyze its visible elements, composition and mood, then verify
 4 Japanese/Chinese lyric pairs from one opus.md song entry.
+Blend a visible 1–4% peripheral band into the added paper while
+preserving every figure's pose, support, contact and white strokes.
 Keep the complete image on the left, the logo above the lyrics
 on the right, Japanese above Chinese per pair, and
 ——original song title on the final line.

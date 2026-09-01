@@ -1,6 +1,6 @@
 ---
 name: yorushika-mv-scenes
-description: "Transform one user-supplied image into a source-aware pre-2022 Yorushika MV scene: approximately landscape 16:9 or portrait 3:4 according to input orientation. Preserve composition and texture, add a white sketched human protagonist when no human subject exists, or obscure existing subjects' heads with white hatching. Apply ink/watercolor and controlled distortion through graphic-soliloquy, sunlit-memory, nocturnal-material, or fusion."
+description: "Transform one user-supplied image into a source-aware pre-2022 Yorushika MV scene: approximately landscape 16:9 or portrait 3:4 according to input orientation. Preserve composition and texture, add a loosely sketched white protagonist facing away and looking back when no human subject exists, or cover existing subjects' entire visible heads with white hatching. Apply ink/watercolor and controlled distortion through graphic-soliloquy, sunlit-memory, nocturnal-material, or fusion."
 ---
 
 # Yorushika MV Scenes
@@ -11,7 +11,7 @@ Use this skill with one user-supplied scene image. If none is identifiable, ask 
 
 - Defaults: `transform_mode=preserve-edit`, `preserve_strength=balanced`, `style_intensity=strong`, `mode=auto`, `text=auto`, `aspect=auto`, `identity=scene-only`. Keep the existing `strict|balanced|loose` preservation, `restrained|strong|expressive` intensity, and explicit route controls. Use `redraw` only when explicitly requested.
 - Resolve output from the source's EXIF-oriented dimensions: landscape → **approximately 16:9**, portrait → **approximately 3:4**, square → **approximately 16:9** by default. These are framing preferences, not exact pixel-ratio requirements. A later explicit user framing request takes precedence.
-- Resolve human treatment before style: no human subject → add one white sketched human protagonist; existing human subject(s) → preserve their bodies and cover visible heads with dense white hand-drawn hatching/scribbles. These branches apply to every route and both transform modes. Explicit user instructions override defaults.
+- Resolve human treatment before style: no human subject → add one loosely scrawled white protagonist with a back-facing torso and natural over-shoulder look back; existing human subject(s) → preserve their bodies/poses and cover entire visible heads with dense white hand-drawn hatching/scribbles. These branches apply to every route and both transform modes. Explicit user instructions override defaults.
 - Output one raster image using built-in `image_gen`, inspect it, and return the image with a compact result record and absolute saved path. Keep the full production prompt internal unless requested.
 - Historical MV research screenshots are analysis material only. The separately bundled [line-figure references](references/human-treatment.md) may be used as labeled supporting style inputs, never as the scene edit target.
 
@@ -38,9 +38,9 @@ Use the detailed branch decisions and reference selection in [human-treatment.md
 
 Judge a **human subject** by composition, readable action and narrative role; incidental background passers-by alone do not satisfy this condition. An existing drawn human subject also counts.
 
-- **No human subject:** add one legible human protagonist in pure-white irregular contour and hatching. Choose scale from perspective and visual hierarchy, not a fixed tiny size. Give it an action, facing direction and physical contact appropriate to a road, shore, step, railing, seat or other visible scene support. Preserve source objects and depth.
-- **Human subject present:** retain the body, clothing, gesture, relative scale and placement. Cover each visible primary subject's head with dense white hand-drawn hatching and predominantly horizontal scribble strokes, obscuring the original identity-bearing head detail. Keep coverage local and proportionate. Do not add another protagonist by default.
-- Keep transparent gaps between the new figure's body strokes; dense head coverage is allowed. A newly drawn head also uses anonymous scribble treatment. If an existing subject's head is outside the frame, do not invent one.
+- **No human subject:** add one legible human protagonist in pure-white irregular contour and hatching. Choose scale from perspective and visual hierarchy, not a fixed tiny size. Default to a torso facing away from the camera and a natural look back over one shoulder, grounded in a plausible walking, sitting or standing action on visible scene support. Keep joint connections, weight-bearing balance and contact believable; abstract the strokes, not the body's physical logic. Preserve source objects and depth.
+- **Human subject present:** retain the body, clothing, gesture, relative scale and placement. Cover each visible primary subject's head with dense white hand-drawn hatching and predominantly horizontal scribble strokes, covering the whole visible head, including crown, hair, face, ears and back of head, so no head detail reads through. Do not re-pose existing subjects to match the new-figure default. Keep coverage local and proportionate. Do not add another protagonist by default.
+- Keep transparent gaps between the new figure's body strokes; dense head coverage is allowed. A newly drawn head also receives full-head anonymous scribble treatment; body contours may be incomplete, abstract and loosely scrawled while remaining readable. If an existing subject's head is outside the frame, do not invent one.
 - These authorized regions remain editable under `strict`. In `redraw`, re-author the unlocked environment while keeping this human branch and protected body anchors unless the user explicitly releases them.
 
 ## Orientation and framing
@@ -94,4 +94,4 @@ For strong graphic-soliloquy, build a hierarchy of the resolved white-line human
 
 Return the image and a compact record: `transform_mode`, `preserve_strength`, `style_intensity`, route/weights, `source_orientation`, `target_aspect`, actual dimensions, `human_subject_present`, `human_treatment`, action/contact or head-coverage choice, key anchors/locks, effect zones, microcopy/gloss if any, and absolute saved path.
 
-Summarize actual checks for source retention, expression, figure prominence and grounding, body preservation, visible-head coverage, pure-white stroke visibility, overlay locality, orientation and framing, text fidelity and technical residue. Use not-applicable for an absent head or a user-overridden human treatment. Keep the full prompt and detailed notes in project files unless requested.
+Summarize actual checks for source retention, expression, figure prominence and grounding, plausible back-facing/looking-back anatomy for new figures, body preservation, entire visible-head coverage including hair and ears, pure-white stroke visibility, overlay locality, orientation and framing, text fidelity and technical residue. Use not-applicable for an absent head or a user-overridden human treatment. Keep the full prompt and detailed notes in project files unless requested.

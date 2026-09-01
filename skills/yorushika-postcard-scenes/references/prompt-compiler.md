@@ -8,7 +8,7 @@ Record these decisions before calling ImageGen for a postcard:
 
 - Actual MV path, EXIF-oriented dimensions and whether it was reused or generated.
 - Visible elements, subject positions, depth, eye path, quiet areas, motion, light/color and evidence-based emotion; distinguish observations from associations.
-- Protected anchors, existing body/white-line/head-cover treatment, ink field, fracture, source signs and microcopy.
+- `blend_band`: roughly 1–4% of the shorter MV side, allowed across broad or continuous perimeter regions for opacity fade, pigment bleed, paper fade, dry-brush gaps and matched grain; `protected_action_zones`: all people/line figures, body and limb silhouettes, shoulder/neck turn, weight-bearing and contact points, pose-defining occlusion, white body/head strokes and source text.
 - Layout (`top-image` or `left-image-right-text`), native artwork bounds and 4:3 card dimensions, paper/blend/age choices, signature asset and its bounds, text bounds and reading order.
 - For automatic text, the completed [lyric selection](lyric-selection.md): one song entry, exact paired originals/translations and both source line numbers, translator when present, matching reason, count and final layout breaks. Keep the exact original-title attribution `——original song title` in the rendering text.
 - Completion of assistant verification or, only if requested, user approval. Do not generate with unresolved source, pairing, count or attribution concerns.
@@ -19,7 +19,7 @@ Use the [art direction](postcard-art-direction.md) calculation for the resolved 
 
 Reference roles:
 
-1. **EDIT TARGET:** the actual finished MV artwork, not the unprocessed photo.
+1. **EDIT TARGET / FIXED SCENE:** the actual finished MV artwork, not the unprocessed photo or a style reference to redraw. Preserve the scene center and every protected action zone; only the resolved peripheral blend band and added paper/layout are editable.
 2. **SUPPORTING SIGNATURE ASSET:** the inspected logo PNG, only when used.
 
 Supply real image inputs using the available built-in tool's supported reference arguments. Do not pass a corpus file or candidate list as a visual reference, invent model-selection parameters, or claim a particular backend model version. A filename mentioned only in prompt prose is not an attached image.
@@ -34,20 +34,33 @@ the already finished MV artwork.
 
 The artwork is [w] by [h] pixels. Preserve its complete native-size
 extent at scale 1, at [x,y] inside a [W] by [H] pixel card. Add paper
-outside it. Keep its aspect, perspective, core object sizes and
-relative positions intact.
+outside it. Keep its aspect, perspective, every object size and
+relative position intact. Treat it as a fixed artwork layer, not
+a scene to redraw or regenerate. Postcard edits are limited to
+boundary blending, outer paper and layout.
 
 The scene shows [observed elements, composition, eye path, light
-and emotion]. Retain [anchors, white figure/local head scribbles,
-ink field, controlled fracture and source lettering]. Preserve
-body hatching gaps, pure-white marks and dense head coverage.
-Retain photographic bodies and inherited anonymous heads.
-Protect [edge subjects and existing microcopy].
+and emotion]. Retain [the actual existing anchors, figures,
+head scribbles, ink field, fracture and lettering, only if present].
+Preserve existing body hatching gaps, white marks, head coverage
+and photographic bodies exactly as they are in this MV; absent
+features remain absent and existing imperfections remain unchanged.
+Protect [protected_action_zones: every figure/body/limb silhouette,
+shoulder-neck turn, weight-bearing support, contact point,
+pose-defining occlusion, white body/head strokes and source text].
+Do not move, crop, fade, dissolve, re-pose or repaint them. Do not
+repair or reapply head coverage, add a missing figure, or restyle
+the center of the scene.
 
-Use [scene-derived paper color and reason], [aging cues] and one
-shared fiber/ink-absorption surface. Integrate [peripheral zones]
-through [selected boundary blend], preserving focal clarity.
-Keep the accepted MV treatment stable.
+Use [scene-derived paper color and reason], [aging cues] and fibers
+matching the existing print surface. Blend a visibly substantial
+but controlled peripheral band, roughly 1–4% of the artwork's
+shorter side, along [broad/continuous selected edges] through
+[opacity fade / ink bleed / paper fade / dry-brush gaps and grain].
+Allow low-priority edge texture to dissolve into paper and carry
+spill outward. Interrupt or route the blend around every protected
+action zone and source text; where they touch an edge, blend
+outward only. Do not let the transition weaken the figure's action.
 
 [Insert the selected layout module with concrete bounds.]
 
@@ -79,8 +92,9 @@ translate, rewrite or add credits. Keep text and signature outside
 the artwork with readable spacing and no clipped glyphs.
 
 Deliver one finished flat postcard filling the canvas. Limit edits
-to paper, print surface, peripheral integration and chosen typography.
-Avoid changed scene geometry, cropped source objects, extra figures,
+to added paper, named edge blending and chosen typography/layout.
+Do not redraw the MV center or modify protected action zones.
+Avoid changed scene content/geometry, cropped source objects, extra figures,
 recolored white marks, heavy distress, blurred halos, dimensional
 frames, desk mockups, duplicate signatures, UI and new watermarks.
 ```
@@ -115,13 +129,13 @@ Measure the saved file and require `3*canvas_width == 4*canvas_height`. Compare 
 Inspect in this order:
 
 1. **Layout:** the resolved branch is present. Top-image retains upper-centered artwork with lower content. Left-image-right-text has the full image on the left, signature above lyrics on the right and attribution last. Respect explicit layout and disabled-content overrides.
-2. **MV preservation:** complete composition, source lettering, depth, photographic bodies, white body hatching gaps and dense head coverage remain legible. No new figures or exposed covered heads.
+2. **MV preservation and blend:** compare the finished MV input with the placed artwork. Confirm the center, semantic anchors and every protected action zone remain intact: figure silhouette, limbs, shoulder/neck turn, weight-bearing support, contact/occlusion, white body hatching, full-head scribble and source text. Confirm the peripheral transition is visibly present and approximately 1–4% of the shorter artwork side, may run continuously where safe, and does not crop, fade, shift or weaken the figure's readable action. No scene redraw, added figure or pose/head repair.
 3. **Paper/signature:** coherent scene-derived color and age, restrained edge integration, proper logo contrast/aspect/geometry, no overlaps or clipping.
 4. **Text:** compare every Japanese and Chinese glyph, internal space and punctuation against the verified source. Check correct within-pair correspondence and Japanese-above-Chinese order, pair count independently of wrapping, and the exact two-dash prefix plus original song title on its own final line. Inspect retained signs and logo lettering too.
 5. **Legibility:** both languages and title are readable, with adequate within-/between-pair spacing, no text on the image and no column overflow. Disabled lyrics/title/signature are actually absent.
 
 Check the expected count: portrait default 4, landscape/square default 2, or explicit `lyric_lines`; lyric/count/attribution checks are not applicable when lyrics are disabled. For user-designated wording, compare against that wording and only require bilingual/title content if supplied or verified.
 
-If natural blending prevents reliable scale measurement, mark it unverified. Preserve a failed output as a draft and explain the actual concern; do not automatically regenerate, resample or silently correct it to conceal failure. Do not claim print-ready or geometrically exact output from the prompt alone.
+If natural blending prevents reliable scale or band measurement, mark it unverified. Record center/anchor preservation, protected-action integrity and blend-band extent separately as pass, concern or unverified. Any weakened figure action or changed protected stroke is a failure even if the paper transition looks successful. Preserve a failed output as a draft and explain the actual concern; do not automatically regenerate, resample or silently correct it to conceal failure. Do not claim print-ready or geometrically exact output from the prompt alone.
 
 Save using the entrypoint's workspace-root `output/`, `YYYYMMDD-标题.<ext>` convention. Keep original and intermediate files intact. Handoff: image, reused/generated MV source, layout, paper, preserved MV features, bilingual selection, original title/translator when available and matching reason, actual dimensions, saved path and material concerns.

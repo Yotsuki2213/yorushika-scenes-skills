@@ -10,22 +10,26 @@ Record:
 - `human_subject_present`: true / false
 - `human_treatment`: add-white-protagonist / cover-existing-heads / user-override
 - existing primary subjects' positions, body actions, body anchors and visible head regions
-- for addition: proposed position, action, facing direction, scale and contact/occlusion
+- for addition: proposed position, action, back-facing torso, over-shoulder head turn, weight-bearing support, scale and contact/occlusion
 - selected style reference(s), with their role separate from the source edit target
 
 ### No human subject: add-white-protagonist
 
 Add one anonymous human protagonist with uneven pure-white contours and loose hatching. It must be a readable person with an intentional action, not merely a gesture mark. Choose proportions and scale from scene perspective and emotional weight; preserve the source's principal objects and relationships.
 
-Ground the action in visible support: walk along a road, sit on an existing step, lean against a railing, pause facing water, or respond to the source's wind or light. Respect contact, gravity, perspective and foreground occlusion. If little ground is visible, use an existing seat/support or a plausible partially framed figure at a supported edge; do not float a figure in sky/water or invent a conspicuous prop. Place a figure in naturally contrasting space, or allow a bounded scene-side tonal adjustment when needed for white-line visibility.
+Compose a single believable moment: the new figure's torso is turned away from the camera, while the head turns naturally back toward the camera over one shoulder. Use shoulder line, neck attachment and head placement to communicate the turn even though the head is fully scribbled over. Allow a small coordinated upper-torso turn, not a backward-mounted face, a 180-degree neck twist or front-facing chest on a back-facing pelvis. This is one figure in one still, not a before/after sequence or duplicate silhouette.
 
-Body contours may be incomplete and crosshatched, with transparent gaps revealing the scene. Use white ink, pencil or chalk-like strokes. A visible new head carries dense anonymous white hatching and horizontal scribbles. Keep the person legible without turning it into a solid filled silhouette.
+Ground that gesture in visible support: walking away along a road while glancing back, sitting with weight on an existing step and looking back over a shoulder, or pausing by a railing with the torso facing away and the head turned back. Choose a stable support and plausible joint arrangement before stylizing: a walking step has a weight-bearing foot, sitting has a supported pelvis, and leaning has a believable hand/forearm contact. Respect gravity, balance, perspective, limb connections and foreground occlusion. If little ground is visible, use an existing seat/support or a plausible partially framed figure at a supported edge; do not float a figure in sky/water or invent a conspicuous prop. Place a figure in naturally contrasting space, or allow a bounded scene-side tonal adjustment when needed for white-line visibility.
+
+Let the figure be slightly abstract and sketchily scrawled: irregular pressure, wobbling broken contours, sparse overlapping construction lines and uneven hatching, with transparent body gaps revealing the scene. Simplify clothing and fine anatomy while keeping the torso, limbs, support and turn readable. Use pure-white ink, pencil or chalk-like strokes, not a polished cartoon or a solid filled body.
+
+Cover the entire visible new head, including crown, hair mass, face, ears and back of head, with dense irregular white hatching and horizontal scribbles. No original or newly drawn head detail may read through. Keep the cover visibly made of strokes rather than a clean outline, empty face oval, smooth white disk or rectangular censor patch; any tiny inter-stroke gaps must not expose head features.
 
 ### Existing human subject(s): cover-existing-heads
 
-Keep each primary subject's body, clothing, pose, relative size, position and contact intact. Mark visible heads as editable exceptions to preservation locks, including in `strict`. Apply dense, irregular white hand-drawn hatching with overlapping, predominantly horizontal scribble strokes across the head.
+Keep each primary subject's body, clothing, pose, relative size, position and contact intact. The back-facing/looking-back default is for newly added figures; do not rotate or re-pose an existing photographic or drawn subject to enforce it. Mark visible heads as editable exceptions to preservation locks, including in `strict`. Apply dense, irregular white hand-drawn hatching with overlapping, predominantly horizontal scribble strokes across the head.
 
-Cover the identity-bearing region sufficiently that the original face/head details no longer read through the treatment; a sparse outline around a still-visible face is insufficient. Let stroke ends extend slightly beyond the head contour when composition calls for it, but protect neck/body landmarks and adjacent important objects. Keep the overall head scale and facing gesture legible.
+Cover the entire visible head region, including crown, hair, face, ears and back of head, until none of those original details reads through; a face-only patch or sparse outline around a still-visible head is insufficient. Keep dense coverage visibly hand-scrawled with irregular white stroke ends, not a smooth fill. Let stroke ends extend slightly beyond the head contour when composition calls for it, but protect neck/body landmarks and adjacent important objects. Keep the overall head scale and facing gesture legible.
 
 Apply this to visible heads of a group of co-primary subjects, including back-facing ones. For a partially visible head, cover only its visible region and respect existing occlusion. If the head is completely outside the frame or fully hidden, record coverage as not applicable and preserve the body fragment/occluder. Do not invent a head or another person.
 
@@ -46,4 +50,4 @@ Pass the user's scene as the edit target and selected images as explicitly label
 
 ## Inspection
 
-Check branch choice, readable protagonist/action, physical contact and occlusion, body-anchor preservation, sufficient visible-head coverage, pure-white strokes and their contrast. The white-only rule applies to the new drawing and head cover, not to the source body's clothing. Dense head scribbles are allowed; body hatching should retain gaps. Explicit user instructions, including no added people, take precedence and must be reflected consistently in the branch record and prompt.
+Check branch choice; for additions, a back-facing torso with a natural over-shoulder turn, connected anatomy, weight-bearing balance, contact and occlusion, and a readable loosely scrawled silhouette; for existing subjects, unchanged body anchors and pose. Check full visible-head coverage (including hair, crown and ears), pure-white strokes and their contrast. The white-only rule applies to the new drawing and head cover, not to the source body's clothing. Dense head scribbles are allowed; body hatching should retain gaps. Explicit user instructions, including no added people, take precedence and must be reflected consistently in the branch record and prompt.

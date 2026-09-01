@@ -1,4 +1,4 @@
 interface:
   display_name: "Yorushika Postcard Scenes"
-  short_description: "将 MV 图按横竖方向排成明信片，先核对日中歌词，再呈现双语对照与原歌名"
-  default_prompt: "Use $yorushika-postcard-scenes to analyze my MV image, verify scene-matched Japanese/Chinese lyric pairs and the original song title, then create a 4:3 postcard: landscape artwork above 2 pairs, or portrait artwork on the left with the logo above 4 pairs on the right, Japanese above Chinese in each pair and ——original song title last."
+  short_description: "以较宽边缘溶图与纸面排版制作 MV 明信片，严格保护线稿人物动作与白线"
+  default_prompt: "Use $yorushika-postcard-scenes to analyze my MV image and verify scene-matched Japanese/Chinese lyrics, then blend a substantial 1–4% peripheral band into paper while preserving every figure's pose, support, contact and white strokes, and lay out a 4:3 postcard with 2 pairs for landscape or 4 for portrait plus the original song title."

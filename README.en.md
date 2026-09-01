@@ -68,7 +68,7 @@ Preserve the composition, choose graphic-soliloquy, and add no text.
 
 The skill first reads the scene: where the road leads, where shadows fall, who is waiting, and which part of the sky should remain quiet. It then preserves the main geometry, textures and light while adding white drawing, ink washes and localized print misregistration.
 
-**People belong to the story.** Without a human subject, add one readable white sketched protagonist with scene-grounded action. With existing subjects, preserve bodies, clothing, poses and positions, covering visible heads with dense white hatching. Incidental passers-by do not automatically count as subjects; off-frame heads are not invented. See [human treatment and references](skills/yorushika-mv-scenes/references/human-treatment.md).
+**People belong to the story.** Without a human subject, add one slightly abstract, loosely scrawled white protagonist facing away and looking naturally back over one shoulder, with believable joints, balance and scene contact. With existing subjects, preserve bodies, clothing, poses and positions. In both cases, dense white scribbles cover the entire visible head, including hair, ears and back of head. Incidental passers-by do not automatically count as subjects; off-frame heads are not invented. See [human treatment and references](skills/yorushika-mv-scenes/references/human-treatment.md).
 
 Choose today's atmosphere:
 
@@ -120,7 +120,7 @@ Corresponding Chinese translation
 
 This is a layout diagram, not text to render literally. Actual text comes from one song entry in [opus.md](skills/yorushika-postcard-scenes/references/opus.md), retaining wording, punctuation and paired translations without mixing versions. The assistant verifies the selection before passing fixed text to ImageGen. It proceeds directly unless you ask to preview the wording first.
 
-The postcard retains the MV's white hatching, anonymous heads and spatial relationships. Let the paper age a little; keep the scene alive.
+The postcard stage gives the finished MV a more visible paper transition: roughly 1–4% of the shorter side may fade, bleed and dry-brush continuously into the stock. Every figure silhouette, limb, support/contact point, looking-back gesture and white stroke remains protected; where a figure reaches an edge, the blend routes around it or travels outward only.
 
 ## How many words today?
 

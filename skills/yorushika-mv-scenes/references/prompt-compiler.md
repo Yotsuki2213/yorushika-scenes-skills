@@ -29,7 +29,7 @@ target_aspect: approximately 16:9 for landscape or square; approximately 3:4 for
 human_subject_present: true / false, based on compositional/narrative role, not incidental passers-by
 human_treatment: add-white-protagonist / cover-existing-heads / user-override
 human_subject_details: positions, actions, protected body anchors and visible head regions
-figure_plan: action, facing direction, scale, contact/occlusion or local head-coverage regions
+figure_plan: action, back-facing torso, natural over-shoulder head turn, weight-bearing support, scale, contact/occlusion for addition; entire visible head-coverage regions for either branch
 style_references: 1–2 inspected bundled line images when drawing is needed; separate from the scene edit target
 scene_type: exterior / interior / liminal / object-led
 preserve_anchors: 3–6 concrete elements actually visible in the source
@@ -48,7 +48,7 @@ spatial_relations: foreground, middle ground, background, horizon, window/door/r
 time_weather: observable light and atmosphere; do not invent a season unless visually supported
 dominant_geometry: horizontal bands / vanishing road / window grid / isolated object / open field
 human_presence: observed primary people or incidental background people; note visible and off-frame heads
-identity_to_obscure: visible identity-bearing head regions; preserve body/clothing unless the user requests other changes
+identity_to_obscure: entire visible heads including crown, hair, face, ears and back of head; preserve body/clothing/pose unless the user requests other changes
 incidental_to_remove: only source elements explicitly authorized for removal; do not erase background people or signs by default
 material_candidates: water, sand, hair, paper, paint, glass, dust, cloth, shadow, firelight
 emotional_tension: one concise relation such as waiting-versus-departure or brightness-versus-erasure
@@ -104,7 +104,7 @@ If the user asks to remove a watermark, place it in `remove_only` and reconstruc
 
 ### Shared human and reference block
 
-Apply [human treatment](human-treatment.md) before every route and in both templates. Background passers-by alone do not constitute a human subject. Preserve existing subject bodies, clothing and action; cover all visible primary heads locally, including back views. For fully hidden or off-frame heads, record coverage as not applicable without inventing a head or person. If no human subject exists, plan one scene-supported protagonist with a legible action and dense anonymous head scribbles.
+Apply [human treatment](human-treatment.md) before every route and in both templates. Background passers-by alone do not constitute a human subject. Preserve existing subject bodies, clothing and action; cover all visible primary heads locally, including back views. For fully hidden or off-frame heads, record coverage as not applicable without inventing a head or person. If no human subject exists, plan one scene-supported protagonist with a back-facing torso and a natural look back over one shoulder in a single still. Verify connected joints, a plausible neck/shoulder turn, balance, weight-bearing support and occlusion before adding slightly abstract scrawled body lines. Cover the entire visible head, including crown, hair, face, ears and back of head; no features may read through. Preserve existing subjects' poses instead of imposing the new-figure turn on them.
 
 When drawing is needed, inspect and attach 1–2 relevant bundled line references. Clearly label the user's scene as EDIT TARGET and the others as SUPPORTING LINE STYLE ONLY. Use the actual image-attachment mechanism, not filenames in prompt prose alone. Extract hand-drawn wobble, white contour/hatching, body gaps and head scribble density. Do not import backgrounds, large white preparation masks, exact poses or props. If unavailable, disclose the missing references and use the written grammar.
 
@@ -299,8 +299,8 @@ Material event:
 Keep [principal source material] readable as the emotional material event. Let [one route accent] interact with it without replacing its texture. Support it only with [one secondary texture].
 
 Human treatment:
-[No human subject: add one readable pure-white sketched protagonist at [position/scale], [action/facing], supported by [contact and occlusion]. Draw irregular contours and body hatching with transparent gaps, and obscure the new head with dense white scribbles.]
-[Existing human subject(s): keep [bodies/clothing/poses/positions/scales] intact. Cover [each visible primary head region] with dense irregular white hatching and mostly horizontal scribbles until original identity-bearing head details cannot read through. Preserve nearby neck/body landmarks. Do not add another person. Hidden/off-frame heads remain hidden/off-frame.]
+[No human subject: add one readable pure-white sketched protagonist at [position/scale], torso facing away from the camera and head turning naturally back over one shoulder during [scene-supported action]. Keep [weight-bearing support, connected joints, neck/shoulder turn, contact and occlusion] physically believable. Use slightly abstract, loosely scrawled broken contours and uneven body hatching with transparent gaps. Cover the ENTIRE visible head, including crown, hair, face, ears and back of head, with dense irregular white hatching and horizontal scribbles; no head features read through. One person in one moment, no duplicate pose or impossible neck twist.]
+[Existing human subject(s): keep [bodies/clothing/poses/positions/scales] intact. Cover [each entire visible primary head region, including crown, hair, face, ears and back of head] with dense irregular white hatching and mostly horizontal scribbles until none of the original head details can read through. Keep the existing pose and head placement; do not impose a back-facing/looking-back pose on an existing subject. Preserve nearby neck/body landmarks. Do not add another person. Hidden/off-frame heads remain hidden/off-frame.]
 [Explicit human override: apply the user's instruction consistently.]
 Compile only the applicable branch; retain pure-white stroke contrast and a scene-grounded eye path.
 
@@ -356,7 +356,7 @@ Material event:
 Make [principal material] the single emotional material event: [behavior in the scene]. Support it only with [one secondary texture].
 
 Human treatment:
-[Compile the same resolved human branch as the preserve-edit template: one white sketched protagonist with action/scale/contact and anonymous scribbled head, or protected existing bodies with dense white coverage on each visible primary head. Off-frame/hidden heads stay so; existing-subject treatment adds no extra person. Apply explicit user overrides when present.] Retain pure-white drawing strokes, transparent body gaps and sufficient head coverage.
+[Compile the same resolved human branch as the preserve-edit template: one slightly abstract scrawled white protagonist, torso away from the camera with a natural over-shoulder look back, plausible joints/balance/support/contact and fully scribbled head; or protected existing bodies/poses with dense white coverage on each entire visible primary head. Cover crown, hair, face, ears and back of head without visible features. Off-frame/hidden heads stay so; existing-subject treatment adds no extra person or pose change. Apply explicit user overrides when present.] Retain pure-white strokes, transparent body gaps and full visible-head coverage.
 
 Typography:
 Place the single original Japanese phrase “[microcopy]” once in [negative-space location], using [thin Mincho-like / restrained handwritten] glyphs in [color/contrast], approximately [size relationship]. Correct Japanese characters, no other words, no credits, no lyrics, no logo treatment.
@@ -418,9 +418,10 @@ unchanged-anchor integrity: pass / concern
 Yorushika style strength: pass / concern
 style-stack hierarchy (line figure / ink-watercolor / broken distortion): pass / concern
 human branch selection: pass / concern
-protagonist legibility, action and grounding: pass / concern / not applicable
+protagonist legibility, scrawled abstraction, back-facing torso and natural look back: pass / concern / not applicable
+joint/neck plausibility, balance, weight-bearing support and occlusion: pass / concern / not applicable
 existing body/clothing/pose preservation: pass / concern / not applicable
-visible-head coverage: pass / concern / not applicable
+entire visible-head coverage (crown, hair, face, ears and back of head): pass / concern / not applicable
 white-line integrity and contrast: pass / concern / not applicable
 graphic-overlay locality: pass / concern / not applicable
 distortion alignment with source geometry: pass / concern / not applicable
