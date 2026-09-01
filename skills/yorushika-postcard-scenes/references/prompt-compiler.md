@@ -121,21 +121,3 @@ translation. Put the exact original-song attribution on a separate
 final line beneath the last pair. Preserve clear pair spacing,
 column margins and separation from the image.
 ```
-
-## Inspect the actual output
-
-Measure the saved file and require `3*canvas_width == 4*canvas_height`. Compare native artwork size and anchors with the actual MV input, not the original photo; verify `artwork_scale=1` from measurable bounds/anchor positions. Prompt values alone prove neither geometry nor preservation.
-
-Inspect in this order:
-
-1. **Layout:** the resolved branch is present. Top-image retains upper-centered artwork with lower content. Left-image-right-text has the full image on the left, signature above lyrics on the right and attribution last. Respect explicit layout and disabled-content overrides.
-2. **MV preservation and blend:** compare the finished MV input with the placed artwork. Confirm the center, semantic anchors and every protected action zone remain intact: figure silhouette, limbs, shoulder/neck turn, weight-bearing support, contact/occlusion, white body hatching, full-head scribble and source text. Confirm the peripheral transition is visibly present and approximately 1–4% of the shorter artwork side, may run continuously where safe, and does not crop, fade, shift or weaken the figure's readable action. No scene redraw, added figure or pose/head repair.
-3. **Paper/signature:** coherent scene-derived color and age, restrained edge integration, proper logo contrast/aspect/geometry, no overlaps or clipping.
-4. **Text:** compare every Japanese and Chinese glyph, internal space and punctuation against the verified source. Check correct within-pair correspondence and Japanese-above-Chinese order, pair count independently of wrapping, and the exact two-dash prefix plus original song title on its own final line. Inspect retained signs and logo lettering too.
-5. **Legibility:** both languages and title are readable, with adequate within-/between-pair spacing, no text on the image and no column overflow. Disabled lyrics/title/signature are actually absent.
-
-Check the expected count: portrait default 4, landscape/square default 2, or explicit `lyric_lines`; lyric/count/attribution checks are not applicable when lyrics are disabled. For user-designated wording, compare against that wording and only require bilingual/title content if supplied or verified.
-
-If natural blending prevents reliable scale or band measurement, mark it unverified. Record center/anchor preservation, protected-action integrity and blend-band extent separately as pass, concern or unverified. Any weakened figure action or changed protected stroke is a failure even if the paper transition looks successful. Preserve a failed output as a draft and explain the actual concern; do not automatically regenerate, resample or silently correct it to conceal failure. Do not claim print-ready or geometrically exact output from the prompt alone.
-
-Save using the entrypoint's workspace-root `output/`, `YYYYMMDD-标题.<ext>` convention. Keep original and intermediate files intact. Handoff: image, reused/generated MV source, layout, paper, preserved MV features, bilingual selection, original title/translator when available and matching reason, actual dimensions, saved path and material concerns.

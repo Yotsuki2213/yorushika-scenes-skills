@@ -47,7 +47,3 @@ The user-selected references are bundled beside this guide:
 When drawing is required, inspect 1–2 relevant references with `view_image` and select by action and stroke evidence. Treat the large white masking regions surrounding the figures as reference preparation marks, not desired art direction. Extract only contour wobble, hatching rhythm, transparent body gaps, head scribble density and scene contact.
 
 Pass the user's scene as the edit target and selected images as explicitly labeled supporting line-style references using the supported ImageGen attachment mechanism. A path written in prompt text alone is not an image attachment. Do not import the reference backgrounds, masking fields, exact pose, props or recognizable character design. If bundled references are unavailable, state that and apply the written grammar without claiming to have attached them.
-
-## Inspection
-
-Check branch choice; for additions, a back-facing torso with a natural over-shoulder turn, connected anatomy, weight-bearing balance, contact and occlusion, and a readable loosely scrawled silhouette; for existing subjects, unchanged body anchors and pose. Check full visible-head coverage (including hair, crown and ears), pure-white strokes and their contrast. The white-only rule applies to the new drawing and head cover, not to the source body's clothing. Dense head scribbles are allowed; body hatching should retain gaps. Explicit user instructions, including no added people, take precedence and must be reflected consistently in the branch record and prompt.

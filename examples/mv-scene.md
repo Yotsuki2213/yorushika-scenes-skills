@@ -40,15 +40,6 @@ style_intensity=strong mode=graphic-soliloquy text=none
 - strict 与明确请求的 redraw：均执行人物分支；strict 允许指定人物编辑区域，redraw 保留未被明确释放的身体锚点。
 - 竖向 MV 进入明信片：完整保留竖向画面，在外围增加横向 4:3 纸面，不裁掉或拉宽人物。
 
-## 检查要点
-
-- 读取真实文件尺寸，检查横竖方向与自然构图；16:9 和 3:4 为大致目标，轻微比例差异可直接交付。
-- 新增人物是否清楚可辨且略抽象潦草；背身回头是否由合理的颈肩转动呈现，而非反装头部或扭转180度；动作、重心、承重脚/坐姿支撑、透视和遮挡是否成立。
-- 已有主体的身体、衣着、姿态和位置是否保留，整个可见头部是否充分覆盖，头发、头顶、耳朵和后脑是否仍有细节露出。
-- 白线是否保持纯白、身体排线是否有间隙、头部是否允许密集涂抹；参考图的大面积白色遮挡标记是否被误带入。
-- 主要空间关系、现场光线和材质是否保留，风格介入是否有局部层级，文字是否符合设置。
-- 真实的方向、构图或人物处理问题在交付说明中如实记录；提示词中的要求不等于实际生成结果。
-- 新生成图片保存为工作区根目录下的 `output/YYYYMMDD-标题.png`，例如 `output/20260831-秋日步道.png`；保留原始文件，避免覆盖同名输出。
 
 ## English invocation
 
@@ -60,4 +51,4 @@ Preserve the weather, focal objects and spatial relationships.
 Use the source orientation and the default human-subject treatment.
 ```
 
-These cases describe intended behavior and inspection criteria. They are not a record of completed image-generation tests.
+These cases describe intended behavior and invocation choices. They are not a record of completed image-generation tests.

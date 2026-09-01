@@ -16,7 +16,7 @@ Prompt disclosure: the compiled prompt is an internal generation artifact. Do no
 8. Typography
 9. Preserve-edit prompt template
 10. Full prompt template (redraw fallback)
-11. Negative constraints and inspection
+11. Negative constraints
 
 ## 1. Source distillation record
 
@@ -370,7 +370,7 @@ Avoid:
 
 For `text=none`, replace the typography paragraph with: `No added text, captions, letters, symbols, credits, logos or watermarks; preserve native source text unless removal is requested.`
 
-## 11. Negative constraints and inspection
+## 11. Negative constraints
 
 Always compile negatives from the relevant groups; write them as one clear sentence rather than a keyword dump.
 
@@ -406,35 +406,3 @@ Always compile negatives from the relevant groups; write them as one clear sente
 
 - no extra words, garbled pseudo-Japanese, subtitles, credits, Bilibili UI, playback controls, watermarks, or screenshot bars
 - no malformed anatomy, floating limbs, duplicated hands, or unreadable focal object
-
-After generation, inspect once and report:
-
-```text
-scene continuity: pass / concern
-composition read: pass / concern
-expression read: pass / concern
-source-content retention: pass / concern
-unchanged-anchor integrity: pass / concern
-Yorushika style strength: pass / concern
-style-stack hierarchy (line figure / ink-watercolor / broken distortion): pass / concern
-human branch selection: pass / concern
-protagonist legibility, scrawled abstraction, back-facing torso and natural look back: pass / concern / not applicable
-joint/neck plausibility, balance, weight-bearing support and occlusion: pass / concern / not applicable
-existing body/clothing/pose preservation: pass / concern / not applicable
-entire visible-head coverage (crown, hair, face, ears and back of head): pass / concern / not applicable
-white-line integrity and contrast: pass / concern / not applicable
-graphic-overlay locality: pass / concern / not applicable
-distortion alignment with source geometry: pass / concern / not applicable
-identity removal: pass / concern
-source_orientation / target_aspect / actual oriented output dimensions: record
-orientation and natural framing: pass / concern
-dominant route legibility: pass / concern
-single material event: pass / concern
-text count and glyph fidelity: pass / concern / not applicable
-logo/UI/lyric residue: pass / concern
-exact-frame-copy risk: pass / concern
-```
-
-Record actual output dimensions and check the resolved orientation and natural composition. Accept small deviations from approximate 16:9 or 3:4; exact equality is only checked when explicitly requested by the user. Prompted dimensions are not measured proof. Mark insufficient head coverage, lost body anchors, a floating/unreadable protagonist, reference masking residue or an incorrect orientation as concerns.
-
-Save the image according to the entrypoint's Output files convention: workspace-root `output/`, `YYYYMMDD-标题.<ext>`. State genuine visual concerns in the handoff without adding review status to the filename. Do not automatically regenerate or silently crop/resample to conceal a concern; small ratio deviations alone require no correction.

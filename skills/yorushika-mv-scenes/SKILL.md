@@ -12,13 +12,13 @@ Use this skill with one user-supplied scene image. If none is identifiable, ask 
 - Defaults: `transform_mode=preserve-edit`, `preserve_strength=balanced`, `style_intensity=strong`, `mode=auto`, `text=auto`, `aspect=auto`, `identity=scene-only`. Keep the existing `strict|balanced|loose` preservation, `restrained|strong|expressive` intensity, and explicit route controls. Use `redraw` only when explicitly requested.
 - Resolve output from the source's EXIF-oriented dimensions: landscape → **approximately 16:9**, portrait → **approximately 3:4**, square → **approximately 16:9** by default. These are framing preferences, not exact pixel-ratio requirements. A later explicit user framing request takes precedence.
 - Resolve human treatment before style: no human subject → add one loosely scrawled white protagonist with a back-facing torso and natural over-shoulder look back; existing human subject(s) → preserve their bodies/poses and cover entire visible heads with dense white hand-drawn hatching/scribbles. These branches apply to every route and both transform modes. Explicit user instructions override defaults.
-- Output one raster image using built-in `image_gen`, inspect it, and return the image with a compact result record and absolute saved path. Keep the full production prompt internal unless requested.
+- Output one raster image using built-in `image_gen` and return the image with a compact result record and absolute saved path. Keep the full production prompt internal unless requested.
 - Historical MV research screenshots are analysis material only. The separately bundled [line-figure references](references/human-treatment.md) may be used as labeled supporting style inputs, never as the scene edit target.
 
 Typical call:
 
 ```text
-transform_mode=preserve-edit preserve_strength=balanced style_intensity=strong mode=graphic-soliloquy text=auto aspect=auto identity=scene-only
+transform_mode=preserve-edit preserve_strength=strict style_intensity=strong mode=graphic-soliloquy text=auto aspect=auto identity=scene-only
 ```
 
 “加上 graphic-soliloquy” or “保留原素材” means preserve-edit, not full redraw.
@@ -30,7 +30,7 @@ transform_mode=preserve-edit preserve_strength=balanced style_intensity=strong m
 3. Resolve the human branch and target frame, then partition `hard_locks`, `soft_locks`, `editable_zones`, and `remove_only`. Existing bodies, clothing, poses and positions remain protected; visible heads to obscure and any new figure footprint are explicitly editable. Include natural extension zones as needed.
 4. Select the style route from scene evidence. `auto` chooses the strongest route and compatible accents; `fusion` uses 60/25/15. The route controls atmosphere and material, not whether the human branch is performed.
 5. Compile one internally consistent production prompt: source composition, resolved orientation/aspect, human treatment, reference roles, locks, edit zones, route weights, materials, light, microcopy and constraints. Attach the actual source and selected style images using the tool's supported reference mechanism.
-6. Generate one image, save it under the active workspace root's `output/` using the Output files convention below, then inspect the actual result. Check dimensions, source retention, human treatment, white-line visibility, effect locality, text and scene continuity. Report concerns without automatically making a second variant.
+6. Generate one image and save it under the active workspace root's `output/` using the Output files convention below.
 
 ## Human subject and white-line treatment
 
@@ -54,8 +54,6 @@ Read dimensions after applying EXIF orientation to interpretation; do not rotate
 | width = height | landscape, approximately 16:9 |
 
 Keep the camera viewpoint, subject proportions, source axis and important edge content. Favor natural framing near the target aspect and accept the generator's native dimensions. Extend the necessary edges only when it benefits composition, placing extension around the source's focal anchor and eye path. Never stretch, mirror, tile, letterbox, or crop important subjects to force the ratio. Preserve the portrait image's vertical movement instead of converting it to a wide scene.
-
-Record the saved file's actual dimensions and check orientation, subject proportions and composition. Exact 16:9 or 3:4 equality is not required; small ratio deviations are acceptable and do not make the image a draft. Do not crop, resample or regenerate merely to enforce these approximate ratios. Apply exact dimensions only when the user explicitly requests them.
 
 ## Output files
 
@@ -90,8 +88,6 @@ For strong graphic-soliloquy, build a hierarchy of the resolved white-line human
 - Keep people anonymous through the defined head treatment without erasing their bodily action. Do not reconstruct identity or copy a reference character design, named MV frame, band logo, album packaging, lyric line or exact reference prop arrangement.
 - Preserve source content outside the authorized edits; no whole-frame filter, arbitrary glitch, malformed anatomy, ungrounded figure, generated UI, new watermark, extra logo or crowded equal-weight effects.
 
-## Response and inspection
+## Response
 
-Return the image and a compact record: `transform_mode`, `preserve_strength`, `style_intensity`, route/weights, `source_orientation`, `target_aspect`, actual dimensions, `human_subject_present`, `human_treatment`, action/contact or head-coverage choice, key anchors/locks, effect zones, microcopy/gloss if any, and absolute saved path.
-
-Summarize actual checks for source retention, expression, figure prominence and grounding, plausible back-facing/looking-back anatomy for new figures, body preservation, entire visible-head coverage including hair and ears, pure-white stroke visibility, overlay locality, orientation and framing, text fidelity and technical residue. Use not-applicable for an absent head or a user-overridden human treatment. Keep the full prompt and detailed notes in project files unless requested.
+Return the image and a compact record: `transform_mode`, `preserve_strength`, `style_intensity`, route/weights, `source_orientation`, `target_aspect`, `human_subject_present`, `human_treatment`, action/contact or head-coverage choice, key anchors/locks, effect zones, microcopy/gloss if any, and absolute saved path. Keep the full production prompt and detailed notes in project files unless requested.

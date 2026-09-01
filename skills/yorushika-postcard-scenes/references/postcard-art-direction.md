@@ -116,16 +116,3 @@ For `top-image`, keep the signature and lyric block in the lower paper, with cle
 About 8–15% of card width is a starting signature size, constrained by the chosen content region. Keep its aspect and clear space. Select the actual bundled black/white PNG by contrast on the chosen paper; retain a supplied colored logo's colors unless a permitted variant exists. Use one signature and preserve emblem and name together.
 
 Apply `signature=none` by omitting the signature without adding a placeholder. `lyrics=none` omits lyrics and song attribution, keeping the selected image placement and intentional open paper. General no-added-text requests omit both. Explicit wording and count requests take precedence; follow the selection guide for missing bilingual text rather than adding a translation.
-
-## Visual acceptance
-
-At normal viewing size:
-
-- Compared with the real MV input, the center, semantic anchors and all protected action zones are preserved; a visibly broader but controlled 1–4% peripheral band blends into outer paper.
-- Its inherited figure or head-cover treatment, ink field and controlled fracture retain their hierarchy, with protected bodies and dense anonymous head marks intact.
-- Paper and picture feel like one printed surface, with legible source edges where needed.
-- Color and patina suit the scene, and the paper reads as intentional postcard stock.
-- The correct orientation-based layout is visible, including the upper-right signature and right-column text for portrait MV input.
-- Both languages, their pair grouping and the final original-song attribution are clear, restrained and well separated. Refer to the compiler's [output checklist](prompt-compiler.md#inspect-the-actual-output) for exact text/count verification.
-
-At file level: verify the actual 4:3 canvas and the MV artwork's scale; label measurements as unverified when natural blending or model rendering prevents proof. Do not claim a geometrically exact or print-ready result solely from its prompt.

@@ -97,7 +97,7 @@ Use the orientation-based layout and generate after verification.
 
 A photograph goes through the MV stage first. An existing MV artwork is reused. Only once the real artwork is ready does the search for words begin:
 
-**Obtain MV → analyze elements, composition and emotion → verify lyrics/title → compose and generate → inspect and save**
+**Obtain MV → analyze elements, composition and emotion → verify lyrics/title → compose and generate → save**
 
 | MV orientation | Postcard layout | Default lyrics |
 | --- | --- | --- |
@@ -145,8 +145,6 @@ New images are saved in **`output/` at the active workspace root**, named with a
 ```
 
 Originals, reused MV images and previous outputs remain intact. Choose a different short title on a naming collision; use the actual image format's extension.
-
-Inspect real dimensions, composition, human treatment, white strokes, logo and lettering. MV framing is approximate; postcards retain actual 4:3 and native-artwork-scale checks. Generation can introduce glyph or layout errors. Report failed or unverified checks honestly; a requested value in a prompt is not proof.
 
 ## Inside the paper box
 

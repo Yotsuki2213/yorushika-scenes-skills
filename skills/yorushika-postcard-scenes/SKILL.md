@@ -5,7 +5,7 @@ description: "Create a landscape 4:3 Yorushika postcard from a photo or an exist
 
 # Yorushika Postcard Scenes
 
-Make a flat landscape **4:3 postcard front** from a real `yorushika-mv-scenes` artwork. Follow this order: **obtain MV → analyze its elements, composition and emotion → select and verify bilingual lyrics and song title → compile → generate → inspect and save**.
+Make a flat landscape **4:3 postcard front** from a real `yorushika-mv-scenes` artwork. Follow this order: **obtain MV → analyze its elements, composition and emotion → select and verify bilingual lyrics and song title → compile → generate → save**.
 
 ## Inputs, defaults and dependencies
 
@@ -55,10 +55,8 @@ For a signature, prefer a supplied/designated logo; otherwise inspect the bundle
 
 Then read [the prompt compiler](references/prompt-compiler.md). Supply the finished MV file as the edit target, the inspected logo as a separately labeled supporting reference, and the already verified bilingual text/title as exact rendering content. The image tool renders the design; it does not select, retrieve or translate lyrics. Keep the production prompt internal.
 
-## Save, inspect and deliver
+## Save and deliver
 
 Follow the base skill's Output files convention: new MV artwork and postcards go to workspace-root `output/` as `YYYYMMDD-标题.<ext>`. Use distinct short scene/postcard titles, preserve originals and existing outputs, and do not overwrite a reused intermediate.
 
-Inspect the actual file using the compiler's [output checklist](references/prompt-compiler.md#inspect-the-actual-output): layout, recognizable MV center and anchors, native artwork scale, visible 1–4% peripheral blending, protected figure actions/white marks, paper, logo, bilingual pairing/count, exact glyphs and final song attribution. Require `3*width == 4*height` for the postcard and check `artwork_scale=1` against the saved MV file. Prompted pixel values alone are not proof; report unverified measurements and failed checks plainly. Preserve a failed result as a draft, without automatically regenerating or resampling it to conceal concerns. Respect a later explicit resize instruction.
-
-Return the image with its reused/generated MV source, layout, paper/blend choices, figure preservation, selected bilingual excerpt, original song title, translator when available, matching reason, actual dimensions and absolute saved path. Treat source metadata as supplied rather than independently verified. Keep detailed analysis, prompts, source line numbers and inspection records in project files unless requested.
+Return the image with its reused/generated MV source, layout, paper/blend choices, figure preservation, selected bilingual excerpt, original song title, translator when available, matching reason and absolute saved path. Keep detailed analysis, prompts and source line numbers in project files unless requested.
