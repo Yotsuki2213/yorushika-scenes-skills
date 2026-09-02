@@ -69,7 +69,7 @@ Preserve the composition, choose graphic-soliloquy, and add no text.
 
 The skill first reads the scene: where the road leads, where shadows fall, who is waiting, and which part of the sky should remain quiet. It then preserves the main geometry, textures and light while adding white drawing, ink washes and localized print misregistration.
 
-**People belong to the story.** Without a human subject, add one slightly abstract, loosely scrawled white protagonist facing away and looking naturally back over one shoulder, with believable joints, balance and scene contact. With existing subjects, preserve bodies, clothing, poses and positions. In both cases, dense white scribbles cover the entire visible head, including hair, ears and back of head. Incidental passers-by do not automatically count as subjects; off-frame heads are not invented. See [human treatment and references](skills/yorushika-mv-scenes/references/human-treatment.md).
+**People belong to the story.** Without a human subject, add one slightly abstract, loosely scrawled white protagonist whose default action is facing away and looking naturally back over one shoulder—adapting the action freely to the scene when that default contradicts its sightlines, path, support or narrative—with believable joints, balance and scene contact. With existing subjects, preserve bodies, clothing, poses and positions. In both cases, dense white scribbles cover the entire visible head, including hair, ears and back of head. Incidental passers-by do not automatically count as subjects; off-frame heads are not invented. See [human treatment and references](skills/yorushika-mv-scenes/references/human-treatment.md).
 
 Choose today's atmosphere:
 
@@ -124,9 +124,9 @@ The postcard stage gives the finished MV a more visible paper transition: roughl
 
 Say what you want in ordinary language:
 
-- **“Just the picture this time.”** A general no-added-text request disables added lyrics, song attribution and signature.
+- **“Just the picture this time.”** A general no-added-text request disables added lyrics and song attribution; the logo is required card furniture and stays.
 - **“Keep the logo, skip the lyrics.”** `lyrics=none` removes lyrics and song attribution.
-- **“Keep the lyrics, skip the logo.”** Use `signature=none`.
+- **“Keep the lyrics, skip the logo.”** Only an explicit `signature=none` removes the logo; every postcard carries the signature by default.
 - **“Two pairs for this portrait, please.”** Explicit `lyric_lines=2` overrides defaults; 1–4 pairs are supported.
 - **“Use two lines from this landscape scene.”** Two selected pairs share one Japanese row and one Chinese row; an explicit 3–4-pair request may exceed the compact two-row layout.
 - **“Show me the wording first.”** Preview the selected text and source, then wait for approval.
@@ -157,10 +157,11 @@ yorushika-scenes-skills/
     ├── yorushika-mv-scenes/       Composition, white lines, ink and MV atmosphere
     │   ├── SKILL.md / agents/
     │   ├── references/
-    │   └── assets/line-figures/   Three figure references
+    │   └── assets/line-figures/   Lightweight contact sheet plus three originals
     └── yorushika-postcard-scenes/ Paper, layouts and bilingual selection
         ├── SKILL.md / agents/
-        ├── references/           Includes opus.md
+        ├── references/           Includes opus.md and orientation-specific layouts
+        ├── scripts/              Full-corpus lyric candidate extractor
         └── assets/               Black/white logos, SVG and provenance
 ```
 

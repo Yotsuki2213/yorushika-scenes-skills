@@ -303,7 +303,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--relation", action="append", default=[], help="Action or spatial-relation term; repeatable or pipe-separated.")
     parser.add_argument("--affect", action="append", default=[], help="Emotion or sensory term; repeatable or pipe-separated.")
     parser.add_argument("--counts", type=parse_counts, default=parse_counts("1,2"), help="Comma-separated consecutive pair counts, 1-4.")
-    parser.add_argument("--limit", type=int, default=24, help="Maximum number of diversified candidates.")
+    parser.add_argument("--limit", type=int, default=12, help="Maximum number of diversified candidates (default: 12).")
     return parser
 
 
@@ -327,6 +327,17 @@ def main() -> int:
     unique_candidates = deduplicate_titles(all_candidates)
     seed_text = json.dumps(term_groups, ensure_ascii=False, sort_keys=True)
     selected = diversified_selection(unique_candidates, args.limit, seed_text)
+    returned_buckets = sorted({item["corpus_bucket"] for item in selected})
+    returned_release_groups = len({item["release_group"] for item in selected})
+    returned_song_titles = len({item["song_title"] for item in selected})
+
+    # Keep corpus-position fields internal to diversification.  The caller only
+    # needs compact evidence for emotional reranking and source verification.
+    for item in selected:
+        item.pop("entry_line", None)
+        item.pop("entry_ordinal", None)
+        item.pop("corpus_position", None)
+        item.pop("corpus_bucket", None)
 
     complete_pairs = sum(len(entry.pairs) for entry in entries)
     result = {
@@ -342,9 +353,9 @@ def main() -> int:
             "matched_windows": len(all_candidates),
             "matched_unique_titles": len(unique_candidates),
             "returned_candidates": len(selected),
-            "returned_release_groups": len({item["release_group"] for item in selected}),
-            "returned_song_titles": len({item["song_title"] for item in selected}),
-            "returned_buckets": sorted({item["corpus_bucket"] for item in selected}),
+            "returned_release_groups": returned_release_groups,
+            "returned_song_titles": returned_song_titles,
+            "returned_buckets": returned_buckets,
         },
         "candidates": selected,
     }

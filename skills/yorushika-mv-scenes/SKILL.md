@@ -1,93 +1,66 @@
 ---
 name: yorushika-mv-scenes
-description: "Transform one user-supplied image into a source-aware pre-2022 Yorushika MV scene: approximately landscape 16:9 or portrait 3:4 according to input orientation. Preserve composition and texture, add a loosely sketched white protagonist facing away and looking back when no human subject exists, or cover existing subjects' entire visible heads with white hatching. Apply ink/watercolor and controlled distortion through graphic-soliloquy, sunlit-memory, nocturnal-material, or fusion."
+description: "Transform one user image into a source-aware pre-2022 Yorushika MV scene. Preserve composition; add a white sketched protagonist when no human subject exists or obscure existing subjects' visible heads with white hatching; route the scene through graphic-soliloquy, sunlit-memory, nocturnal-material, or fusion."
 ---
 
 # Yorushika MV Scenes
 
-Use this skill with one user-supplied scene image. If none is identifiable, ask for it before generation. Supporting line-art references do not substitute for the user's scene.
+Use one user-supplied scene image. Supporting line references never replace the user's scene.
 
-## Contract
+## Defaults
 
-- Defaults: `transform_mode=preserve-edit`, `preserve_strength=balanced`, `style_intensity=strong`, `mode=auto`, `text=auto`, `aspect=auto`, `identity=scene-only`. Keep the existing `strict|balanced|loose` preservation, `restrained|strong|expressive` intensity, and explicit route controls. Use `redraw` only when explicitly requested.
-- Resolve output from the source's EXIF-oriented dimensions: landscape → **approximately 16:9**, portrait → **approximately 3:4**, square → **approximately 16:9** by default. These are framing preferences, not exact pixel-ratio requirements. A later explicit user framing request takes precedence.
-- Resolve human treatment before style: no human subject → add one loosely scrawled white protagonist with a back-facing torso and natural over-shoulder look back; existing human subject(s) → preserve their bodies/poses and cover entire visible heads with dense white hand-drawn hatching/scribbles. These branches apply to every route and both transform modes. Explicit user instructions override defaults.
-- Output one raster image using built-in `image_gen` and return the image with a compact result record and absolute saved path. Keep the full production prompt internal unless requested.
-- Historical MV research screenshots are analysis material only. The separately bundled [line-figure references](references/human-treatment.md) may be used as labeled supporting style inputs, never as the scene edit target.
+`transform_mode=preserve-edit`, `preserve_strength=balanced`, `style_intensity=strong`, `mode=auto`, `text=auto`, `aspect=auto`, `identity=scene-only`. Use `redraw` only when explicitly requested. User instructions override defaults.
 
-Typical call:
+Read EXIF-oriented dimensions without modifying the original: landscape → approximately 16:9, portrait → approximately 3:4, square → approximately 16:9. These are framing preferences; accept nearby native ImageGen dimensions. Preserve viewpoint, subject scale, dominant axes and important edge content. Extend useful edges when needed; never stretch, mirror, tile, letterbox or crop an important subject to force a ratio.
+
+## Fast conditional workflow
+
+1. Inspect the source with `view_image`. Record only this compact Scene Card:
 
 ```text
-transform_mode=preserve-edit preserve_strength=strict style_intensity=strong mode=graphic-soliloquy text=auto aspect=auto identity=scene-only
+orientation: landscape / portrait / square and oriented width × height
+main_subject: the 1–2 scene-defining forms
+human_branch: add-white-protagonist / cover-existing-heads / user-override
+gesture: existing body action or planned action/contact
+geometry: horizon, path, architecture, scale and overlap to preserve
+eye_path: entry → anchor → intervention → quiet exit
+quiet_area: usable low-information region
+route: graphic-soliloquy / sunlit-memory / nocturnal-material / fusion
+edit_mode: preserve-edit + strict|balanced|loose / redraw
+preserve: hard locks and authorized edit zones
 ```
 
-“加上 graphic-soliloquy” or “保留原素材” means preserve-edit, not full redraw.
+For a more detailed analysis only when the user requests it, read [composition/expression](references/composition-expression.md) or [frame analysis](references/frame-analysis-rubric.md). Research notes in [corpus notes](references/corpus-notes.md) are not part of normal generation.
 
-## Workflow
+2. Resolve the human branch, route and edit mode before loading detailed rules. Incidental background passers-by are not a human subject unless they carry the composition or narrative.
+3. Read exactly one module from each applicable group:
+   - Human: [add a protagonist](references/humans/add-white-protagonist.md) or [cover existing heads](references/humans/cover-existing-heads.md).
+   - Route: [graphic-soliloquy](references/routes/graphic-soliloquy.md), [sunlit-memory](references/routes/sunlit-memory.md), [nocturnal-material](references/routes/nocturnal-material.md), or [fusion](references/routes/fusion.md).
+   - Transform: [preserve-edit](references/transforms/preserve-edit.md) or [redraw](references/transforms/redraw.md).
+4. Read the compact [prompt compiler](references/prompt-compiler.md), insert only those selected modules, and compile one coherent English ImageGen instruction. Keep the production prompt internal unless requested.
+5. When line treatment is needed, inspect the single bundled [line-reference contact sheet](assets/line-figures/线稿参考联系表.png) and attach it as `SUPPORTING LINE STYLE ONLY`; attach the user's image as `EDIT TARGET`. Use an individual original reference only if the contact sheet cannot express a special action. Never attach the contact sheet and all three originals together.
+6. Generate one raster image with built-in `image_gen` and save it as described below.
 
-1. Inspect the scene with `view_image` and read its actual EXIF-oriented dimensions. Build the Scene Card using [composition/expression](references/composition-expression.md): subjects, geometry, gesture, visual weight, quiet areas, semantic minimum, expression, and eye path. Record `source_orientation`, `target_aspect`, `human_subject_present`, `human_treatment`, subject actions/positions, and visible head regions.
-2. Read [human treatment](references/human-treatment.md), [visual grammar](references/visual-grammar.md), and [prompt compiler](references/prompt-compiler.md) before compiling. Read [frame analysis](references/frame-analysis-rubric.md) only for detailed extraction explanations. Inspect and select 1–2 relevant bundled figure references when figure/head drawing is needed.
-3. Resolve the human branch and target frame, then partition `hard_locks`, `soft_locks`, `editable_zones`, and `remove_only`. Existing bodies, clothing, poses and positions remain protected; visible heads to obscure and any new figure footprint are explicitly editable. Include natural extension zones as needed.
-4. Select the style route from scene evidence. `auto` chooses the strongest route and compatible accents; `fusion` uses 60/25/15. The route controls atmosphere and material, not whether the human branch is performed.
-5. Compile one internally consistent production prompt: source composition, resolved orientation/aspect, human treatment, reference roles, locks, edit zones, route weights, materials, light, microcopy and constraints. Attach the actual source and selected style images using the tool's supported reference mechanism.
-6. Generate one image and save it under the active workspace root's `output/` using the Output files convention below.
+## Non-negotiable image behavior
 
-## Human subject and white-line treatment
-
-Use the detailed branch decisions and reference selection in [human-treatment.md](references/human-treatment.md).
-
-Judge a **human subject** by composition, readable action and narrative role; incidental background passers-by alone do not satisfy this condition. An existing drawn human subject also counts.
-
-- **No human subject:** add one legible human protagonist in pure-white irregular contour and hatching. Choose scale from perspective and visual hierarchy, not a fixed tiny size. Default to a torso facing away from the camera and a natural look back over one shoulder, grounded in a plausible walking, sitting or standing action on visible scene support. Keep joint connections, weight-bearing balance and contact believable; abstract the strokes, not the body's physical logic. Preserve source objects and depth.
-- **Human subject present:** retain the body, clothing, gesture, relative scale and placement. Cover each visible primary subject's head with dense white hand-drawn hatching and predominantly horizontal scribble strokes, covering the whole visible head, including crown, hair, face, ears and back of head, so no head detail reads through. Do not re-pose existing subjects to match the new-figure default. Keep coverage local and proportionate. Do not add another protagonist by default.
-- Keep transparent gaps between the new figure's body strokes; dense head coverage is allowed. A newly drawn head also receives full-head anonymous scribble treatment; body contours may be incomplete, abstract and loosely scrawled while remaining readable. If an existing subject's head is outside the frame, do not invent one.
-- These authorized regions remain editable under `strict`. In `redraw`, re-author the unlocked environment while keeping this human branch and protected body anchors unless the user explicitly releases them.
-
-## Orientation and framing
-
-Read dimensions after applying EXIF orientation to interpretation; do not rotate or overwrite the original file. Record the oriented `source_width × source_height`.
-
-| Oriented source | Default target |
-| --- | --- |
-| width > height | landscape, approximately 16:9 |
-| width < height | portrait, approximately 3:4 |
-| width = height | landscape, approximately 16:9 |
-
-Keep the camera viewpoint, subject proportions, source axis and important edge content. Favor natural framing near the target aspect and accept the generator's native dimensions. Extend the necessary edges only when it benefits composition, placing extension around the source's focal anchor and eye path. Never stretch, mirror, tile, letterbox, or crop important subjects to force the ratio. Preserve the portrait image's vertical movement instead of converting it to a wide scene.
-
-## Output files
-
-Save each generated image in `output/` directly under the active workspace root, creating the folder if needed. Resolve this location from the task workspace, not the skill or repository directory. Use `YYYYMMDD-标题.<ext>` with the local date, a short scene title and the actual file extension, for example `20260831-秋日步道.png`. If that name exists, choose a distinct short title without overwriting it. Preserve original inputs and existing outputs in place.
-
-## Composition and preservation
-
-Read the source as a composed statement before styling. Preserve the dominant horizon, shoreline, path, architecture, overlap, scale relationships and eye path. Human treatment is an intentional graphic event in this composition: its location, gaze/action and contrast must join the source's visual movement.
-
-The attached scene is the edit target in `preserve-edit`. Keep principal objects, body anchors, geometry, foreground materials, original texture and lighting direction outside the named editable regions.
-
-- `strict`: target roughly 80–90% source structure/pixel retention; localized accents. Required head coverage or the new figure footprint is still allowed.
-- `balanced`: retain the main subjects and roughly 60–80% source structure; allow bounded simplification, natural framing extension and a strong source-anchored graphic field.
-- `loose`: retain the semantic anchors while allowing broader environment edits; it remains an edit.
-- `redraw`: explicit re-authoring of unlocked environment from scene anchors. Preserve the resolved human treatment and orientation; do not use it implicitly for route changes.
-
-Retention percentages are art-direction estimates, not measured guarantees. `style_intensity` controls the supporting treatment without making a required figure or head cover illegible: `restrained` targets 10–30% local intervention; `strong`, 30–55%; `expressive`, 45–65%. Keep these as structured fields, not a uniform filter.
-
-For strong graphic-soliloquy, build a hierarchy of the resolved white-line human treatment, a broad bounded sumi-ink/watercolor wash, and one controlled broken/distortion event aligned to source geometry. Keep original texture readable beneath/beside the wash. Irregular graphite contours and restrained cobalt/red print offsets belong on selected scene edges; figure and head-cover strokes remain pure white.
+- No human subject: add one legible pure-white, loosely scrawled protagonist. The default action is a believable still with the torso facing away and the head looking naturally back over one shoulder; when that default contradicts the scene—its sightlines, path, support or narrative—adapt the action freely while keeping it equally grounded and plausible. Choose walking, sitting, standing or leaning from visible support; keep joints, balance, weight-bearing contact, perspective and occlusion plausible. The head is fully anonymized with dense white strokes; body hatching keeps transparent gaps.
+- Existing human subject(s): preserve body, clothing, pose, scale, placement and contact. Cover each primary subject's entire visible head—including crown, hair, face, ears and back of head—with dense irregular white hatching and mostly horizontal scribbles. Do not add another protagonist or re-pose the body. Do not invent an off-frame head.
+- Head-cover regions and a new figure footprint are authorized edits even under `strict`. Elsewhere preserve principal objects, perspective, source texture and lighting direction according to the selected transform module.
+- White-line figures remain pure white. Supporting ink, watercolor, print offsets and controlled distortion must follow source geometry rather than becoming a whole-frame filter.
 
 ## Route selection
 
-- `graphic-soliloquy`: architecture, interior geometry, books/paper, hand-drawn contour, graphic dialogue and controlled registration errors. Favor deep blue, cobalt, black, dirty white, a small warm accent, handmade 2D texture, pigment bloom and dry-brush gaps.
-- `sunlit-memory`: open sky, sea, field, coast, station, road or summer daylight. Favor pale sky blue, warm ivory, grass green, ochre, low-saturation pink, air, haze and meaningful quiet areas. Apply the same human branch with scene-appropriate action and readable white marks.
-- `nocturnal-material`: dark rooms, single-point light, strong shadow or an isolated material event. Favor navy, black, cool gray, tan and one tactile event such as water, glass, paper, dust, cloth or light. Apply the same human branch using contrast and the existing light pool.
-- `fusion`: dominant/secondary/tertiary 60/25/15; let the dominant route determine atmosphere while the human branch and target aspect remain fixed.
+- `graphic-soliloquy`: architecture, interiors, roads, books/paper, strong contours or print-like interruption.
+- `sunlit-memory`: sky, sea, fields, stations, roads or open daylight and air.
+- `nocturnal-material`: darkness, one light pool, strong shadow or one tactile material event.
+- `fusion`: only when evidence is genuinely mixed; use dominant/secondary/tertiary 60/25/15.
 
-## Text and source constraints
+The route controls atmosphere and material, never whether required human treatment occurs.
 
-- `text=auto`: one original Japanese microcopy phrase of roughly 3–8 characters, used once as a graphic element. Do not quote lyrics, song titles, logos or webpage text. User text overrides it; `text=none` suppresses added text.
-- Preserve native source text/marks unless removal is requested. If watermark removal is requested, repair only its local region.
-- Keep people anonymous through the defined head treatment without erasing their bodily action. Do not reconstruct identity or copy a reference character design, named MV frame, band logo, album packaging, lyric line or exact reference prop arrangement.
-- Preserve source content outside the authorized edits; no whole-frame filter, arbitrary glitch, malformed anatomy, ungrounded figure, generated UI, new watermark, extra logo or crowded equal-weight effects.
+## Text and output
 
-## Response
+`text=auto` adds one original Japanese microcopy phrase of roughly 3–8 characters once. Do not quote lyrics, titles, logos or webpage text. User text wins; `text=none` adds none. Preserve native source text unless removal is requested.
 
-Return the image and a compact record: `transform_mode`, `preserve_strength`, `style_intensity`, route/weights, `source_orientation`, `target_aspect`, `human_subject_present`, `human_treatment`, action/contact or head-coverage choice, key anchors/locks, effect zones, microcopy/gloss if any, and absolute saved path. Keep the full production prompt and detailed notes in project files unless requested.
+Save under the active workspace root's `output/`, not inside the skill repository. Use `YYYYMMDD-标题.<ext>` with the local date and a short title; choose another short title rather than overwrite an existing file. Preserve all inputs.
+
+Return the image, absolute saved path and a compact record: mode, strength, route, orientation/aspect, human branch/action or head region, principal locks and microcopy if used.
