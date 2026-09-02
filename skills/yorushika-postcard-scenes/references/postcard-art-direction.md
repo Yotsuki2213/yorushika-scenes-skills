@@ -25,7 +25,7 @@ Keep the piece flat: no dimensional frame, cast-shadow photo mount, desk mockup,
 
 ## Typography and signature
 
-Use the exact verified Japanese, Chinese and `——原歌名` with compatible Mincho/Song-style serif or restrained handwritten type in a readable scene-derived ink. Preserve punctuation. Keep translator and line metadata off-card unless requested.
+Use the exact verified Japanese, Chinese and `——原歌名` in a restrained handwritten type as the default. Let it carry the pre-2022 Yorushika hand-lettered character: uneven pressure and stroke width, slightly wobbly baselines, casual felt-pen or brush-pen rhythm with occasional dry-brush gaps—close to the scrawled Japanese microcopy in the MVs, never a polished commercial font. Chinese lines use a matching handwritten style that reads as the same hand. Keep every line readable despite the wobble; readability outranks character. Fall back to a compatible Mincho/Song-style serif only when the user explicitly requests a printed typeface or the handwritten render fails legibility. Ink color stays scene-derived and readable. Preserve punctuation. Keep translator and line metadata off-card unless requested.
 
 Every postcard carries exactly one logo or wordmark; the signature is required card furniture, not a decoration. On light paper use the black bundled PNG; on dark paper use the white PNG. Preserve logo geometry, aspect and clear space; 8–15% of card width is a starting size constrained by the selected layout. Only the user's explicit `signature=none` or equally explicit omission request removes it; `lyrics=none` and no-added-text requests never suppress the logo.
 
