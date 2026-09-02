@@ -69,7 +69,7 @@ Preserve the composition, choose graphic-soliloquy, and add no text.
 
 The skill first reads the scene: where the road leads, where shadows fall, who is waiting, and which part of the sky should remain quiet. It then preserves the main geometry, textures and light while adding white drawing, ink washes and localized print misregistration.
 
-**People belong to the story.** Without a human subject, add one slightly abstract, loosely scrawled white protagonist whose default action is facing away and looking naturally back over one shoulder—adapting the action freely to the scene when that default contradicts its sightlines, path, support or narrative—with believable joints, balance and scene contact. With existing subjects, preserve bodies, clothing, poses and positions. In both cases, dense white scribbles cover the entire visible head, including hair, ears and back of head. Incidental passers-by do not automatically count as subjects; off-frame heads are not invented. See [human treatment and references](skills/yorushika-mv-scenes/references/human-treatment.md).
+**People belong to the story.** Without a human subject, add one late-teen or young-adult youth or girl in rough white lines, always completely barefoot. Let the scene's path, edge, support and sightline choose the action; use a natural back-facing look-back only when no stronger cue exists. Coarse broken contours, a few searching strokes and sparse hatching leave large photographic gaps; feet are only simple rough contact marks, never realistic toes or footwear. Joints, balance and contact remain believable. With existing subjects, preserve bodies, age, clothing, original footwear, poses and positions and apply dense white scribbles only to the entire visible head, including hair, ears and back of head. Incidental passers-by do not automatically count as subjects; off-frame heads are not invented. See [human treatment and references](skills/yorushika-mv-scenes/references/human-treatment.md).
 
 Choose today's atmosphere:
 
@@ -157,7 +157,7 @@ yorushika-scenes-skills/
     ├── yorushika-mv-scenes/       Composition, white lines, ink and MV atmosphere
     │   ├── SKILL.md / agents/
     │   ├── references/
-    │   └── assets/line-figures/   Lightweight contact sheet plus three originals
+    │   └── assets/line-figures/   Scene-integration master, pure-line fallback and originals
     └── yorushika-postcard-scenes/ Paper, layouts and bilingual selection
         ├── SKILL.md / agents/
         ├── references/           Includes opus.md and orientation-specific layouts

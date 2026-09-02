@@ -6,7 +6,7 @@ Read after orientation selects exactly one layout module. The final output is a 
 
 The saved MV is `EDIT TARGET / FIXED SCENE`, not a prompt to recreate it. Keep its complete aspect and native pixel extent at `artwork_scale=1`. Lock the center, viewpoint, geometry, all bodies/limbs, gesture, support/contact, white body hatching, full-head scribbles, source text and existing microcopy.
 
-Define `blend_band` as roughly 1–4% of the shorter MV side. It may use a source-matched opacity fade, ink bleed, paper fade, dry-brush gaps and grain along broad perimeter regions. Route around protected figure/action/text zones; when one reaches an edge, carry the blend outward onto paper. Never crop, shift, dissolve, repair or repaint those zones.
+Define `blend_band` as roughly 1–4% of the shorter MV side. This is a visible material transition, not an invisible safety margin: use enough of the band to create broad or continuous image-paper interpenetration where the perimeter permits. Combine a source-matched opacity fade with pigment/ink bleed into paper fibers, paper fade, irregular dry-brush gaps and matching print grain. Route around protected figure/action/text zones; when one reaches an edge, carry the blend outward onto paper. Never crop, shift, dissolve, repair or repaint those zones.
 
 ## Paper and print
 
@@ -17,9 +17,9 @@ Choose one stock color from the handoff's dominant colors and light:
 - earth/leaves/warm interiors → oatmeal, pale sage or faded terracotta;
 - night/deep water/warm point light → dusty navy, charcoal brown or muted slate.
 
-Carry existing MV washes outward instead of adding a competing wash. Match paper absorption and grain at the edge; avoid an even blurred halo.
+Carry existing MV washes outward instead of adding a competing wash. If the MV contains a cobalt/indigo watercolor or ink field, preserve its bloom, pooling, feathered edges and dry-brush breaks as an inherited print layer, and let a restrained portion continue into the paper. Match paper absorption and grain at the edge; avoid flattening the wash into a faint tint or an even blurred halo.
 
-`age=light` adds only two or three quiet cues—fine fibers, slight warmth/fading, faint perimeter oxidation or modest ink-density variation—chiefly on paper and the blend band. `age=none` stays fresh; `age=moderate` increases restrained patina. Never sepia-stain white figure strokes, globally yellow the MV, or add heavy dirt, tears and scratches unless requested.
+`age=light` adds only two or three quiet cues—fine fibers, slight warmth/fading, faint perimeter oxidation or modest ink-density variation—chiefly on paper and the blend band. Keep enough fiber and ink-density variation for a tactile printed-memory surface, especially where the blue wash meets paper. `age=none` stays fresh; `age=moderate` increases restrained patina. Never sepia-stain white figure strokes, globally yellow the MV, or add heavy dirt, tears and scratches unless requested.
 
 Keep the piece flat: no dimensional frame, cast-shadow photo mount, desk mockup, postcard-back address rules or invented postal marks.
 

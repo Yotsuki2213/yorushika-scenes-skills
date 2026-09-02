@@ -4,7 +4,9 @@
 
 | 素材 / Asset | 文件 / File |
 | --- | --- |
-| 默认轻量线稿联系表 / Default lightweight figure sheet | [线稿参考联系表](../../skills/yorushika-mv-scenes/assets/line-figures/线稿参考联系表.png) |
+| 默认透明线稿母版 / Default transparent line-figure master | [线稿人物场景融合母版](../../skills/yorushika-mv-scenes/assets/line-figures/线稿人物场景融合母版.png) |
+| 纯线稿动作回退 / Pure-line gesture fallback | [线稿人物动作母版](../../skills/yorushika-mv-scenes/assets/line-figures/线稿人物动作母版.png) |
+| 旧线稿联系表 / Legacy figure contact sheet | [线稿参考联系表](../../skills/yorushika-mv-scenes/assets/line-figures/线稿参考联系表.png) |
 | 原始人物线稿参考 / Original figure references | [参考1](../../skills/yorushika-mv-scenes/assets/line-figures/线稿参考1.png) · [参考2](../../skills/yorushika-mv-scenes/assets/line-figures/线稿参考2.png) · [参考3](../../skills/yorushika-mv-scenes/assets/line-figures/线稿参考3.png) |
 | 线稿来源与校验 / Figure provenance and hashes | [SOURCES.md](../../skills/yorushika-mv-scenes/assets/line-figures/SOURCES.md) |
 | 矢量标志 / Vector source | [yorushika-logo.svg](../../skills/yorushika-postcard-scenes/assets/yorushika-logo.svg) |
@@ -14,6 +16,6 @@
 
 按纸面的实际对比度选择黑色或白色版本。标志的图形与日文字样作为整体使用。相关权利归原权利人所有，见[标志来源记录](../../skills/yorushika-postcard-scenes/assets/SOURCES.md)。
 
-线稿用于人物笔触与头部覆盖参考，不作为场景原图；正常生成优先使用轻量联系表，只有特殊动作才回退到单张原图。具体见 MV 技能的[人物规则](../../skills/yorushika-mv-scenes/references/human-treatment.md)。歌词资料是明信片技能的[opus.md](../../skills/yorushika-postcard-scenes/references/opus.md)，读取方式见[选句规则](../../skills/yorushika-postcard-scenes/references/lyric-selection.md)。
+线稿用于人物笔触、青年／少女姿态、场景接触、赤脚落点与头部覆盖参考，不作为场景原图；正常生成只使用透明线稿母版，新增人物必须赤脚且脚部只用简单粗线表达，实际目标决定动作、尺度与支撑关系。纯线稿动作母版、旧联系表和单张原图仅用于排查风格退化或特殊动作。具体见 MV 技能的[人物规则](../../skills/yorushika-mv-scenes/references/human-treatment.md)。歌词资料是明信片技能的[opus.md](../../skills/yorushika-postcard-scenes/references/opus.md)，读取方式见[选句规则](../../skills/yorushika-postcard-scenes/references/lyric-selection.md)。
 
 Canonical figure references stay inside the MV skill; signature assets and lyric data stay inside the postcard skill. Copy the complete skill folders to retain their dependencies. Select logos by actual contrast, preserve emblem and lettering as one unit, and consult each asset directory's source record.

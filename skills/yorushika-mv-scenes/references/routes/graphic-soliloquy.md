@@ -6,6 +6,6 @@ Use for architecture, interiors, roads, books/paper, strong geometry, hand-drawn
 - Favor deep blue, cobalt, blue-black and dirty white with at most one muted rust accent. Human strokes remain pure white.
 - Follow the dominant source axis with one bounded sumi-ink/watercolor field showing bloom, pooling, feathering and dry-brush gaps.
 - Add one controlled break—displaced contour, torn registration, restrained RGB offset, short scanline fracture or dissolving edge—aligned to real scene geometry.
-- For strong intensity, the hierarchy is white human treatment → bounded wash → one break. Strength comes from a connected field, not additional effects.
+- For strong intensity, make the hierarchy visibly read as white human treatment → connected cobalt/indigo wash → one break. The wash should occupy a meaningful connected plane or edge system, with enough bloom, pooling and dry-brush variation to survive the postcard stage; strength comes from area and material continuity, not additional effect types.
 
 Avoid uniform watercolor conversion, commercial polish, random global glitch and colored line figures.
