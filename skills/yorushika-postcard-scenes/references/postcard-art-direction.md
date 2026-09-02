@@ -16,15 +16,15 @@ Use the saved MV artwork's actual EXIF-oriented dimensions `w × h`. Preserve it
 
 | Actual MV | Layout | Default lyric count |
 | --- | --- | --- |
-| Landscape, including near 16:9 and other wide ratios | `top-image`: upper centered image, lower signature/text | 2 Japanese/Chinese pairs |
+| Landscape, including near 16:9 and other wide ratios | `top-image`: upper centered image, lower signature/compact text | Auto-select 1–2 pairs in two lyric rows |
 | Portrait, including near 3:4 and other tall ratios | `left-image-right-text`: left image, upper-right logo, lyrics below it | 4 Japanese/Chinese pairs |
-| Square | `top-image` | 2 Japanese/Chinese pairs |
+| Square | `top-image` | Auto-select 1–2 pairs in two lyric rows |
 
-Explicit layout preferences override placement. An explicit `lyric_lines` overrides the orientation-based count; changing layout alone does not change that count. Apply the text/signature suppression controls before assigning content zones.
+Explicit layout preferences override placement. An explicit `lyric_lines` overrides the orientation-based count; changing layout alone does not change that count. For landscape/square, `lyric_lines=1|2` still means pair count, but the selected pairs are consolidated by language into two visual lyric rows. Explicit 3–4-pair requests may exceed two rows. Apply the text/signature suppression controls before assigning content zones.
 
 ### Landscape/square MV — top image
 
-Retain the existing upper, horizontally centered artwork, with modest side/top margins and lower paper for signature, paired lyrics and final song title. A small asymmetry may support the image's eye path.
+Retain the existing upper, horizontally centered artwork, with modest side/top margins and lower paper for signature, a compact bilingual lyric block and final song title. The lyric body should read as two rows: all selected Japanese in source order on the first row, and the corresponding Chinese on the second. With two pairs, separate sentences through typesetting space only; do not add punctuation. Keep the smaller `——original song title` attribution on its own line. A small asymmetry may support the image's eye path.
 
 Use this starting layout, then adapt paper margins for the verified bilingual text:
 
@@ -38,7 +38,7 @@ x = floor((W - w) / 2)
 y = round(0.065 * H)
 ```
 
-For a 1672 × 941 MV file, this gives a 1860 × 1395 starting card with artwork at (94, 91). The lower area must fit the default 2 pairs (or explicitly requested count), signature and title legibly. These dimensions are a starting geometry, not proof that every excerpt fits.
+For a 1672 × 941 MV file, this gives a 1860 × 1395 starting card with artwork at (94, 91). The lower area must fit the two lyric rows, signature and title legibly. In automatic mode, use two short pairs only when both language rows stay on one line at a readable size; otherwise use one pair. These dimensions are a starting geometry, not proof that every excerpt fits.
 
 ### Portrait MV — left image, right information column
 
@@ -66,7 +66,7 @@ For a 900 × 1200 MV file, this gives a 1820 × 1365 starting card, artwork at (
 
 ### Fit and preservation
 
-Margin fractions and type size are design starting points, not fixed templates. Check that the whole artwork fits inside the card and that the selected text, logo and title fit their own region without overlap or clipping. If necessary, first select a shorter excerpt with the same required pair count, adjust margins or enlarge the 4:3 paper by increasing `k`; recompute placements while keeping `artwork_width=w` and `artwork_height=h`. Re-verify any changed excerpt before compilation.
+Margin fractions and type size are design starting points, not fixed templates. Check before generation that the whole artwork and the selected text, logo and title fit their own regions. For an automatic landscape/square selection, first try a shorter two-pair window from the same song, then the next emotionally strongest candidate, then fall back to one pair. For an explicit count or portrait layout, keep the requested count while selecting a shorter excerpt, adjusting margins or enlarging the 4:3 paper by increasing `k`. Recompute placements while keeping `artwork_width=w` and `artwork_height=h`, and re-verify any changed excerpt before compilation.
 
 Do not crop, stretch or silently reduce artwork scale to fit text. If a fixed user-requested card size cannot accommodate the native artwork and required content, explain the conflict before generation. User-authorized resizing must be proportional and recorded. Use only the actual generated MV artwork in this stage; preserve both original photo and MV files on disk.
 
@@ -109,9 +109,11 @@ Apply age chiefly to the added paper and resolved peripheral blend band. Keep th
 
 Treat the image, inherited microcopy, selected bilingual pairs, song title and signature as one reading order. Existing microcopy alone does not disable automatic lyrics. Source signage remains part of the image.
 
-Use the already verified selection from [lyric selection](lyric-selection.md). Render each Japanese original above its corresponding Chinese translation, keeping each pair together and distinguishing pair count from visual wrapping. Use compatible Japanese Mincho/Chinese Song-style serif or restrained handwritten type in a legible scene-derived ink color. Preserve wording and punctuation. After the last pair, use a separate line containing the exact `——original song title`; translator and line-number metadata stay in notes and the handoff unless requested on-card.
+Use the already verified full-corpus selection from [lyric selection](lyric-selection.md). Use compatible Japanese Mincho/Chinese Song-style serif or restrained handwritten type in a legible scene-derived ink color. Preserve wording and punctuation. After the lyric body, use a separate line containing the exact `——original song title`; translator and line-number metadata stay in notes and the handoff unless requested on-card.
 
-For `top-image`, keep the signature and lyric block in the lower paper, with clear separation; adapt alignment to the scene. For `left-image-right-text`, put the signature above the lyrics in the right column, and left-align the lyric block and final attribution. Give each language readable size, small intra-pair spacing and larger inter-pair spacing. Do not split a pair into distant areas or separate all Japanese from all Chinese.
+For `top-image`, keep the signature and compact lyric block in the lower paper, with clear separation; adapt alignment to the scene. In automatic 1–2-pair mode, row 1 contains the selected Japanese originals and row 2 their corresponding Chinese translations, followed by the smaller attribution line. Keep both language rows unwrapped when possible; choose one pair rather than forcing an overlong two-pair selection into unreadable type. For an explicit 3–4-pair request, return to per-pair Japanese-above-Chinese grouping.
+
+For `left-image-right-text`, put the signature above the lyrics in the right column, and left-align the four paired groups and final attribution. Give each language readable size, small intra-pair spacing and larger inter-pair spacing. Do not split a pair into distant areas or separate all Japanese from all Chinese.
 
 About 8–15% of card width is a starting signature size, constrained by the chosen content region. Keep its aspect and clear space. Select the actual bundled black/white PNG by contrast on the chosen paper; retain a supplied colored logo's colors unless a permitted variant exists. Use one signature and preserve emblem and name together.
 

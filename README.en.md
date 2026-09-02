@@ -42,6 +42,7 @@ Check the installed references and assets, then tell me how to invoke both skill
 Before setting off:
 
 - **Image tools:** Codex needs built-in ImageGen, local image viewing and permission to write outputs. This package contains no model weights, API keys or standalone image service.
+- **Lyric retrieval:** The postcard skill prefers its bundled standard-library Python script to scan the complete `opus.md`; no third-party package is required. If Python is unavailable, the skill falls back to a stratified full-corpus `rg` search.
 - **Repository access:** The repository is currently private. Use an authenticated GitHub account with access.
 - **Discovery:** Cloning alone does not install the skills. Project-local skills belong in `.agents/skills/`. Check on the next turn; restart Codex if they still do not appear. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills).
 - **Keep the pair together:** MV scenes can run alone; postcards require the sibling MV skill. Figure references, logos and the lyric corpus are bundled. No private screenshot collection needs to move with you.
@@ -90,8 +91,8 @@ Attach a photo or an existing MV artwork:
 ```text
 Use $yorushika-postcard-scenes to make a postcard from this image.
 Choose lightly aged paper from the scene's colors.
-Analyze the actual MV artwork, then select and verify matching
-Japanese/Chinese lyric pairs and the original song title from opus.md.
+Analyze the actual MV artwork, then search the full opus.md and verify emotionally matched
+Japanese/Chinese lyric pairs and the original song title.
 Use the orientation-based layout and generate after verification.
 ```
 
@@ -101,24 +102,21 @@ A photograph goes through the MV stage first. An existing MV artwork is reused. 
 
 | MV orientation | Postcard layout | Default lyrics |
 | --- | --- | --- |
-| Landscape / square | Upper-centered image; signature and words in the lower paper | **2 Japanese/Chinese pairs** |
+| Landscape / square | Upper-centered image; one Japanese row and one Chinese row below, title separate | **Auto-select 1–2 pairs** |
 | Portrait | Complete image left; logo upper-right, lyrics below, title last | **4 Japanese/Chinese pairs** |
 
 Both use a landscape **4:3** outer card. Layout follows actual EXIF-oriented MV dimensions, not an exact input-ratio test. Preserve the MV artwork's native pixel extent by default and add paper around it; do not crop, stretch or silently shrink it to fit the words.
 
-Each pair places the Japanese original above its corresponding Chinese translation. A separate final line carries the original song title:
+Landscape and square layouts consolidate 1–2 short pairs into two lyric rows: Japanese originals in source order on the first row and their Chinese translations on the second. If two pairs cannot fit legibly without wrapping, automatic selection falls back to one. The song title remains a separate attribution line:
 
 ```text
-Japanese original
-Corresponding Chinese translation
-
-Japanese original
-Corresponding Chinese translation
+Japanese original　Optional second Japanese original
+Corresponding Chinese translation　Optional second Chinese translation
 
 ——Original Japanese song title
 ```
 
-This is a layout diagram, not text to render literally. Actual text comes from one song entry in [opus.md](skills/yorushika-postcard-scenes/references/opus.md), retaining wording, punctuation and paired translations without mixing versions. The assistant verifies the selection before passing fixed text to ImageGen. It proceeds directly unless you ask to preview the wording first.
+This is a layout diagram, not text to render literally. The skill retrieves candidates across the complete [opus.md](skills/yorushika-postcard-scenes/references/opus.md), then reranks them by emotional tension, composition, sensory resonance, semantic aftertaste and layout fit instead of stopping at the earliest matches. Final text still comes from one song entry, retaining wording, punctuation and paired translations without mixing versions. The assistant verifies the selection before passing fixed text to ImageGen. It proceeds directly unless you ask to preview the wording first.
 
 The postcard stage gives the finished MV a more visible paper transition: roughly 1–4% of the shorter side may fade, bleed and dry-brush continuously into the stock. Every figure silhouette, limb, support/contact point, looking-back gesture and white stroke remains protected; where a figure reaches an edge, the blend routes around it or travels outward only.
 
@@ -130,6 +128,7 @@ Say what you want in ordinary language:
 - **“Keep the logo, skip the lyrics.”** `lyrics=none` removes lyrics and song attribution.
 - **“Keep the lyrics, skip the logo.”** Use `signature=none`.
 - **“Two pairs for this portrait, please.”** Explicit `lyric_lines=2` overrides defaults; 1–4 pairs are supported.
+- **“Use two lines from this landscape scene.”** Two selected pairs share one Japanese row and one Chinese row; an explicit 3–4-pair request may exceed the compact two-row layout.
 - **“Show me the wording first.”** Preview the selected text and source, then wait for approval.
 - **“Use these words I wrote.”** Keep supplied wording without inventing translations or song credits.
 

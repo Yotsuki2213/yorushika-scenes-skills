@@ -10,10 +10,10 @@ Record these decisions before calling ImageGen for a postcard:
 - Visible elements, subject positions, depth, eye path, quiet areas, motion, light/color and evidence-based emotion; distinguish observations from associations.
 - `blend_band`: roughly 1–4% of the shorter MV side, allowed across broad or continuous perimeter regions for opacity fade, pigment bleed, paper fade, dry-brush gaps and matched grain; `protected_action_zones`: all people/line figures, body and limb silhouettes, shoulder/neck turn, weight-bearing and contact points, pose-defining occlusion, white body/head strokes and source text.
 - Layout (`top-image` or `left-image-right-text`), native artwork bounds and 4:3 card dimensions, paper/blend/age choices, signature asset and its bounds, text bounds and reading order.
-- For automatic text, the completed [lyric selection](lyric-selection.md): one song entry, exact paired originals/translations and both source line numbers, translator when present, matching reason, count and final layout breaks. Keep the exact original-title attribution `——original song title` in the rendering text.
+- For automatic text, the completed [full-corpus lyric selection](lyric-selection.md): motif/relation/affect terms, corpus coverage, one song entry, exact paired originals/translations and both source line numbers, translator when present, emotional/compositional matching reason, count and final layout rows. Keep the exact original-title attribution `——original song title` in the rendering text.
 - Completion of assistant verification or, only if requested, user approval. Do not generate with unresolved source, pairing, count or attribution concerns.
 
-Default counts come from MV orientation: landscape/square exactly 2 pairs, portrait exactly 4; explicit `lyric_lines=1..4` wins. An explicit placement override does not itself alter count. With `lyrics=none`, no lyric retrieval or song attribution is needed. Preserve designated wording; do not invent a missing translation or unverified attribution. Apply the entrypoint's text/signature overrides before compilation.
+Default counts come from MV orientation: landscape/square automatically selects 1–2 pairs and consolidates them into one Japanese row plus one Chinese row; portrait uses exactly 4 paired groups. Use two landscape pairs only when both combined language rows fit legibly without wrapping, otherwise use one. Explicit `lyric_lines=1..4` wins; explicit 3–4 landscape pairs may exceed two rows. An explicit placement override does not itself alter count. With `lyrics=none`, no lyric retrieval or song attribution is needed. Preserve designated wording; do not invent a missing translation or unverified attribution. Apply the entrypoint's text/signature overrides before compilation.
 
 Use the [art direction](postcard-art-direction.md) calculation for the resolved layout. Verify that native artwork and all chosen content fit before compiling. Any excerpt changed for fit must be verified again. The assistant handles selection; the image tool only renders the final verified content.
 
@@ -70,15 +70,24 @@ within [resolved signature bounds].]
 [If wordmark: place the exact lowercase word "yorushika" once
 within [resolved signature bounds].]
 
-[If automatic or verified corpus lyrics: render exactly [N]
-Japanese/Chinese pairs in [text bounds, typefaces and ink].
-For each pair, put Japanese above its corresponding Chinese,
-with a small within-pair gap and a larger between-pair gap.
-Keep both readable; Chinese may be slightly smaller.
-Follow the supplied grouping and layout breaks exactly.
-After the last pair, put the supplied original-song attribution
-on its own line. Render this exact text:
-[verified Japanese/Chinese pairs followed by ——original song title]]
+[If landscape/square automatic or explicit 1–2 pairs: render exactly
+[N] verified Japanese/Chinese pairs as TWO visual lyric rows in
+[text bounds, typefaces and ink]. Row 1 contains the supplied Japanese
+original(s) in source order; row 2 contains the corresponding Chinese
+translation(s) in the same order. If N=2, separate the two sentences
+with typesetting space only and add no punctuation. Do not wrap either
+language row or reduce it to unreadable type. Put the supplied
+original-song attribution on a separate smaller line after the two
+lyric rows. Render exactly:
+[combined Japanese row]
+[combined Chinese row]
+[——original song title]]
+[If portrait or explicit landscape 3–4 pairs: render exactly [N]
+Japanese/Chinese paired groups in [text bounds, typefaces and ink].
+For each pair, put Japanese above its corresponding Chinese, with a
+small within-pair gap and a larger between-pair gap. Follow the supplied
+grouping and layout breaks exactly. Put the supplied original-song
+attribution on its own line after the final pair.]
 [If user-designated text: render the verified supplied wording
 and requested language/layout exactly; include a song attribution
 only if supplied or verified. Do not invent additional wording.]
@@ -103,10 +112,12 @@ frames, desk mockups, duplicate signatures, UI and new watermarks.
 
 ```text
 Keep the MV artwork horizontally centered in the upper region at
-[artwork bounds]. Arrange [signature, if enabled] and [paired lyric
+[artwork bounds]. Arrange [signature, if enabled] and [compact lyric
 block plus final song title, if enabled] in the lower paper at
-[their separate bounds]. Keep the scene dominant and the lower
-reading order uncluttered, with no typography covering the image.
+[their separate bounds]. For automatic or explicit 1–2 pairs, keep
+the lyric body to one Japanese row and one Chinese row, then place
+the smaller attribution on its own line. Keep the scene dominant and
+the lower reading order uncluttered, with no typography covering the image.
 ```
 
 ### Layout module — left image, right text

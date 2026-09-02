@@ -8,7 +8,7 @@ input=photo paper=auto age=light blend=auto
 signature=auto lyrics=auto
 ```
 
-先生成并保存 MV，再分析该真实成品的元素、构图与情绪。按[选句规则](../skills/yorushika-postcard-scenes/references/lyric-selection.md)从同一歌曲条目选择日中对照，核对原文、组数、配对与歌名后，将确定的文字交给图像工具。新生成 MV 在自动歌词模式下不新增微文案；日中歌词放在明信片纸面上。
+先生成并保存 MV，再分析该真实成品的元素、构图、空间关系与情绪张力。按[选句规则](../skills/yorushika-postcard-scenes/references/lyric-selection.md)和全库候选提取器跨 `opus.md` 的发行分组召回歌词，再按情绪、构图、感官意象、语义余韵和版面长度重排。从同一歌曲条目选择日中对照，核对原文、组数、配对与歌名后，将确定的文字交给图像工具。新生成 MV 在自动歌词模式下不新增微文案；日中歌词放在明信片纸面上。
 
 ## 横向 MV：上图下文
 
@@ -17,7 +17,7 @@ signature=auto lyrics=auto
 input=mv paper=auto age=light signature=auto lyrics=auto
 ```
 
-沿用上方居中图片、下方署名与歌词的布局，默认固定2组。每组日文在上、中文在下；歌词最后单独一行是 `——原歌名`。近似16:9或其他横向比例同样适用；正方形默认使用这一布局。
+沿用上方居中图片、下方署名与歌词的布局。自动模式先尝试同一曲目的2组短连续歌词；若日文合并行或中文合并行无法以可读字号保持单行，则改用1组。歌词正文总共两行：上面是1–2句日文，下面是对应中文；两句之间只留排版间距，不新增标点。`——原歌名` 作为独立出处行。近似16:9或其他横向比例同样适用；正方形默认使用这一布局。
 
 ## 竖向 MV：左图右文
 
@@ -52,4 +52,4 @@ on the right, Japanese above Chinese per pair, and
 ——original song title on the final line.
 ```
 
-For landscape/square input, retain the upper-centered artwork and lower signature/text with exactly 2 pairs by default. Save new images to workspace-root `output/` as `YYYYMMDD-title.<ext>`; preserve originals and existing MV files in place.
+For landscape/square input, retrieve across the full corpus and auto-select 1–2 short pairs. Put the selected Japanese original(s) on one row and their Chinese translation(s) on the next, with the song title on a separate attribution line. Use two pairs only when both language rows fit legibly; otherwise use one. Save new images to workspace-root `output/` as `YYYYMMDD-title.<ext>`; preserve originals and existing MV files in place.
