@@ -37,13 +37,11 @@ In explicit `redraw`, the unlocked scene may be re-authored but these body ancho
 
 ## Supporting references
 
-The user-selected references are bundled beside this guide:
+The user-selected reference is bundled beside this guide:
 
-- [Reference 1](../assets/line-figures/线稿参考1.png): seated/reclining scene contact, loose white body hatching and a broad head scribble.
-- [Reference 2](../assets/line-figures/线稿参考2.png): standing posture, irregular clothing contours, sparse body strokes and dense horizontal head coverage.
-- [Reference 3](../assets/line-figures/线稿参考3.png): another supplied scene-grounded white-line example, closely related visually to reference 1.
+- [线稿小人抠图联系表.png](../assets/line-figures/线稿小人抠图联系表.png): transparent contact sheet of five isolated white line figures. Use it to guide rough contour rhythm, sparse body hatching, dense horizontal head scribbles, youthful proportions and simple barefoot line feet. It is a style reference only; do not copy its arrangement or treat its figures as extra people.
 - [Source record](../assets/line-figures/SOURCES.md).
 
-When drawing is required, inspect 1–2 relevant references with `view_image` and select by action and stroke evidence. Treat the large white masking regions surrounding the figures as reference preparation marks, not desired art direction. Extract only contour wobble, hatching rhythm, transparent body gaps, head scribble density and scene contact.
+When drawing is required, inspect the contact sheet with `view_image` and use it as the line-style reference. Extract only contour wobble, hatching rhythm, transparent body gaps, head scribble density, youthful proportions and simple barefoot line feet; do not reproduce its layout, background or extra figure.
 
 Pass the user's scene as the edit target and selected images as explicitly labeled supporting line-style references using the supported ImageGen attachment mechanism. A path written in prompt text alone is not an image attachment. Do not import the reference backgrounds, masking fields, exact pose, props or recognizable character design. If bundled references are unavailable, state that and apply the written grammar without claiming to have attached them.
