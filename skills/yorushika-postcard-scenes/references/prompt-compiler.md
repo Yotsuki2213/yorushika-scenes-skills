@@ -4,7 +4,7 @@ Use this compiler only after a real MV file has been obtained and analyzed and t
 
 ## Resolve before prompting
 
-Record these decisions before calling ImageGen for a postcard:
+Resolve these decisions in the current working context before calling ImageGen for a postcard; do not write them to a production Markdown file unless the user explicitly requests one:
 
 - Actual MV path, EXIF-oriented dimensions and whether it was reused or generated.
 - Visible elements, subject positions, depth, eye path, quiet areas, motion, light/color and evidence-based emotion; distinguish observations from associations.

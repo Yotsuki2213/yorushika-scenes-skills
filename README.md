@@ -1,5 +1,9 @@
 # 🦌 Yorushika Scenes Skills
 
+![湖畔弯道：由 Yorushika MV 与 Postcard 两个技能共同生成的演示图](assets/showcase/lake-bend-postcard.png)
+
+> **从一张普通照片，到一封写着风、云与夏日余韵的明信片。** 这张《湖畔弯道》先由 MV 技能重塑场景，再由 Postcard 技能完成纸张融合、日中歌词与版式。
+
 ## 把路过的风景，寄给还没忘记夏天的你。
 
 > 风经过站台，蓝色落进纸里。<br>
@@ -33,7 +37,6 @@ https://github.com/Yotsuki2213/yorushika-scenes-skills
 安装到当前工作区根目录的 .agents/skills/，保持两个技能文件夹同级，
 完整保留各自的 SKILL.md、agents、references 和 assets。
 如果存在同名技能，先比较差异并向我确认，不直接覆盖。
-如果私有仓库认证失败，请说明需要的访问权限，不要求我把令牌贴进对话。
 完成后检查两个技能的引用和素材是否齐全，并告诉我如何调用。
 ```
 
@@ -41,9 +44,15 @@ https://github.com/Yotsuki2213/yorushika-scenes-skills
 
 - **生图能力：** Codex 环境需要能调用内置 ImageGen、查看本地图片，并具有输出目录的写入权限。技能本身不附带模型权重、API 密钥或独立生图服务。
 - **歌词检索：** 明信片技能优先使用随包的标准库 Python 脚本遍历完整 `opus.md`，不需要安装第三方包；Python 不可用时按技能规则退回 `rg` 的全库分段检索。
-- **仓库访问：** 当前仓库为私有仓库，需要已获得访问权限的 GitHub 账号和可用认证。
+- **仓库访问：** 这是公开仓库，读取与安装不需要私有仓库权限，也不需要把 GitHub 令牌交给 Codex。
 - **加载位置：** 克隆仓库不等于安装技能。项目级技能应放进 `.agents/skills/`；安装后下一轮检查是否可选，若仍未出现，重启 Codex。加载方式见 [OpenAI 官方说明](https://learn.chatgpt.com/docs/build-skills)。
-- **成双安装：** MV 技能可以单独使用；明信片技能需要同级的 MV 技能。线稿、logo 与歌词库已经随包提供，无需搬运原电脑的私人截图目录。
+- **成双安装：** MV 技能可以单独使用；明信片技能需要同级的 MV 技能。线稿联系表、logo 与歌词库已经随包提供，无需搬运原电脑的私人截图目录。
+
+也可以先用 Git 克隆公开仓库，再让 Codex 安装其中的两个技能：
+
+```powershell
+git clone https://github.com/Yotsuki2213/yorushika-scenes-skills.git
+```
 
 如果已经下载了仓库，也可以直接对 Codex 说：
 
@@ -132,14 +141,14 @@ MV 技能会先看懂这张照片：道路通向哪里，树影落在哪边，�
 
 ## 风景收在哪里？
 
-新生成图片统一放到**当前工作区根目录的 `output/`**，命名只用日期和短标题：
+新生成图片统一放到**当前工作区根目录的 `yorushika/`**。文件夹不存在时自动创建；文件名使用简短标题与作品类型，不再添加日期前缀：
 
 ```text
-20260831-秋日步道.png
-20260831-秋日步道明信片.png
+湖畔弯道-MV.png
+湖畔弯道-Postcard.png
 ```
 
-原始照片、已有 MV 和历史输出都保留；同名时换一个简短标题，不覆盖旧文件。扩展名跟随真实图片格式。
+原始照片、已有 MV 和历史输出都保留；同名时追加简短数字后缀，不覆盖旧文件。扩展名跟随真实图片格式。默认只输出图片，并在当前回复中给出简短说明与绝对保存路径；除非你明确要求制作记录、交接或复盘，否则不会额外生成 Markdown 文档。
 
 ## 打开这只纸盒
 
@@ -147,20 +156,22 @@ MV 技能会先看懂这张照片：道路通向哪里，树影落在哪边，�
 yorushika-scenes-skills/
 ├── README.md / README.en.md       两种语言的入口
 ├── LICENSE.md                     使用条件
-├── examples/                     调用示例
-├── assets/brand/README.md         素材索引
+├── examples/                      调用示例
+├── assets/
+│   ├── showcase/                  README 演示图
+│   └── brand/README.md            素材索引
 └── skills/
     ├── yorushika-mv-scenes/       构图、白线、水墨与 MV 气息
     │   ├── SKILL.md / agents/
     │   ├── references/
-    │   └── assets/line-figures/   三张线稿参考
+    │   └── assets/line-figures/   线稿小人抠图联系表与来源记录
     └── yorushika-postcard-scenes/ 纸张、横竖布局与双语选句
         ├── SKILL.md / agents/
         ├── references/           含 opus.md
         └── assets/               黑白 logo、SVG 与来源记录
 ```
 
-歌词库用于当前选句；历史日语表达分析与 MV 研究笔记各自保留。运行素材就在各自技能里，私人研究截图、其他项目照片与生成结果不随仓库分发。
+歌词库用于当前选句；历史日语表达分析与 MV 研究笔记各自保留。运行素材就在各自技能里，私人研究截图、其他项目照片与一般生成结果不随仓库分发；首页《湖畔弯道》仅作为公开演示，不进入技能运行时输入。
 
 维护时同步入口与参考文件，保留有意区分的研究记录；上传前检查两份技能结构、相对引用、素材和 Git 差异。目录组织参考 [gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill)。
 

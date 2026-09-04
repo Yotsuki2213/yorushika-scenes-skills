@@ -1,5 +1,9 @@
 # 🦌 Yorushika Scenes Skills
 
+![Lake Bend: a showcase generated through the Yorushika MV and Postcard skills](assets/showcase/lake-bend-postcard.png)
+
+> **From an ordinary photograph to a postcard carrying wind, clouds and the aftertaste of summer.** *Lake Bend* first passes through the MV skill, then the Postcard skill adds paper integration, verified Japanese/Chinese lyrics and the final layout.
+
 ## A postcard for the part of you that still remembers summer.
 
 > Wind crosses the platform. Blue settles into paper.<br>
@@ -34,8 +38,6 @@ Install both into .agents/skills/ at the current workspace root.
 Keep the folders as siblings and preserve all SKILL.md, agents,
 references and assets content.
 If either skill already exists, compare versions and ask before replacing it.
-If private-repository authentication fails, explain the access needed;
-do not ask me to paste a token into the conversation.
 Check the installed references and assets, then tell me how to invoke both skills.
 ```
 
@@ -43,9 +45,15 @@ Before setting off:
 
 - **Image tools:** Codex needs built-in ImageGen, local image viewing and permission to write outputs. This package contains no model weights, API keys or standalone image service.
 - **Lyric retrieval:** The postcard skill prefers its bundled standard-library Python script to scan the complete `opus.md`; no third-party package is required. If Python is unavailable, the skill falls back to a stratified full-corpus `rg` search.
-- **Repository access:** The repository is currently private. Use an authenticated GitHub account with access.
+- **Repository access:** This is a public repository. Reading and installation require no private-repository access and no GitHub token shared with Codex.
 - **Discovery:** Cloning alone does not install the skills. Project-local skills belong in `.agents/skills/`. Check on the next turn; restart Codex if they still do not appear. See the [official skill documentation](https://learn.chatgpt.com/docs/build-skills).
-- **Keep the pair together:** MV scenes can run alone; postcards require the sibling MV skill. Figure references, logos and the lyric corpus are bundled. No private screenshot collection needs to move with you.
+- **Keep the pair together:** MV scenes can run alone; postcards require the sibling MV skill. The figure contact sheet, logos and lyric corpus are bundled. No private screenshot collection needs to move with you.
+
+You can also clone the public repository first, then ask Codex to install both skills from it:
+
+```powershell
+git clone https://github.com/Yotsuki2213/yorushika-scenes-skills.git
+```
 
 Already downloaded the repository? Send this instead:
 
@@ -136,14 +144,14 @@ Legacy `poem=auto|none` remains supported. More options: [MV examples](examples/
 
 ## Where the memories go
 
-New images are saved in **`output/` at the active workspace root**, named with a date and short title:
+New images are saved in **`yorushika/` at the active workspace root**. The folder is created when needed; filenames use a short title and output type without a date prefix:
 
 ```text
-20260831-autumn-path.png
-20260831-autumn-postcard.png
+lake-bend-MV.png
+lake-bend-Postcard.png
 ```
 
-Originals, reused MV images and previous outputs remain intact. Choose a different short title on a naming collision; use the actual image format's extension.
+Originals, reused MV images and previous outputs remain intact. A short numeric suffix resolves naming collisions without overwriting; the actual image format's extension is retained. By default the skills produce only the image and return a brief inline summary with its absolute path. A Markdown production record is created only when you explicitly request notes, a handoff, a review or a reproducible record.
 
 ## Inside the paper box
 
@@ -151,20 +159,22 @@ Originals, reused MV images and previous outputs remain intact. Choose a differe
 yorushika-scenes-skills/
 ├── README.md / README.en.md       Two language editions
 ├── LICENSE.md                     Use terms
-├── examples/                     Invocation and acceptance guides
-├── assets/brand/README.md         Asset index
+├── examples/                      Invocation guides
+├── assets/
+│   ├── showcase/                  README showcase artwork
+│   └── brand/README.md            Asset index
 └── skills/
     ├── yorushika-mv-scenes/       Composition, white lines, ink and MV atmosphere
     │   ├── SKILL.md / agents/
     │   ├── references/
-    │   └── assets/line-figures/   Three figure references
+    │   └── assets/line-figures/   Extracted figure contact sheet and provenance
     └── yorushika-postcard-scenes/ Paper, layouts and bilingual selection
         ├── SKILL.md / agents/
         ├── references/           Includes opus.md
         └── assets/               Black/white logos, SVG and provenance
 ```
 
-The lyric corpus supplies current selections; historical Japanese analysis and MV research notes remain separate. Runtime assets live inside their own skills. Private research screenshots, other project photos and generated outputs are not distributed.
+The lyric corpus supplies current selections; historical Japanese analysis and MV research notes remain separate. Runtime assets live inside their own skills. Private research screenshots, other project photos and ordinary generated outputs are not distributed; *Lake Bend* is a public showcase only and never becomes a runtime skill reference.
 
 Maintain entrypoints and references together, preserve intentional research-note differences, and check skill structure, relative links, assets and Git changes before publishing updates. Directory organization draws on [gathered-scenes-zine-skill](https://github.com/Zeejay0/gathered-scenes-zine-skill).
 
