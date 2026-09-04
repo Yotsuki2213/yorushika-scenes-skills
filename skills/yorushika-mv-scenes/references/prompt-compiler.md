@@ -29,7 +29,7 @@ target_aspect: approximately 16:9 for landscape or square; approximately 3:4 for
 human_subject_present: true / false, based on compositional/narrative role, not incidental passers-by
 human_treatment: add-white-protagonist / cover-existing-heads / user-override
 human_subject_details: positions, actions, protected body anchors and visible head regions
-figure_plan: action, back-facing torso, natural over-shoulder head turn, weight-bearing support, scale, contact/occlusion for addition; entire visible head-coverage regions for either branch
+figure_plan: location, depth plane, scale basis, action, back-facing torso, natural over-shoulder head turn, weight-bearing support, contact/occlusion and eye-path relation for addition; entire visible head-coverage regions for either branch
 style_references: 1–2 inspected bundled line images when drawing is needed; separate from the scene edit target
 scene_type: exterior / interior / liminal / object-led
 preserve_anchors: 3–6 concrete elements actually visible in the source
@@ -69,7 +69,7 @@ Do not select a style route until the source has been read as a composed stateme
 - core subjects and supporting elements;
 - spatial invariants and dominant gesture;
 - visual-weight map and natural quiet areas;
-- semantic minimum, resolved human branch/figure plan, source orientation/target aspect, and 1–2 source-shape candidates;
+- semantic minimum, resolved human branch/figure plan, source orientation/target aspect, and 1–2 source-shape candidates; for an added figure, the plan must settle location, depth, scale basis and support before action styling;
 - one-sentence `expression_read` and an `eye_path` of entry → anchor → intervention → exit.
 
 Then make an `abstraction_map` for the editable regions: what to retain, merge, omit, transform, and leave blank. Preserve the dominant axis, subject scale, value hierarchy, and source material before adding any graphic treatment. Style is a second pass attached to real contours, planes, shadows, paths, or material events—not a collection of detached effects.
@@ -104,7 +104,7 @@ If the user asks to remove a watermark, place it in `remove_only` and reconstruc
 
 ### Shared human and reference block
 
-Apply [human treatment](human-treatment.md) before every route and in both templates. Background passers-by alone do not constitute a human subject. Preserve existing subject bodies, clothing and action; cover all visible primary heads locally, including back views. For fully hidden or off-frame heads, record coverage as not applicable without inventing a head or person. If no human subject exists, plan one scene-supported protagonist with a back-facing torso and a natural look back over one shoulder in a single still. Verify connected joints, a plausible neck/shoulder turn, balance, weight-bearing support and occlusion before adding slightly abstract scrawled body lines. Cover the entire visible head, including crown, hair, face, ears and back of head; no features may read through. Preserve existing subjects' poses instead of imposing the new-figure turn on them.
+Apply [human treatment](human-treatment.md) before every route and in both templates. Background passers-by alone do not constitute a human subject. Preserve existing subject bodies, clothing and action; cover all visible primary heads locally, including back views. For fully hidden or off-frame heads, record coverage as not applicable without inventing a head or person. If no human subject exists, first resolve one scene-supported protagonist's `location`, `depth`, `scale_basis`, `support_contact`, `occlusion` and `eye_path`, then choose the compatible action. Match the figure's size to the scene perspective and nearby scale references; a distant figure may occupy a small part of the frame while its silhouette, action direction, weight and head scribble remain readable. Use a back-facing torso and natural look back over one shoulder when the connected joints and support can carry it. Cover the entire visible head, including crown, hair, face, ears and back of head; no features may read through. Preserve existing subjects' poses instead of imposing the new-figure turn on them.
 
 When drawing is needed, inspect and attach 1–2 relevant bundled line references. Clearly label the user's scene as EDIT TARGET and the others as SUPPORTING LINE STYLE ONLY. Use the actual image-attachment mechanism, not filenames in prompt prose alone. Extract hand-drawn wobble, white contour/hatching, body gaps and head scribble density. Do not import backgrounds, large white preparation masks, exact poses or props. If unavailable, disclose the missing references and use the written grammar.
 
@@ -150,7 +150,7 @@ For dark interiors or object-led references. Use a sparse wide shot with 65–80
 
 For reflections, movement, hats, foliage, water, or emotionally doubled scenes. Keep the base photograph-like space readable, then place one irregular translucent paint/print layer across only 20–35% of the frame. Do not turn the whole image into watercolor.
 
-Resolve approximate framing from EXIF-oriented dimensions: landscape → about 16:9, portrait → about 3:4, square → about 16:9 by default; explicit framing requests override this. Accept native generated dimensions near these targets. Extend necessary edges only when composition benefits, placing extension around protected anchors. Do not reduce human scale, change body proportions, crop important subjects, stretch, mirror, tile or letterbox. Adapt modules to the resolved orientation and preserve-edit locks.
+Resolve approximate framing from EXIF-oriented dimensions: landscape → about 16:9, portrait → about 3:4, square → about 16:9 by default; explicit framing requests override this. Accept native generated dimensions near these targets. Extend necessary edges only when composition benefits, placing extension around protected anchors. Preserve the scale and body proportions of existing subjects; for a new figure, follow the resolved depth-based scale and do not enlarge it merely to increase prominence. Do not crop important subjects, stretch, mirror, tile or letterbox. Adapt modules to the resolved orientation and preserve-edit locks.
 
 ## 6. Route prompt modules
 
@@ -275,7 +275,7 @@ Composition and expression read:
 The source expresses [tension] through [dominant gesture/material]. The eye path is [entry] → [focal anchor] → [graphic/material intervention] → [quiet exit]. Preserve [semantic minimum, visual-weight hierarchy, and source axis] before styling.
 
 Source invariants (hard locks):
-Keep [existing bodies/clothing/poses and main objects], [major spatial relationships], [horizon or architectural axis], [foreground material], and [source texture] intact outside the authorized human and style zones. Preserve body position, scale and material readability; the visible heads listed below are intentionally editable. Preserve [observable time/light direction] and the emotional tension of [concise tension].
+Keep [existing bodies/clothing/poses and main objects], [major spatial relationships], [horizon or architectural axis], [foreground material], and [source texture] intact outside the authorized human and style zones. Preserve body position, scale and material readability; the visible heads listed below are intentionally editable. For an added figure, follow the resolved [location], [depth], [scale basis], [support/contact] and [occlusion] from the Scene Card. Preserve [observable time/light direction] and the emotional tension of [concise tension].
 
 Soft locks and editable zones:
 Allow only restrained stylization of [soft-lock details]. Authorize [visible head regions or new figure footprint] for the resolved human treatment, including under strict preservation. Apply supporting route treatment inside [bounded editable zones] and extend [necessary edges] naturally into [target_aspect] while retaining the original focal anchor and body proportions. Keep all non-editable regions visually continuous with the source.
@@ -299,10 +299,10 @@ Material event:
 Keep [principal source material] readable as the emotional material event. Let [one route accent] interact with it without replacing its texture. Support it only with [one secondary texture].
 
 Human treatment:
-[No human subject: add one readable pure-white sketched protagonist at [position/scale], torso facing away from the camera and head turning naturally back over one shoulder during [scene-supported action]. Keep [weight-bearing support, connected joints, neck/shoulder turn, contact and occlusion] physically believable. Use slightly abstract, loosely scrawled broken contours and uneven body hatching with transparent gaps. Cover the ENTIRE visible head, including crown, hair, face, ears and back of head, with dense irregular white hatching and horizontal scribbles; no head features read through. One person in one moment, no duplicate pose or impossible neck twist.]
+[No human subject: add one readable pure-white sketched young man or young woman at [scene-derived location] in the [foreground/middle ground/background] depth plane. Set [scale] from [perspective lines and nearby scale references]; a distant figure may occupy a small part of the frame while remaining readable through silhouette, action direction, weight and head scribble. Use [scene-supported action] with [weight-bearing support, connected joints, contact and occlusion] physically believable. Use a back-facing torso and natural over-shoulder head turn when the resolved body relationship supports it. Use slightly abstract, loosely scrawled broken contours and uneven body hatching with transparent gaps. Cover the ENTIRE visible head, including crown, hair, face, ears and back of head, with dense irregular white hatching and horizontal scribbles; no head features read through. One person in one moment.]
 [Existing human subject(s): keep [bodies/clothing/poses/positions/scales] intact. Cover [each entire visible primary head region, including crown, hair, face, ears and back of head] with dense irregular white hatching and mostly horizontal scribbles until none of the original head details can read through. Keep the existing pose and head placement; do not impose a back-facing/looking-back pose on an existing subject. Preserve nearby neck/body landmarks. Do not add another person. Hidden/off-frame heads remain hidden/off-frame.]
 [Explicit human override: apply the user's instruction consistently.]
-Compile only the applicable branch; retain pure-white stroke contrast and a scene-grounded eye path.
+Compile only the applicable branch; retain the resolved scene-grounded location, depth, scale, contact and eye path, plus pure-white stroke contrast.
 
 Typography:
 [For text=auto: place the single original Japanese phrase “[microcopy]” once in [editable negative-space location], using [thin Mincho-like / restrained handwritten] glyphs in [color/contrast], approximately [size relationship]. Correct Japanese characters, no other words, no credits, no lyrics, no logo treatment.] [For text=custom: use exactly “[user text]” once and no other text.] [For text=none: no added text, captions, letters, symbols, credits, logos or watermarks; preserve native source text unless removal is requested.]
@@ -356,7 +356,7 @@ Material event:
 Make [principal material] the single emotional material event: [behavior in the scene]. Support it only with [one secondary texture].
 
 Human treatment:
-[Compile the same resolved human branch as the preserve-edit template: one slightly abstract scrawled white protagonist, torso away from the camera with a natural over-shoulder look back, plausible joints/balance/support/contact and fully scribbled head; or protected existing bodies/poses with dense white coverage on each entire visible primary head. Cover crown, hair, face, ears and back of head without visible features. Off-frame/hidden heads stay so; existing-subject treatment adds no extra person or pose change. Apply explicit user overrides when present.] Retain pure-white strokes, transparent body gaps and full visible-head coverage.
+[Compile the same resolved human branch as the preserve-edit template: one slightly abstract scrawled white young man or young woman at the Scene Card's location and depth, with scale matched to perspective and nearby references, plausible joints/balance/support/contact and a fully scribbled head; or protected existing bodies/poses with dense white coverage on each entire visible primary head. A distant added figure may remain a small part of the frame if its silhouette, action direction, weight and head scribble stay readable. Use the back-facing torso and natural over-shoulder look back only when compatible with the resolved body relationship. Cover crown, hair, face, ears and back of head without visible features. Off-frame/hidden heads stay so; existing-subject treatment adds no extra person or pose change. Apply explicit user overrides when present.]
 
 Typography:
 Place the single original Japanese phrase “[microcopy]” once in [negative-space location], using [thin Mincho-like / restrained handwritten] glyphs in [color/contrast], approximately [size relationship]. Correct Japanese characters, no other words, no credits, no lyrics, no logo treatment.
@@ -388,6 +388,7 @@ Always compile negatives from the relevant groups; write them as one clear sente
 - no uniform watercolor, anime, paint, grain, or color-wash filter over the entire frame
 - no unrelated extra characters, props, logos or decorative clutter; the planned added protagonist must be anonymous, legible, source-supported and the only default new person
 - no colored line-drawn person: the added line-figure layer must be pure white only, with no black, cobalt, red, colored fill, or multicolor clothing
+- no floating or perspective-breaking added figure, unsupported foot/pelvis/hand contact, or scale that conflicts with the scene's depth references; a small distant figure is acceptable when its action and contact remain readable
 - no accidental crop, stretch, letterbox, mirrored fill, repeated tile, or artificial sidebar
 
 ### Composition

@@ -10,16 +10,27 @@ Record:
 - `human_subject_present`: true / false
 - `human_treatment`: add-white-protagonist / cover-existing-heads / user-override
 - existing primary subjects' positions, body actions, body anchors and visible head regions
-- for addition: proposed position, action, back-facing torso, over-shoulder head turn, weight-bearing support, scale and contact/occlusion
+- for addition: resolved location, depth plane, scale basis, action, back-facing torso, over-shoulder head turn, weight-bearing support and contact/occlusion
 - selected style reference(s), with their role separate from the source edit target
+
+### Resolve a new figure's place and scale
+
+For `add-white-protagonist`, complete this spatial pass before choosing the final gesture or route:
+
+1. Read the oriented image for foreground, middle ground and background planes; mark the horizon, vanishing point or converging lines, visible support surfaces, major eye path and quiet areas.
+2. Choose a location that belongs to the real scene. Prefer a road, roof edge, shore, step, wall, railing, bench, shadow boundary or other visible plane that can explain the figure's feet, pelvis, hand or forearm. Record the position relative to the frame and the object or edge that carries the figure.
+3. Assign the figure to a depth plane and use nearby doors, windows, trees, roof courses, paving, railings, boats or other visible references to establish its relative size. Let perspective, occlusion and atmospheric distance set the scale continuously; a far-away figure may remain a small part of the image when that best preserves the scene's spatial reading.
+4. Place the figure on the source eye path or in a quiet area only when that placement creates a believable emotional pause without taking over the source focal anchor. Keep the original architecture, road, water, roofline, vegetation and horizon as the dominant evidence.
+5. Choose the action after the location and scale are settled. Walking, standing, sitting, leaning or looking toward water/space must follow the selected support and vanishing direction. The default back-facing torso with a natural over-shoulder look back is used only when the visible neck, shoulders, pelvis, feet and support remain physically coherent.
+6. Record `location`, `depth`, `scale_basis`, `action`, `support_contact`, `occlusion` and `eye_path` in `figure_plan`. The record is internal production data and does not add user-facing parameters.
 
 ### No human subject: add-white-protagonist
 
-Add one anonymous human protagonist with uneven pure-white contours and loose hatching. It must be a readable person with an intentional action, not merely a gesture mark. Choose proportions and scale from scene perspective and emotional weight; preserve the source's principal objects and relationships.
+Add one anonymous young man or young woman protagonist with uneven pure-white contours and loose hatching. It must be a readable person with an intentional action, not merely a gesture mark. Use the resolved `figure_plan`: the figure's location and size follow the source perspective, depth plane, nearby scale references and emotional weight, while the source's principal objects and relationships remain dominant.
 
 Compose a single believable moment: the new figure's torso is turned away from the camera, while the head turns naturally back toward the camera over one shoulder. Use shoulder line, neck attachment and head placement to communicate the turn even though the head is fully scribbled over. Allow a small coordinated upper-torso turn, not a backward-mounted face, a 180-degree neck twist or front-facing chest on a back-facing pelvis. This is one figure in one still, not a before/after sequence or duplicate silhouette.
 
-Ground that gesture in visible support: walking away along a road while glancing back, sitting with weight on an existing step and looking back over a shoulder, or pausing by a railing with the torso facing away and the head turned back. Choose a stable support and plausible joint arrangement before stylizing: a walking step has a weight-bearing foot, sitting has a supported pelvis, and leaning has a believable hand/forearm contact. Respect gravity, balance, perspective, limb connections and foreground occlusion. If little ground is visible, use an existing seat/support or a plausible partially framed figure at a supported edge; do not float a figure in sky/water or invent a conspicuous prop. Place a figure in naturally contrasting space, or allow a bounded scene-side tonal adjustment when needed for white-line visibility.
+Ground that gesture in the resolved support: walking away along a road while glancing back, sitting with weight on an existing step and looking back over a shoulder, or pausing by a railing with the torso facing away and the head turned back. Match the figure's size to the visible support and depth; a distant person can be small in the overall frame while remaining readable through a clear silhouette, action direction and head scribble. Choose a stable support and plausible joint arrangement before stylizing: a walking step has a weight-bearing foot, sitting has a supported pelvis, and leaning has a believable hand/forearm contact. Respect gravity, balance, perspective, limb connections and foreground occlusion. If little ground is visible, use an existing seat/support or a plausible partially framed figure at a supported edge. Place a figure in naturally contrasting space, or allow a bounded scene-side tonal adjustment when needed for white-line visibility.
 
 Let the figure be slightly abstract and sketchily scrawled: irregular pressure, wobbling broken contours, sparse overlapping construction lines and uneven hatching, with transparent body gaps revealing the scene. Simplify clothing and fine anatomy while keeping the torso, limbs, support and turn readable. Use pure-white ink, pencil or chalk-like strokes, not a polished cartoon or a solid filled body.
 

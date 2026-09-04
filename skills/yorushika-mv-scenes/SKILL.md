@@ -25,12 +25,12 @@ transform_mode=preserve-edit preserve_strength=strict style_intensity=strong mod
 
 ## Workflow
 
-1. Inspect the scene with `view_image` and read its actual EXIF-oriented dimensions. Build the Scene Card using [composition/expression](references/composition-expression.md): subjects, geometry, gesture, visual weight, quiet areas, semantic minimum, expression, and eye path. Record `source_orientation`, `target_aspect`, `human_subject_present`, `human_treatment`, subject actions/positions, and visible head regions.
+1. Inspect the scene with `view_image` and read its actual EXIF-oriented dimensions. Build the Scene Card using [composition/expression](references/composition-expression.md): subjects, geometry, gesture, visual weight, quiet areas, semantic minimum, expression, and eye path. Record `source_orientation`, `target_aspect`, `human_subject_present`, `human_treatment`, subject actions/positions, and visible head regions. If a new figure is needed, resolve its scene-supported location, depth plane, scale basis, contact and occlusion before selecting its action or style.
 2. Read [human treatment](references/human-treatment.md), [visual grammar](references/visual-grammar.md), and [prompt compiler](references/prompt-compiler.md) before compiling. Read [frame analysis](references/frame-analysis-rubric.md) only for detailed extraction explanations. When figure/head drawing is needed, inspect the default and only bundled [线稿小人抠图联系表.png](assets/line-figures/线稿小人抠图联系表.png).
 3. Resolve the human branch and target frame, then partition `hard_locks`, `soft_locks`, `editable_zones`, and `remove_only`. Existing bodies, clothing, poses and positions remain protected; visible heads to obscure and any new figure footprint are explicitly editable. Include natural extension zones as needed.
 4. Select the style route from scene evidence. `auto` chooses the strongest route and compatible accents; `fusion` uses 60/25/15. The route controls atmosphere and material, not whether the human branch is performed.
 5. Compile one internally consistent production prompt: source composition, resolved orientation/aspect, human treatment, reference roles, locks, edit zones, route weights, materials, light, microcopy and constraints. Attach the actual source and selected style images using the tool's supported reference mechanism.
-6. Generate one image and save it under the active workspace root's `output/` using the Output files convention below.
+6. Generate one image and save it under the active workspace root's `yorushika/` using the Output files convention below.
 
 ## Human subject and white-line treatment
 
@@ -38,7 +38,7 @@ Use the detailed branch decisions and reference selection in [human-treatment.md
 
 Judge a **human subject** by composition, readable action and narrative role; incidental background passers-by alone do not satisfy this condition. An existing drawn human subject also counts.
 
-- **No human subject:** add one legible human protagonist in pure-white irregular contour and hatching. Choose scale from perspective and visual hierarchy, not a fixed tiny size. Default to a torso facing away from the camera and a natural look back over one shoulder, grounded in a plausible walking, sitting or standing action on visible scene support. Keep joint connections, weight-bearing balance and contact believable; abstract the strokes, not the body's physical logic. Preserve source objects and depth.
+- **No human subject:** add one legible young man or young woman protagonist in pure-white irregular contour and hatching. Choose the location from the source's perspective, support plane, eye path and quiet space, then set the figure's size from its depth plane and nearby scale references. A distant figure may occupy only a small part of the frame when that is the natural spatial reading; keep the silhouette, action direction, head scribble and contact readable at that scale. Default to a torso facing away from the camera and a natural look back over one shoulder only when the neck, shoulders, pelvis, feet and support can carry it; otherwise use the scene-supported action already resolved in the Scene Card. Keep joint connections, weight-bearing balance and contact believable; abstract the strokes, not the body's physical logic. Preserve source objects and depth.
 - **Human subject present:** retain the body, clothing, gesture, relative scale and placement. Cover each visible primary subject's head with dense white hand-drawn hatching and predominantly horizontal scribble strokes, covering the whole visible head, including crown, hair, face, ears and back of head, so no head detail reads through. Do not re-pose existing subjects to match the new-figure default. Keep coverage local and proportionate. Do not add another protagonist by default.
 - Keep transparent gaps between the new figure's body strokes; dense head coverage is allowed. A newly drawn head also receives full-head anonymous scribble treatment; body contours may be incomplete, abstract and loosely scrawled while remaining readable. If an existing subject's head is outside the frame, do not invent one.
 - These authorized regions remain editable under `strict`. In `redraw`, re-author the unlocked environment while keeping this human branch and protected body anchors unless the user explicitly releases them.
@@ -57,7 +57,7 @@ Keep the camera viewpoint, subject proportions, source axis and important edge c
 
 ## Output files
 
-Save each generated image in `output/` directly under the active workspace root, creating the folder if needed. Resolve this location from the task workspace, not the skill or repository directory. Use `YYYYMMDD-标题.<ext>` with the local date, a short scene title and the actual file extension, for example `20260831-秋日步道.png`. If that name exists, choose a distinct short title without overwriting it. Preserve original inputs and existing outputs in place.
+Save each generated image in `yorushika/` directly under the active workspace root, creating the folder if needed. Resolve this location from the task workspace, not the skill or repository directory. Use `标题-MV.<ext>` with a short scene title and the actual file extension, for example `江南水乡-MV.png`; do not add a date prefix. Sanitize the title for Windows filenames by removing reserved characters (`< > : " / \ | ? *`) and trailing spaces or periods. If the same name exists, append a short numeric suffix such as `标题-MV-2.png` instead of overwriting it. Preserve original inputs, existing `output/` files and existing `yorushika/` files in place.
 
 ## Composition and preservation
 
@@ -90,4 +90,4 @@ For strong graphic-soliloquy, build a hierarchy of the resolved white-line human
 
 ## Response
 
-Return the image and a compact record: `transform_mode`, `preserve_strength`, `style_intensity`, route/weights, `source_orientation`, `target_aspect`, `human_subject_present`, `human_treatment`, action/contact or head-coverage choice, key anchors/locks, effect zones, microcopy/gloss if any, and absolute saved path. Keep the full production prompt and detailed notes in project files unless requested.
+Return the image and a compact record: `transform_mode`, `preserve_strength`, `style_intensity`, route/weights, `source_orientation`, `target_aspect`, `human_subject_present`, `human_treatment`, figure placement/depth/scale basis/contact or head-coverage choice, key anchors/locks, effect zones, microcopy/gloss if any, and absolute saved path. Keep the full production prompt and detailed notes in project files unless requested.

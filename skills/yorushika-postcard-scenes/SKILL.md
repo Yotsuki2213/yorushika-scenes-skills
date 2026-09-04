@@ -20,7 +20,7 @@ Make a flat landscape **4:3 postcard front** from a real `yorushika-mv-scenes` a
 
 ## Stage 1 — obtain the actual MV artwork
 
-For a photo, follow the base skill and its [composition/expression guide](../yorushika-mv-scenes/references/composition-expression.md), [visual grammar](../yorushika-mv-scenes/references/visual-grammar.md) and [prompt compiler](../yorushika-mv-scenes/references/prompt-compiler.md). Save the actual scene-only output before proceeding. Inherit approximate landscape 16:9, portrait 3:4, or square-default 16:9 framing without imposing exact input ratios.
+For a photo, follow the base skill and its [composition/expression guide](../yorushika-mv-scenes/references/composition-expression.md), [visual grammar](../yorushika-mv-scenes/references/visual-grammar.md) and [prompt compiler](../yorushika-mv-scenes/references/prompt-compiler.md). Save the actual scene-only MV output under the workspace-root `yorushika/` folder as `标题-MV.<ext>` before proceeding. Inherit approximate landscape 16:9, portrait 3:4, or square-default 16:9 framing without imposing exact input ratios.
 
 For newly generated MV artwork, inherit [human treatment](../yorushika-mv-scenes/references/human-treatment.md): no human subject → one loosely scrawled white protagonist with a physically plausible back-facing torso and natural over-shoulder look back; existing subjects → unchanged bodies/poses with dense white marks over entire visible heads. After saving the MV, preserve the actual resulting figures, poses, body hatching gaps and head coverage unchanged throughout postcard composition.
 
@@ -56,6 +56,6 @@ Then read [the prompt compiler](references/prompt-compiler.md). Supply the finis
 
 ## Save and deliver
 
-Follow the base skill's Output files convention: new MV artwork and postcards go to workspace-root `output/` as `YYYYMMDD-标题.<ext>`. Use distinct short scene/postcard titles, preserve originals and existing outputs, and do not overwrite a reused intermediate.
+Save new files in the workspace-root `yorushika/` folder, creating it if needed. The intermediate or newly generated MV uses `标题-MV.<ext>`; the final postcard uses `标题-Postcard.<ext>`, retaining the actual generated extension and omitting a date prefix. Sanitize short titles for Windows filenames by removing reserved characters (`< > : " / \ | ? *`) and trailing spaces or periods. If a name already exists, append a short numeric suffix such as `标题-Postcard-2.png` or `标题-MV-2.png` instead of overwriting it. Preserve original inputs, existing `output/` files, existing `yorushika/` files and reused MV intermediates in place.
 
 Return the image with its reused/generated MV source, layout, paper/blend choices, figure preservation, selected bilingual excerpt, original song title, translator when available, matching reason and absolute saved path. Keep detailed analysis, prompts and source line numbers in project files unless requested.

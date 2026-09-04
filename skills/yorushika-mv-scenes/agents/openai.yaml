@@ -1,4 +1,4 @@
 interface:
   display_name: "Yorushika MV Scenes"
   short_description: "保留构图，新增潦草白线人物自然背身回头，已有主体保留姿态；整个可见头部覆白线"
-  default_prompt: "Use $yorushika-mv-scenes to preserve my image's composition, add a loosely scrawled white protagonist facing away and looking naturally back over one shoulder if no human subject exists (otherwise preserve existing subjects' bodies and poses), cover every entire visible head with dense white scribbles, and apply source-aware MV effects in approximately landscape 16:9 or portrait 3:4 according to the input, saving to the workspace-root output folder with a date-title filename."
+  default_prompt: "Use $yorushika-mv-scenes to preserve my image's composition, add a loosely scrawled white protagonist facing away and looking naturally back over one shoulder if no human subject exists (otherwise preserve existing subjects' bodies and poses), cover every entire visible head with dense white scribbles, and apply source-aware MV effects in approximately landscape 16:9 or portrait 3:4 according to the input, saving new MV artwork in the workspace-root yorushika folder with a short title-MV filename."
